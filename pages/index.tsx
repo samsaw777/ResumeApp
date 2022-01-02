@@ -1,7 +1,12 @@
 import type { NextPage } from "next";
+import { Header } from "../components/resumeHeader/Header";
 
 const Home: NextPage = () => {
-  return <div>After setup is completed.</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
 
 export default Home;

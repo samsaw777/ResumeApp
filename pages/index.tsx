@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  return <div>Resume App.</div>;
+  return <div>After setup is completed.</div>;
 };
 
 export default Home;

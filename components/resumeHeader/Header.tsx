@@ -4,12 +4,20 @@ import { Output } from "./Output";
 import { useForm, SubmitHandler } from "react-hook-form";
 //Declaring the type of the Inputs.
 
+interface Input {
+  name: string | undefined;
+  profession: string | undefined;
+  description: string | undefined;
+  email: string | undefined;
+  phone: number | undefined;
+}
+
 const Header: React.FC = () => {
-  const [name, setName] = useState<string | undefined>("");
+  const [name, setName] = useState<any>({});
   return (
     <div className="grid grid-cols-2 gap-4 p-3">
-      <HeaderInput setMyName={setName} />
-      <Output name={name} />
+      <HeaderInput setMyInfo={setName} />
+      <Output information={name} />
     </div>
   );
 };

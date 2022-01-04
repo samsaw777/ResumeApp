@@ -1,5 +1,6 @@
-import React, { Dispatch, SetStateAction, useEffect } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Social from "./Social";
 
 type Inputs = {
   name: string;
@@ -7,6 +8,11 @@ type Inputs = {
   description: string;
   email: string;
   phone: number;
+  website: string;
+  github: string;
+  linkedin: string;
+  twitter: string;
+  instagram: string;
 };
 
 interface Objects {
@@ -15,6 +21,11 @@ interface Objects {
   description: string | undefined;
   email: string | undefined;
   phone: number | undefined;
+  website?: string | undefined;
+  github?: string | undefined;
+  linkedin?: string | undefined;
+  twitter?: string | undefined;
+  instagram?: string | undefined;
 }
 
 interface Props {
@@ -22,7 +33,11 @@ interface Props {
 }
 
 const HeaderInput: React.FC<any> = (props: Props) => {
+  const [socialName, setSocialName] = useState<string>("");
+  console.log(socialName);
+
   const { setMyInfo } = props;
+
   const Form = useForm<Inputs>({
     defaultValues: {
       name: "Sameep Sawant",
@@ -44,10 +59,43 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     console.log(data);
   };
 
-  const { name, profession, description, email, phone } = watch();
+  const {
+    name,
+    profession,
+    description,
+    email,
+    phone,
+    github,
+    linkedin,
+    website,
+    instagram,
+    twitter,
+  } = watch();
   useEffect(() => {
-    setMyInfo({ name, profession, description, email, phone });
-  }, [name, profession, description, email, phone]);
+    setMyInfo({
+      name,
+      profession,
+      description,
+      email,
+      phone,
+      github,
+      linkedin,
+      website,
+      instagram,
+      twitter,
+    });
+  }, [
+    name,
+    profession,
+    description,
+    email,
+    phone,
+    github,
+    linkedin,
+    website,
+    instagram,
+    twitter,
+  ]);
 
   return (
     <div>
@@ -149,7 +197,66 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               />
             </div>
           </div>
-          <div>here the icons will be done</div>
+        </div>
+        <div>
+          <Social setSocialValue={setSocialName} />
+        </div>
+        <div className="felx flex-col">
+          <div className={socialName ? "text-lg" : "hidden"}>
+            Add your {socialName} link below!
+          </div>
+          <div className="w-1/2 block mx-auto mt-5">
+            {socialName === "github" && (
+              <input
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="anonmus"
+                placeholder="Link"
+                {...register("github", {
+                  required: "PhoneNumber cannot be empty!",
+                })}
+              />
+            )}
+            {socialName === "instagram" && (
+              <input
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="anonmus"
+                placeholder="Link"
+                {...register("instagram", {
+                  required: "PhoneNumber cannot be empty!",
+                })}
+              />
+            )}
+            {socialName === "website" && (
+              <input
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="anonmus"
+                placeholder="Link"
+                {...register("website", {
+                  required: "PhoneNumber cannot be empty!",
+                })}
+              />
+            )}
+            {socialName == "linkedin" && (
+              <input
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="anonmus"
+                placeholder="Link"
+                {...register("linkedin", {
+                  required: "PhoneNumber cannot be empty!",
+                })}
+              />
+            )}
+            {socialName == "twitter" && (
+              <input
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="anonmus"
+                placeholder="Link"
+                {...register("twitter", {
+                  required: "PhoneNumber cannot be empty!",
+                })}
+              />
+            )}
+          </div>
         </div>
         <div className="flex ">
           <div className="w-full">

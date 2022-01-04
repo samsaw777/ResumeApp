@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Social from "./Social";
-
+import Router from "next/router";
 type Inputs = {
   name: string;
   profession: string;
@@ -57,6 +57,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
 
   const submitHeaderInformation: SubmitHandler<Inputs> = (data) => {
     console.log(data);
+    Router.push("/new");
   };
 
   const {
@@ -99,7 +100,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
 
   return (
     <div>
-      Header Input
+      <h1>Introduction</h1>
       <form onSubmit={handleSubmit(submitHeaderInformation)}>
         <div className="grid grid-cols-2 gap-2">
           <div className="flex flex-col mb-6 ">
@@ -258,13 +259,13 @@ const HeaderInput: React.FC<any> = (props: Props) => {
             )}
           </div>
         </div>
-        <div className="flex ">
+        <div className="flex mt-10">
           <div className="w-full">
             <button
-              className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mx-auto block"
+              className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto mr-10"
               type="submit"
             >
-              Sign Up
+              Education
             </button>
           </div>
         </div>

@@ -15,7 +15,7 @@ interface Input {
 const Header: React.FC = () => {
   const [name, setName] = useState<any>({});
   return (
-    <div className="grid grid-cols-2 gap-1 p-3">
+    <div className="grid grid-cols-2 gap-1 p-3  h-screen">
       <HeaderInput setMyInfo={setName} />
       <Output information={name} />
     </div>

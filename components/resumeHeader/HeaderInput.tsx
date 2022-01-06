@@ -30,23 +30,16 @@ interface Objects {
 
 interface Props {
   setMyInfo: Dispatch<SetStateAction<Objects | undefined>>;
+  setRenderValue: Dispatch<SetStateAction<String>>;
 }
 
 const HeaderInput: React.FC<any> = (props: Props) => {
   const [socialName, setSocialName] = useState<string>("");
   console.log(socialName);
 
-  const { setMyInfo } = props;
+  const { setMyInfo, setRenderValue } = props;
 
-  const Form = useForm<Inputs>({
-    defaultValues: {
-      name: "Sameep Sawant",
-      profession: "Developer",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      email: "xyz@gmail.com",
-      phone: 1245245210,
-    },
-  });
+  const Form = useForm<Inputs>();
 
   const {
     register,
@@ -55,9 +48,45 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     formState: { errors },
   } = Form;
 
-  const submitHeaderInformation: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    Router.push("/new");
+  const submitHeaderInformation: SubmitHandler<Inputs> = async (data) => {
+    // console.log(data);
+    // const body = {
+    //   name,
+    //   profession,
+    //   description,
+    //   email,
+    //   phone,
+    //   github,
+    //   twitter,
+    //   instagram,
+    //   linkedin,
+    //   website,
+    // };
+    // const response = await fetch("http://localhost:3000/api/addInformation", {
+    //   method: "POST", // *GET, POST, PUT, DELETE, etc.
+    //   mode: "cors", // no-cors, *cors, same-origin
+    //   cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    //   credentials: "same-origin", // include, *same-origin, omit
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     // 'Content-Type': 'application/x-www-form-urlencoded',
+    //   },
+    //   redirect: "follow", // manual, *follow, error
+    //   referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    //   body: JSON.stringify(body), // body data type must match "Content-Type" header
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log("Success:", data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
+    // Router.push("/new");
+  };
+
+  const checkValue = () => {
+    setRenderValue("education");
   };
 
   const {
@@ -98,10 +127,11 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     twitter,
   ]);
 
+  // onSubmit={handleSubmit(submitHeaderInformation)}
   return (
     <div>
       <h1>Introduction</h1>
-      <form onSubmit={handleSubmit(submitHeaderInformation)}>
+      <form>
         <div className="grid grid-cols-2 gap-2">
           <div className="flex flex-col mb-6 ">
             <div className="md:w-1/3">
@@ -264,6 +294,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
             <button
               className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto mr-10"
               type="submit"
+              onClick={() => checkValue()}
             >
               Education
             </button>

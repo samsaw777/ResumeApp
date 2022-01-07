@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { Header } from "../components/resumeHeader/Header";
+import { Header } from "../components/ResumePage";
 
 const Home: NextPage = () => {
   return (

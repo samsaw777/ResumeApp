@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-import { HeaderInput } from "./HeaderInput";
-import { Output } from "../Output";
-import { EducationInput } from "../education/EducationInput";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { HeaderInput } from "./resumeHeader/HeaderInput";
+import { Output } from "./Output";
+import { EducationInput } from "./education/EducationInput";
+import { Education } from "../Utils/Interfaces";
 //Declaring the type of the Inputs.
-
-interface Input {
-  name: string | undefined;
-  profession: string | undefined;
-  description: string | undefined;
-  email: string | undefined;
-  phone: number | undefined;
-}
 
 const renderComponent = (value: string, setName: any, setRenderValue: any) => {
   switch (value) {
@@ -29,6 +21,7 @@ const renderComponent = (value: string, setName: any, setRenderValue: any) => {
 const Header: React.FC = () => {
   const [name, setName] = useState<any>({});
   const [renderValue, setRenderValue] = useState<string>("education");
+  const [educationList, setEducationList] = useState<Education[]>([]);
   return (
     <div className="grid grid-cols-2 gap-1 p-3  h-screen">
       {renderComponent(renderValue, setName, setRenderValue)}

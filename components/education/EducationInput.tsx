@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
 import { EducationList } from "./EducationList";
 import { Education } from "../../Utils/Interfaces";
 
-const EducationInput: React.FC = () => {
+interface Props {
+  setRenderValue: Dispatch<SetStateAction<String>>;
+}
+
+const EducationInput: React.FC<Props> = (props) => {
+  const { setRenderValue } = props;
   const [education, setEducation] = useState<Education[]>([]);
   const [course, setCourse] = useState<string>("");
   const [institute, setInstitute] = useState<string>("");
@@ -31,7 +36,12 @@ const EducationInput: React.FC = () => {
   };
   return (
     <div className="mx-10">
-      <Header title="Education" previous="Information" forward="Skills" />
+      <Header
+        title="Education"
+        previous="Information"
+        forward="Skills"
+        setRenderValue={setRenderValue}
+      />
       <form onSubmit={(e) => addEducationToList(e)}>
         <div className="md:w-1/3 mt-5">
           <label

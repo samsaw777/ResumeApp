@@ -7,12 +7,12 @@ import { Education } from "../Utils/Interfaces";
 
 const renderComponent = (value: string, setName: any, setRenderValue: any) => {
   switch (value) {
-    case "information":
+    case "Information":
       return (
         <HeaderInput setMyInfo={setName} setRenderValue={setRenderValue} />
       );
-    case "education":
-      return <EducationInput />;
+    case "Education":
+      return <EducationInput setRenderValue={setRenderValue} />;
     default:
       return true;
   }
@@ -20,7 +20,7 @@ const renderComponent = (value: string, setName: any, setRenderValue: any) => {
 
 const Header: React.FC = () => {
   const [name, setName] = useState<any>({});
-  const [renderValue, setRenderValue] = useState<string>("education");
+  const [renderValue, setRenderValue] = useState<string>("Education");
   const [educationList, setEducationList] = useState<Education[]>([]);
   return (
     <div className="grid grid-cols-2 gap-1 p-3  h-screen">

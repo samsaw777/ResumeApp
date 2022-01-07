@@ -86,7 +86,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
   };
 
   const checkValue = () => {
-    setRenderValue("education");
+    setRenderValue("Education");
   };
 
   const {

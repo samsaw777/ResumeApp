@@ -5,3 +5,7 @@ export interface Education {
   endYear: number;
   place: string;
 }
+
+export interface Skill {
+  skill: string;
+}

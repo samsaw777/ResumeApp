@@ -38,7 +38,7 @@ const EducationInput: React.FC<Props> = (props) => {
     <div className="mx-10">
       <Header
         title="Education"
-        previous="Information"
+        previous="Introduction"
         forward="Skills"
         setRenderValue={setRenderValue}
       />

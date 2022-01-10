@@ -2,6 +2,8 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Social from "./Social";
 import Router from "next/router";
+import { Header } from "../../Utils/Header";
+
 type Inputs = {
   name: string;
   profession: string;
@@ -129,9 +131,13 @@ const HeaderInput: React.FC<any> = (props: Props) => {
 
   // onSubmit={handleSubmit(submitHeaderInformation)}
   return (
-    <div>
-      <h1>Introduction</h1>
-      <form>
+    <div className="mx-10">
+      <Header
+        title="Introduction"
+        forward="Education"
+        setRenderValue={setRenderValue}
+      />
+      <form className="mt-5">
         <div className="grid grid-cols-2 gap-2">
           <div className="flex flex-col mb-6 ">
             <div className="md:w-1/3">
@@ -296,7 +302,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               type="submit"
               onClick={() => checkValue()}
             >
-              Education
+              Add
             </button>
           </div>
         </div>

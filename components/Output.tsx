@@ -84,6 +84,55 @@ const Output: React.FC<any> = (props) => {
             </div>
           )}
         </div>
+
+        {/* Education Details Output */}
+        <div className="grid grid-cols-2 gap-2">
+          <div>
+            <div className="w-11/12 p-5">
+              <div className="w-full text-xl font-bold">
+                BE. Computer science
+              </div>
+              <div className="w-full text-lg">VIT</div>
+              <div className="flex justify-between text-md">
+                <div className="flex">
+                  <span>2020</span>/<span>2024</span>
+                </div>
+                <div className="flex">
+                  <span>Mumbai</span>
+                </div>
+              </div>
+            </div>
+            <div className="w-11/12 p-5">
+              <div className="w-full text-xl font-bold">
+                BE. Computer science
+              </div>
+              <div className="w-full text-lg">VIT</div>
+              <div className="flex justify-between text-md">
+                <div className="flex">
+                  <span>2020</span>/<span>2024</span>
+                </div>
+                <div className="flex">
+                  <span>Mumbai</span>
+                </div>
+              </div>
+            </div>
+            <div className="w-11/12 p-5">
+              <div className="w-full text-xl font-bold">
+                BE. Computer science
+              </div>
+              <div className="w-full text-lg">VIT</div>
+              <div className="flex justify-between text-md">
+                <div className="flex">
+                  <span>2020</span>/<span>2024</span>
+                </div>
+                <div className="flex">
+                  <span>Mumbai</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>This is for skills.</div>
+        </div>
       </div>
     </div>
   );

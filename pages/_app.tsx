@@ -1,8 +1,31 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { Auth } from "@supabase/ui";
+import { supabase } from "../Utils/initSupabase";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  useEffect(() => {
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        fetch("/api/auth", {
+          method: "POST",
+          headers: new Headers({ "Content-Type": "application/json" }),
+          credentials: "same-origin",
+          body: JSON.stringify({ event, session }),
+        });
+      }
+    );
+
+    return () => {
+      authListener?.unsubscribe();
+    };
+  }, []);
+  return (
+    <Auth.UserContextProvider supabaseClient={supabase}>
+      <Component {...pageProps} />
+    </Auth.UserContextProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

@@ -1,14 +1,22 @@
 import type { NextPage, GetServerSideProps } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import prisma from "../lib/prisma";
+import { Button } from "@supabase/ui";
 import { Header } from "../components/ResumePage";
 import { supabase } from "../Utils/initSupabase";
 
 const Home: NextPage = ({ user }: any) => {
+  const router = useRouter();
+  const signOut = () => {
+    supabase.auth.signOut();
+    router.push("/login");
+  };
   return (
     <div>
       <div>{user.user_metadata.name}</div>
       <div>{user.email}</div>
+      <Button onClick={() => signOut()}>Sign out</Button>
       <Link href="/resume">
         <div className="cursor-pointer p-5 bg-purple-400 rounded w-fit ml-10 mt-10 h-16">
           Create Resume

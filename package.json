@@ -15,7 +15,7 @@
     "next/babel"
   ],
   "dependencies": {
-    "@prisma/client": "^3.7.0",
+    "@prisma/client": "^3.8.0",
     "@supabase/supabase-js": "^1.29.1",
     "@supabase/ui": "^0.36.2",
     "next": "12.0.7",

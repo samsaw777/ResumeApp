@@ -4,6 +4,7 @@ import { Output } from "./Output";
 import { EducationInput } from "./education/EducationInput";
 import { SkillsInput } from "./skills/SkillsInput";
 import { Education } from "../Utils/Interfaces";
+import ExperienceInput from "./experience/ExperienceInput";
 //Declaring the type of the Inputs.
 
 const renderComponent = (value: string, setName: any, setRenderValue: any) => {
@@ -16,6 +17,8 @@ const renderComponent = (value: string, setName: any, setRenderValue: any) => {
       return <EducationInput setRenderValue={setRenderValue} />;
     case "Skills":
       return <SkillsInput setRenderValue={setRenderValue} />;
+    case "Experience":
+      return <ExperienceInput setRenderValue={setRenderValue} />;
     default:
       return true;
   }

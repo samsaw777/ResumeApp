@@ -22,7 +22,7 @@ const SkillsInput = ({ setRenderValue }: Props) => {
       <Header
         title="Skills"
         previous="Education"
-        forward="Eperience"
+        forward="Experience"
         setRenderValue={setRenderValue}
       />
 

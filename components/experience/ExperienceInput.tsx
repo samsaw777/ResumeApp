@@ -1,6 +1,7 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
 import { ExperienceWork } from "./ExperienceWork";
+import ExperienceList from "./ExperienceList";
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
 }
@@ -23,7 +24,16 @@ interface inputArray {
 
 const ExperienceInput: React.FC<Props> = (props) => {
   const { setRenderValue } = props;
+
   const [error, setError] = useState<string>("");
+  const [experience, setExperience] = useState<any>([]);
+  console.log(experience);
+  const [position, setPosition] = useState<string>("");
+  const [company, setCompany] = useState<string>("");
+  const [startDate, setStartDate] = useState<string>("");
+  const [endDate, setEndDate] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
   const [inputArr, setInputArr] = useState<inputArray[]>([
     {
       inttype: "text",
@@ -34,6 +44,34 @@ const ExperienceInput: React.FC<Props> = (props) => {
 
   console.log(inputArr);
   console.log(inputArr.length);
+
+  const addExperienceList = (e: any) => {
+    e.preventDefault();
+    const experienceObj = {
+      position,
+      company,
+      startDate,
+      endDate,
+      location,
+      description,
+      inputArr,
+    };
+    setExperience([...experience, experienceObj]);
+    setPosition("");
+    setLocation("");
+    setCompany("");
+    setDescription("");
+    setStartDate("");
+    setEndDate("");
+    setInputArr([
+      {
+        inttype: "text",
+        id: 1,
+        value: "",
+      },
+    ]);
+  };
+
   //Adding the experience work.
   const addExperience = () => {
     const Length = inputArr.length;
@@ -68,12 +106,13 @@ const ExperienceInput: React.FC<Props> = (props) => {
       />
       <div className="mt-5">
         <div>
-          <form>
+          <form onSubmit={(e) => addExperienceList(e)}>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <input
                   type="text"
-                  id="skills"
+                  value={position}
+                  onChange={(e) => setPosition(e.target.value)}
                   placeholder="Position"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                 />
@@ -82,7 +121,8 @@ const ExperienceInput: React.FC<Props> = (props) => {
                 <input
                   placeholder="Company"
                   type="text"
-                  id="skills"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                 />
               </div>
@@ -91,7 +131,8 @@ const ExperienceInput: React.FC<Props> = (props) => {
               <div className="grid grid-cols-2 gap-2">
                 <input
                   type="text"
-                  id="start"
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
                   placeholder="Start"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full h-12"
                 />
@@ -99,13 +140,15 @@ const ExperienceInput: React.FC<Props> = (props) => {
                 <input
                   type="text"
                   placeholder="End"
-                  id="end"
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full h-12"
                 />
                 <input
                   type="text"
                   placeholder="Location"
-                  id="location"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full h-12"
                 />
               </div>
@@ -113,7 +156,8 @@ const ExperienceInput: React.FC<Props> = (props) => {
                 <input
                   type="text"
                   placeholder="About Company"
-                  id="end"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full h-28"
                 />
               </div>
@@ -155,6 +199,20 @@ const ExperienceInput: React.FC<Props> = (props) => {
             </div>
           </form>
         </div>
+      </div>
+      <div>
+        {experience.map((exp: any, key: number) => (
+          <ExperienceList
+            position={exp.position}
+            company={exp.company}
+            startDate={exp.startDate}
+            endDate={exp.endDate}
+            location={exp.location}
+            description={exp.description}
+            array={exp.inputArr}
+            key={key}
+          />
+        ))}
       </div>
     </div>
   );

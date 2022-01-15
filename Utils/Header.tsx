@@ -11,7 +11,7 @@ const Header: React.FC<Props> = (props) => {
   const { title, previous, forward, setRenderValue } = props;
   return (
     <div className="flex mt-10 bg-white shadow-lg rounded-lg p-2">
-      <div className="text-lg font-bold mt-1 ml-1">{title}</div>
+      <div className="text-lg font-bold mt-1 ml-2">{title}</div>
       <div className="flex ml-auto">
         {previous && (
           <button

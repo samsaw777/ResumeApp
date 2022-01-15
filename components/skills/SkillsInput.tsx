@@ -26,7 +26,7 @@ const SkillsInput = ({ setRenderValue }: Props) => {
         setRenderValue={setRenderValue}
       />
 
-      <div>
+      <div className="mt-5 w-full bg-white shadow-lg rounded-lg p-5">
         <form onSubmit={(e) => addToSkillList(e)}>
           <div className="md:w-1/3 mt-5">
             <label

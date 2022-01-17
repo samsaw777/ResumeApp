@@ -12,11 +12,6 @@ const Home: NextPage = ({ user }: any) => {
   return (
     <div>
       <Navbar />
-      <Link href="/resume">
-        <div className="cursor-pointer p-5 bg-purple-400 rounded w-fit ml-10 mt-10 h-16">
-          Create Resume
-        </div>
-      </Link>
       <div
         className="cursor-pointer p-5 bg-purple-400 rounded w-fit ml-10 mt-10 h-16"
         onClick={() => setModelOpen(true)}

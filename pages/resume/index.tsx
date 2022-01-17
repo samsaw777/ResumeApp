@@ -3,7 +3,7 @@ import React from "react";
 import { supabase } from "../../Utils/initSupabase";
 import prisma from "../../lib/prisma";
 import { Header } from "../../components/ResumePage";
-const Resume: NextPage = ({ user }: any) => {
+const Resume: NextPage = ({ user, findPorfile }: any) => {
   return (
     <div>
       <Header />
@@ -40,6 +40,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       user,
+      findPorfile,
     },
   };
 };

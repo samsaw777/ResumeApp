@@ -11,9 +11,16 @@ import axios from "axios";
 interface Props {
   modalOpen: boolean;
   setModalOpen: Dispatch<SetStateAction<boolean>>;
+  refetchResume: boolean;
+  setRefetchResume: Dispatch<SetStateAction<boolean>>;
 }
 
-const ModalNotebook = ({ modalOpen, setModalOpen }: Props) => {
+const ModalNotebook = ({
+  modalOpen,
+  setModalOpen,
+  refetchResume,
+  setRefetchResume,
+}: Props) => {
   const { user } = Auth.useUser();
   const router = useRouter();
   const [name, setName] = useState<string>("");
@@ -35,6 +42,7 @@ const ModalNotebook = ({ modalOpen, setModalOpen }: Props) => {
       .then((res) => {
         setModalOpen(false);
         setLoading(false);
+        setRefetchResume(!refetchResume);
       })
       .catch((error) => {
         console.log(error);

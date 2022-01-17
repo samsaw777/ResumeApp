@@ -1,16 +1,32 @@
 import type { NextPage, GetServerSideProps } from "next";
-import Link from "next/link";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import prisma from "../lib/prisma";
 import { supabase } from "../Utils/initSupabase";
 import Navbar from "../components/navigation/Navbar";
 import Modal from "../components/ResumeModal";
+import axios from "axios";
 import ResumeSkeleton from "../components/ResumeSkeleton";
 
-const Home: NextPage = ({ user, resumeList }: any) => {
-  console.log(resumeList);
+const Home: NextPage = ({ user }: any) => {
   const [modelOpen, setModelOpen] = useState<boolean>(false);
+  const [refetchResume, setRefetchResume] = useState<boolean>(false);
+  const [resumeList, setResumeList] = useState<any>([]);
+  const fetchresume = async () => {
+    const body = {
+      userId: user.id,
+    };
+    await axios
+      .post("http://localhost:3000/api/fetchResume", body)
+      .then((res) => {
+        setResumeList(res.data);
+      });
+  };
+  useEffect(() => {
+    fetchresume();
+  }, [refetchResume]);
+
   return (
     <div>
       <Navbar />
@@ -20,11 +36,18 @@ const Home: NextPage = ({ user, resumeList }: any) => {
       >
         Create Resume
       </div>
-      <Modal modalOpen={modelOpen} setModalOpen={setModelOpen} />
+      <Modal
+        modalOpen={modelOpen}
+        setModalOpen={setModelOpen}
+        refetchResume={refetchResume}
+        setRefetchResume={setRefetchResume}
+      />
       {/* <Header /> */}
       <div className="grid grid-cols-3 gap-4 mx-10 mt-10">
         {resumeList.map((resume: any, key: number) => {
-          return <ResumeSkeleton title={resume.title} key={key} />;
+          return (
+            <ResumeSkeleton title={resume.title} key={key} id={resume.id} />
+          );
         })}
       </div>
     </div>
@@ -45,13 +68,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     where: { id: user.id },
   });
 
-  //get the resumes.
-  const resumeList = await prisma.resume.findMany({
-    where: {
-      userId: user.id,
-    },
-  });
-
   //Create a new profile for the user.
   if (!findPorfile) {
     await prisma.profile.create({
@@ -67,7 +83,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       user,
-      resumeList,
     },
   };
 };

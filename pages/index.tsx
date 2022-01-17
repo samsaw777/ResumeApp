@@ -1,11 +1,14 @@
 import type { NextPage, GetServerSideProps } from "next";
 import Link from "next/link";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import prisma from "../lib/prisma";
 import { supabase } from "../Utils/initSupabase";
 import Navbar from "../components/navigation/Navbar";
+import Modal from "../components/ResumeModal";
 
 const Home: NextPage = ({ user }: any) => {
+  const [modelOpen, setModelOpen] = useState<boolean>(false);
   return (
     <div>
       <Navbar />
@@ -14,6 +17,13 @@ const Home: NextPage = ({ user }: any) => {
           Create Resume
         </div>
       </Link>
+      <div
+        className="cursor-pointer p-5 bg-purple-400 rounded w-fit ml-10 mt-10 h-16"
+        onClick={() => setModelOpen(true)}
+      >
+        Create Resume
+      </div>
+      <Modal modalOpen={modelOpen} setModalOpen={setModelOpen} />
       {/* <Header /> */}
     </div>
   );

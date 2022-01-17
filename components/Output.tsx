@@ -26,7 +26,7 @@ interface Props {
 const Output: React.FC<any> = (props) => {
   const { information } = props;
   return (
-    <div className="bg-gray-300">
+    <div className="bg-gray-300 overflow-scroll">
       <div className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10">
         <div className="grid grid-cols-2 gap-1 p-5">
           <div>
@@ -88,8 +88,9 @@ const Output: React.FC<any> = (props) => {
         {/* Education Details Output */}
         <div className="grid grid-cols-2 gap-2">
           <div>
+            <span className="text-2xl font-bold pl-5">Education</span>
             <div className="w-11/12 p-5">
-              <div className="w-full text-xl font-bold">
+              <div className="w-full text-lg font-bold">
                 BE. Computer science
               </div>
               <div className="w-full text-lg">VIT</div>
@@ -103,7 +104,7 @@ const Output: React.FC<any> = (props) => {
               </div>
             </div>
             <div className="w-11/12 p-5">
-              <div className="w-full text-xl font-bold">
+              <div className="w-full text-lg font-bold">
                 BE. Computer science
               </div>
               <div className="w-full text-lg">VIT</div>
@@ -117,7 +118,7 @@ const Output: React.FC<any> = (props) => {
               </div>
             </div>
             <div className="w-11/12 p-5">
-              <div className="w-full text-xl font-bold">
+              <div className="w-full text-lg font-bold">
                 BE. Computer science
               </div>
               <div className="w-full text-lg">VIT</div>
@@ -127,11 +128,72 @@ const Output: React.FC<any> = (props) => {
                 </div>
                 <div className="flex">
                   <span>Mumbai</span>
+                </div>
+              </div>
+            </div>
+            <div className="p-5">
+              <span className="text-2xl font-bold">Work Experience</span>
+              <div className="mt-3">
+                <div className="text-lg font-bold">Front End Intern</div>
+                <div className="text-md font-medium mt-1">Company</div>
+                <div className="flex justify-between mt-1">
+                  <div className="text-sm">01/2022 / 02/2022</div>
+                  <div className="text-sm">WFH</div>
+                </div>
+                <div className="text-md mt-1">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+                <div className="mt-2">
+                  <span className="text-sm font-bold">Task Done</span>
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </div>
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </div>
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </div>
+                </div>
+              </div>
+              <div className="mt-3">
+                <div className="text-lg font-bold">Front End Intern</div>
+                <div className="text-md font-medium mt-1">Company</div>
+                <div className="flex justify-between mt-1">
+                  <div className="text-sm">01/2022 / 02/2022</div>
+                  <div className="text-sm">WFH</div>
+                </div>
+                <div className="text-md mt-1">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+                <div className="mt-2">
+                  <span className="text-sm font-bold">Task Done</span>
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </div>
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </div>
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div>This is for skills.</div>
+          <div>
+            <span className="text-2xl font-bold">Skills</span>
+            <div className="w-full flex h-fit mt-1">
+              <div className=" bg-gray-100  rounded-lg p-2">HTML</div>
+              <div className=" bg-gray-100 ml-2  rounded-lg p-2">CSS</div>
+              <div className=" bg-gray-100 ml-2  rounded-lg p-2">
+                JAVASCRIPT
+              </div>
+              <div className="w-fit bg-gray-100 ml-2  rounded-lg p-2">
+                REACT
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

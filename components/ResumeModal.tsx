@@ -1,8 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
+import { Auth } from "@supabase/ui";
 import Image from "next/image";
 import Resume from "../public/resume.svg";
+import axios from "axios";
 
 // Modal.setAppElement("#root");
 
@@ -12,15 +14,33 @@ interface Props {
 }
 
 const ModalNotebook = ({ modalOpen, setModalOpen }: Props) => {
+  const { user } = Auth.useUser();
   const router = useRouter();
+  const [name, setName] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
   function closeModal() {
     setModalOpen(false);
   }
 
-  const acceptName = (e: React.FormEvent<HTMLFormElement>) => {
+  const acceptName = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push("/resume");
-    setModalOpen(false);
+    setLoading(true);
+    const body = {
+      title: name,
+      userId: user?.id,
+    };
+    await axios
+      .post("http://localhost:3000/api/createResume", body)
+      .then((res) => {
+        console.log(res);
+        router.push("/resume");
+        setModalOpen(false);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -94,6 +114,8 @@ const ModalNotebook = ({ modalOpen, setModalOpen }: Props) => {
                   type="text"
                   id="course"
                   placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-100"
                 />
                 <div className="bg-gray-50  py-5  sm:flex sm:flex-row-reverse">

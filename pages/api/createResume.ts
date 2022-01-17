@@ -8,11 +8,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { title, uesrId } = req.body;
+  const { title, userId } = req.body;
   await prisma.resume.create({
     data: {
       title: title,
-      userId: uesrId,
+      userId: userId,
     },
   });
 

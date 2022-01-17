@@ -21,6 +21,7 @@
     "@supabase/supabase-js": "^1.29.1",
     "@supabase/ui": "^0.36.2",
     "@types/react-modal": "^3.13.1",
+    "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "next": "12.0.7",
     "react": "17.0.2",

@@ -77,7 +77,7 @@ const ModalNotebook = ({ modalOpen, setModalOpen }: Props) => {
             <div className="sm:flex sm:items-start">
               <div className="mx-auto flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 sm:mx-0 sm:h-16 sm:w-16">
                 {/* <!-- Heroicon name: outline/exclamation --> */}
-                <Image src={Resume} width={50} height={50} />
+                <Image src={Resume} width={50} height={50} alt="reumse" />
               </div>
               <div className="mt-5 text-center sm:mt-3 sm:ml-4 sm:text-left">
                 <h3

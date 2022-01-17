@@ -33,8 +33,6 @@ const ModalNotebook = ({ modalOpen, setModalOpen }: Props) => {
     await axios
       .post("http://localhost:3000/api/createResume", body)
       .then((res) => {
-        console.log(res);
-        router.push("/resume");
         setModalOpen(false);
         setLoading(false);
       })

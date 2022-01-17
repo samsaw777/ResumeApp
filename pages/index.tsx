@@ -6,8 +6,10 @@ import prisma from "../lib/prisma";
 import { supabase } from "../Utils/initSupabase";
 import Navbar from "../components/navigation/Navbar";
 import Modal from "../components/ResumeModal";
+import ResumeSkeleton from "../components/ResumeSkeleton";
 
-const Home: NextPage = ({ user }: any) => {
+const Home: NextPage = ({ user, resumeList }: any) => {
+  console.log(resumeList);
   const [modelOpen, setModelOpen] = useState<boolean>(false);
   return (
     <div>
@@ -20,6 +22,11 @@ const Home: NextPage = ({ user }: any) => {
       </div>
       <Modal modalOpen={modelOpen} setModalOpen={setModelOpen} />
       {/* <Header /> */}
+      <div className="grid grid-cols-3 gap-4 mx-10 mt-10">
+        {resumeList.map((resume: any, key: number) => {
+          return <ResumeSkeleton title={resume.title} key={key} />;
+        })}
+      </div>
     </div>
   );
 };
@@ -38,6 +45,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     where: { id: user.id },
   });
 
+  //get the resumes.
+  const resumeList = await prisma.resume.findMany({
+    where: {
+      userId: user.id,
+    },
+  });
+
   //Create a new profile for the user.
   if (!findPorfile) {
     await prisma.profile.create({
@@ -53,6 +67,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       user,
+      resumeList,
     },
   };
 };

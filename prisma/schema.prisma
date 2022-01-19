@@ -25,4 +25,73 @@ model Resume {
   title  String
   user   Profile @relation(fields: [userId], references: [id])
   userId String @map("user_id")
+  userIntroduction Introduction?
+  userEducation Education[]
+  userSkills Skills[]
+  userProjects Projects[]
+  userExperience Experience[]
+}
+
+model Introduction {
+  id String @id @default(uuid())
+  name String
+  profession String
+  email String
+  phone Int
+  description String
+  githubLink String @map("github_link")
+  websiteLink String @map("website_link")
+  twitterLink String @map("twitter_link")
+  linkedinLink String @map("linkedin_link")
+  instagramLink String @map("instagram_link")
+  resume Resume @relation(fields: [resumeId], references:[id])
+  resumeId String @map("resume_id")
+}
+
+model Education{
+  id String @id @default(uuid())
+  courseName String @map("course_name")
+  institute String @map("institute")
+  startDate DateTime @map("start_date")
+  endDate DateTime @map("end_date")
+  location String
+  resume Resume @relation(fields: [resumeId], references:[id])
+  resumeId String @map("resume_id")
+}
+
+model Skills{
+  id String @id @default(uuid())
+  skillName String @map("skill_name")
+  resume Resume @relation(fields: [resumeId], references:[id])
+  resumeId String @map("resume_id")
+}
+
+model Projects{
+  id String @id @default(uuid())
+  projectName String @map("project_name")
+  projectDescription String @map("project_description")
+  projectGithubLink String @map("project_github_link")
+  projectWebsiteLink String @map("project_website_link")
+  resume Resume @relation(fields: [resumeId], references:[id])
+  resumeId String @map("resume_id")
+}
+
+model Experience{
+  id String @id @default(uuid())
+  position String @map("position")
+  company String
+  startDate DateTime @map("start_date")
+  endDate DateTime @map("end_date")
+  location String
+  aboutCompany String
+  resume Resume @relation(fields: [resumeId], references:[id])
+  resumeId String @map("resume_id")
+  taskDone Task[]
+}
+
+model Task{
+  id String @id @default(uuid())
+  taskDone String @map("task_done")
+  experience Experience @relation(fields: [experienceId], references: [id])
+  experienceId String
 }

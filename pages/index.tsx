@@ -28,7 +28,7 @@ const Home: NextPage = ({ user }: any) => {
   }, [refetchResume]);
 
   return (
-    <div>
+    <div className="bg-gray-300 h-screen">
       <Navbar />
       <div
         className="cursor-pointer p-5 bg-purple-400 rounded w-fit ml-10 mt-10 h-16"

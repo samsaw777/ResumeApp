@@ -149,7 +149,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                   Full Name
                 </label>
               </div>
-              <div className="w-11/12">
+              <div className="w-full">
                 <input
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="name"
@@ -166,7 +166,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                   Profession
                 </label>
               </div>
-              <div className="w-11/12">
+              <div className="w-full">
                 <input
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="profession"
@@ -175,26 +175,6 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                   })}
                 />
               </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col mb-6 ">
-            <div className="md:w-1/3">
-              <label
-                className="block text-gray-500 font-bold mb-3 pr-4"
-                htmlFor="description"
-              >
-                Decription
-              </label>
-            </div>
-            <div className="md:w-2/3">
-              <input
-                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="description"
-                {...register("description", {
-                  required: "Profession cannot be empty!",
-                })}
-              />
             </div>
           </div>
 
@@ -208,7 +188,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                   Email
                 </label>
               </div>
-              <div className="w-11/12">
+              <div className="w-full">
                 <input
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="email"
@@ -225,7 +205,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                   Phone
                 </label>
               </div>
-              <div className="w-11/12">
+              <div className="w-full  ">
                 <input
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="phone"
@@ -234,6 +214,25 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                   })}
                 />
               </div>
+            </div>
+          </div>
+          <div className="flex flex-col mb-6 ">
+            <div className="w-full">
+              <label
+                className="block text-gray-500 font-bold mb-3 pr-4"
+                htmlFor="description"
+              >
+                Decription
+              </label>
+            </div>
+            <div className="w-full">
+              <input
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="description"
+                {...register("description", {
+                  required: "Profession cannot be empty!",
+                })}
+              />
             </div>
           </div>
           <div>

@@ -39,11 +39,11 @@ model Introduction {
   email String
   phone Int
   description String
-  githubLink String @map("github_link")
-  websiteLink String @map("website_link")
-  twitterLink String @map("twitter_link")
-  linkedinLink String @map("linkedin_link")
-  instagramLink String @map("instagram_link")
+  githubLink String? @map("github_link")
+  websiteLink String? @map("website_link")
+  twitterLink String? @map("twitter_link")
+  linkedinLink String? @map("linkedin_link")
+  instagramLink String? @map("instagram_link")
   resume Resume @relation(fields: [resumeId], references:[id])
   resumeId String @map("resume_id")
 }

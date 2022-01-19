@@ -7,12 +7,24 @@ import { Education } from "../Utils/Interfaces";
 import ExperienceInput from "./experience/ExperienceInput";
 import ProjectInput from "./projects/ProjectInput";
 //Declaring the type of the Inputs.
+interface Props {
+  id: any;
+}
 
-const renderComponent = (value: string, setName: any, setRenderValue: any) => {
+const renderComponent = (
+  value: string,
+  setName: any,
+  setRenderValue: any,
+  id: any
+) => {
   switch (value) {
     case "Introduction":
       return (
-        <HeaderInput setMyInfo={setName} setRenderValue={setRenderValue} />
+        <HeaderInput
+          setMyInfo={setName}
+          setRenderValue={setRenderValue}
+          id={id}
+        />
       );
     case "Education":
       return <EducationInput setRenderValue={setRenderValue} />;
@@ -27,13 +39,13 @@ const renderComponent = (value: string, setName: any, setRenderValue: any) => {
   }
 };
 
-const Header: React.FC = () => {
+const Header = ({ id }: Props) => {
   const [name, setName] = useState<any>({});
   const [renderValue, setRenderValue] = useState<string>("Introduction");
   const [educationList, setEducationList] = useState<Education[]>([]);
   return (
     <div className="grid grid-cols-2 gap-1 p-3  h-screen bg-gray-400">
-      {renderComponent(renderValue, setName, setRenderValue)}
+      {renderComponent(renderValue, setName, setRenderValue, id)}
       {/* <HeaderInput setMyInfo={setName} /> */}
       <Output information={name} />
     </div>

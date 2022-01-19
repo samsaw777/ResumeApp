@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Social from "./Social";
+import axios from "axios";
 import Router from "next/router";
 import { Header } from "../../Utils/Header";
 
@@ -33,13 +34,14 @@ interface Objects {
 interface Props {
   setMyInfo: Dispatch<SetStateAction<Objects | undefined>>;
   setRenderValue: Dispatch<SetStateAction<String>>;
+  id: any;
 }
 
 const HeaderInput: React.FC<any> = (props: Props) => {
   const [socialName, setSocialName] = useState<string>("");
   console.log(socialName);
 
-  const { setMyInfo, setRenderValue } = props;
+  const { setMyInfo, setRenderValue, id } = props;
 
   const Form = useForm<Inputs>();
 
@@ -51,7 +53,6 @@ const HeaderInput: React.FC<any> = (props: Props) => {
   } = Form;
 
   const submitHeaderInformation: SubmitHandler<Inputs> = async (data) => {
-    // console.log(data);
     // const body = {
     //   name,
     //   profession,
@@ -64,29 +65,8 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     //   linkedin,
     //   website,
     // };
-    // const response = await fetch("http://localhost:3000/api/addInformation", {
-    //   method: "POST", // *GET, POST, PUT, DELETE, etc.
-    //   mode: "cors", // no-cors, *cors, same-origin
-    //   cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    //   credentials: "same-origin", // include, *same-origin, omit
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     // 'Content-Type': 'application/x-www-form-urlencoded',
-    //   },
-    //   redirect: "follow", // manual, *follow, error
-    //   referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    //   body: JSON.stringify(body), // body data type must match "Content-Type" header
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Success:", data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
-    // Router.push("/new");
   };
-
+  console.log(id);
   const checkValue = () => {
     setRenderValue("Education");
   };
@@ -129,6 +109,33 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     twitter,
   ]);
 
+  const submitIntroduction = (e: any) => {
+    const phoneNumber = Number(phone);
+    e.preventDefault();
+    const body = {
+      name,
+      profession,
+      description,
+      email,
+      phone: phoneNumber,
+      githubLink: github,
+      websiteLink: website,
+      linkedinLink: linkedin,
+      twitterLink: twitter,
+      instagramLink: instagram,
+      resumeId: id,
+    };
+
+    axios
+      .post("http://localhost:3000/api/userIntroduction", body)
+      .then((res) => {
+        checkValue();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   // onSubmit={handleSubmit(submitHeaderInformation)}
   return (
     <div className="mx-10">
@@ -138,7 +145,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
         setRenderValue={setRenderValue}
       />
       <div className=" w-full bg-white shadow-lg rounded-lg p-5 mt-2">
-        <form className="mt-5">
+        <form className="mt-5" onSubmit={(e) => submitIntroduction(e)}>
           <div className="grid grid-cols-2 gap-2">
             <div className="flex flex-col mb-6 ">
               <div className="md:w-1/3">
@@ -300,7 +307,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               <button
                 className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto mr-10"
                 type="submit"
-                onClick={() => checkValue()}
+                onSubmit={(e) => submitIntroduction(e)}
               >
                 Add
               </button>

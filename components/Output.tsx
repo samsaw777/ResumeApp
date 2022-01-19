@@ -12,6 +12,7 @@ import {
 import { MdMail } from "react-icons/md";
 
 interface Props {
+  resumeData: any;
   information?: {
     name?: string | undefined;
     profession?: string | undefined;
@@ -24,36 +25,50 @@ interface Props {
 // props
 
 const Output: React.FC<any> = (props) => {
-  const { information } = props;
+  const { information, resumeData } = props;
+
   return (
     <div className="bg-gray-300 overflow-scroll">
       <div className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10">
         <div className="grid grid-cols-2 gap-1 p-5">
           <div>
             <p className="text-2xl text-black font-bold">
-              {information?.name || "Chandler Bing"}{" "}
+              {resumeData.userIntroduction?.name
+                ? resumeData.userIntroduction?.name
+                : information?.name || "Chandler Bing"}{" "}
             </p>
             <p className="text-xl text-black">
-              {information?.profession ||
-                "Statistical analysis and Data Reconfiguration"}
+              {resumeData.userIntroduction?.profession
+                ? resumeData.userIntroduction?.profession
+                : information?.profession ||
+                  "Statistical analysis and Data Reconfiguration"}
             </p>
             <div>
-              {information?.description ||
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit."}
+              {resumeData.userIntroduction?.description
+                ? resumeData.userIntroduction?.description
+                : information?.description ||
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit."}
             </div>
           </div>
           <div className="flex flex-col">
             <p className="ml-auto flex mb-2 font-thin text-md">
-              {information?.email || "chandlerbing@gmail.com"}{" "}
+              {resumeData.userIntroduction?.email
+                ? resumeData.userIntroduction?.email
+                : information?.email || "chandlerbing@gmail.com"}{" "}
               <MdMail className="w-4 h-4 ml-2 mt-1" />
             </p>
             <p className="ml-auto flex mb-2 font-thin  text-md">
-              {information?.phone || 1245245210}{" "}
+              {resumeData.userIntroduction?.phone
+                ? resumeData.userIntroduction?.phone
+                : information?.phone || 1245245210}{" "}
               <FaPhone className="w-4 h-4 ml-2 mt-1" />
             </p>
             {information?.website && (
               <p className="ml-auto flex mb-2 font-thin  text-md">
-                {information?.website} <FaGlobe className="w-4 h-4 ml-2 mt-1" />
+                {resumeData.userIntroduction?.website
+                  ? resumeData.userIntroduction?.website
+                  : information?.website}{" "}
+                <FaGlobe className="w-4 h-4 ml-2 mt-1" />
               </p>
             )}
           </div>

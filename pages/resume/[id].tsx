@@ -7,6 +7,7 @@ import prisma from "../../lib/prisma";
 import { Header } from "../../components/ResumePage";
 const Resume: NextPage = ({ user, findPorfile }: any) => {
   const [id, setId] = useState<string | undefined | string[]>("");
+  const [resumeData, setResumeData] = useState<any>({});
   const router = useRouter();
   useEffect(() => {
     if (router.isReady) {
@@ -22,6 +23,7 @@ const Resume: NextPage = ({ user, findPorfile }: any) => {
       .post("http://localhost:3000/api/fetchResumeInfo", body)
       .then((res) => {
         console.log(res.data);
+        setResumeData(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -29,7 +31,7 @@ const Resume: NextPage = ({ user, findPorfile }: any) => {
   }, [id]);
   return (
     <div>
-      <Header id={id} />
+      <Header id={id} resumeData={resumeData} />
     </div>
   );
 };

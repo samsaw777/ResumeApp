@@ -9,6 +9,7 @@ import ProjectInput from "./projects/ProjectInput";
 //Declaring the type of the Inputs.
 interface Props {
   id: any;
+  resumeData: any;
 }
 
 const renderComponent = (
@@ -39,7 +40,7 @@ const renderComponent = (
   }
 };
 
-const Header = ({ id }: Props) => {
+const Header = ({ id, resumeData }: Props) => {
   const [name, setName] = useState<any>({});
   const [renderValue, setRenderValue] = useState<string>("Introduction");
   const [educationList, setEducationList] = useState<Education[]>([]);
@@ -47,7 +48,7 @@ const Header = ({ id }: Props) => {
     <div className="grid grid-cols-2 gap-1 p-3  h-screen bg-gray-400">
       {renderComponent(renderValue, setName, setRenderValue, id)}
       {/* <HeaderInput setMyInfo={setName} /> */}
-      <Output information={name} />
+      <Output information={name} resumeData={resumeData} />
     </div>
   );
 };

@@ -1,12 +1,35 @@
 import type { NextPage, GetServerSideProps } from "next";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { supabase } from "../../Utils/initSupabase";
+import axios from "axios";
 import prisma from "../../lib/prisma";
 import { Header } from "../../components/ResumePage";
-const Resume: NextPage = ({ user }: any) => {
+const Resume: NextPage = ({ user, findPorfile }: any) => {
+  const [id, setId] = useState<string | undefined | string[]>("");
+  const router = useRouter();
+  useEffect(() => {
+    if (router.isReady) {
+      setId(router.query.id);
+    }
+  }, [router.isReady]);
+
+  useEffect(() => {
+    const body = {
+      resumeId: id,
+    };
+    axios
+      .post("http://localhost:3000/api/fetchResumeInfo", body)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
   return (
     <div>
-      <Header />
+      <Header id={id} />
     </div>
   );
 };
@@ -40,6 +63,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       user,
+      findPorfile,
     },
   };
 };

@@ -11,6 +11,7 @@ interface Props {
   id: any;
   resumeData: any;
   fetchPointer: boolean;
+  loading: boolean;
   setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -20,7 +21,9 @@ const renderComponent = (
   setRenderValue: any,
   id: any,
   fetchPointer: boolean,
-  setFectchPointer: Dispatch<SetStateAction<boolean>>
+
+  setFectchPointer: Dispatch<SetStateAction<boolean>>,
+  loading: boolean
 ) => {
   switch (value) {
     case "Introduction":
@@ -53,7 +56,13 @@ const renderComponent = (
   }
 };
 
-const Header = ({ id, resumeData, fetchPointer, setFectchPointer }: Props) => {
+const Header = ({
+  id,
+  resumeData,
+  fetchPointer,
+  setFectchPointer,
+  loading,
+}: Props) => {
   const [name, setName] = useState<any>({});
   const [renderValue, setRenderValue] = useState<string>("Introduction");
   const [educationList, setEducationList] = useState<Education[]>([]);
@@ -65,10 +74,11 @@ const Header = ({ id, resumeData, fetchPointer, setFectchPointer }: Props) => {
         setRenderValue,
         id,
         fetchPointer,
-        setFectchPointer
+        setFectchPointer,
+        loading
       )}
       {/* <HeaderInput setMyInfo={setName} /> */}
-      <Output information={name} resumeData={resumeData} />
+      {!loading && <Output information={name} resumeData={resumeData} />}
     </div>
   );
 };

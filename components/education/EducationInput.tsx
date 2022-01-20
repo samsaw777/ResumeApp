@@ -167,7 +167,7 @@ const EducationInput: React.FC<Props> = (props) => {
         </form>
       </div>
       {/* {education.map(edu:Education,key:number) => {return <EducationList />})} */}
-      <div>
+      <div className="h-52 overflow-scroll mt-2">
         {education.map((edu: Education, key: number) => {
           return <EducationList education={edu} key={key} />;
         })}

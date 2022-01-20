@@ -104,48 +104,21 @@ const Output: React.FC<any> = (props) => {
         <div className="grid grid-cols-2 gap-2">
           <div>
             <span className="text-2xl font-bold pl-5">Education</span>
-            <div className="w-11/12 p-5">
-              <div className="w-full text-lg font-bold">
-                BE. Computer science
-              </div>
-              <div className="w-full text-lg">VIT</div>
-              <div className="flex justify-between text-md">
-                <div className="flex">
-                  <span>2020</span>/<span>2024</span>
-                </div>
-                <div className="flex">
-                  <span>Mumbai</span>
-                </div>
-              </div>
-            </div>
-            <div className="w-11/12 p-5">
-              <div className="w-full text-lg font-bold">
-                BE. Computer science
-              </div>
-              <div className="w-full text-lg">VIT</div>
-              <div className="flex justify-between text-md">
-                <div className="flex">
-                  <span>2020</span>/<span>2024</span>
-                </div>
-                <div className="flex">
-                  <span>Mumbai</span>
+            {resumeData.userEducation?.map((edu: any, key: number) => (
+              <div className="w-11/12 p-5" key={key}>
+                <div className="w-full text-lg font-bold">{edu.courseName}</div>
+                <div className="w-full text-lg">{edu.institute}</div>
+                <div className="flex justify-between text-md">
+                  <div className="flex">
+                    <span>{edu.startDate}</span>/<span>{edu.endDate}</span>
+                  </div>
+                  <div className="flex">
+                    <span>{edu.location}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="w-11/12 p-5">
-              <div className="w-full text-lg font-bold">
-                BE. Computer science
-              </div>
-              <div className="w-full text-lg">VIT</div>
-              <div className="flex justify-between text-md">
-                <div className="flex">
-                  <span>2020</span>/<span>2024</span>
-                </div>
-                <div className="flex">
-                  <span>Mumbai</span>
-                </div>
-              </div>
-            </div>
+            ))}
+
             <div className="p-5">
               <span className="text-2xl font-bold">Work Experience</span>
               <div className="mt-3">

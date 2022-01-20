@@ -52,8 +52,8 @@ model Education{
   id String @id @default(uuid())
   courseName String @map("course_name")
   institute String @map("institute")
-  startDate String @map("start_date")
-  endDate String @map("end_date")
+  startDate Int @map("start_date")
+  endDate Int @map("end_date")
   location String
   resume Resume @relation(fields: [resumeId], references:[id])
   resumeId String @map("resume_id")

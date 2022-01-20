@@ -1,38 +1,67 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { Header } from "../../Utils/Header";
 import { EducationList } from "./EducationList";
 import { Education } from "../../Utils/Interfaces";
+import axios from "axios";
 
 interface Props {
+  id: string;
   setRenderValue: Dispatch<SetStateAction<String>>;
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
 
 const EducationInput: React.FC<Props> = (props) => {
-  const { setRenderValue } = props;
+  const { setRenderValue, fetchPointer, setFectchPointer, id } = props;
   const [education, setEducation] = useState<Education[]>([]);
+  console.log(education);
+  const [educationPointer, setEducationPointer] = useState<boolean>(false);
   const [course, setCourse] = useState<string>("");
   const [institute, setInstitute] = useState<string>("");
   const [startDate, setStartDate] = useState<number>(2000);
   const [endDate, setEndDate] = useState<number>(2004);
   const [location, setLocation] = useState<string>("");
 
-  //the education list into the component.
+  //refetch the education from the database.
+  useEffect(() => {
+    const body = {
+      resumeId: id,
+    };
+    axios.post("http://localhost:3000/api/fetchEducation", body).then((res) => {
+      setEducation(res.data);
+    });
+  }, [educationPointer]);
+
+  //add the education in the database.
   const addEducationToList = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const educationObj = {
-      course,
-      institute,
-      startYear: startDate,
-      endYear: endDate,
-      place: location,
+    const body = {
+      courseName: course,
+      institute: institute,
+      startDate: startDate,
+      endDate: endDate,
+      location: location,
+      resumeId: id,
     };
 
-    setEducation([...education, educationObj]);
-    setCourse("");
-    setLocation("");
-    setStartDate(2000);
-    setEndDate(2004);
-    setInstitute("");
+    //call the api
+    axios
+      .post("http://localhost:3000/api/addEducation", body)
+      .then((res) => {
+        console.log(res.data);
+        setFectchPointer(!fetchPointer);
+        setCourse("");
+        setLocation("");
+        setStartDate(2000);
+        setEndDate(2004);
+        setInstitute("");
+        setEducationPointer(!educationPointer);
+      })
+      .then((error) => {
+        console.log(error);
+      });
+
+    // setEducation([...education, educationObj]);
   };
   return (
     <div className="mx-10">

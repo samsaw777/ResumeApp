@@ -8,6 +8,7 @@ import { Header } from "../../components/ResumePage";
 const Resume: NextPage = ({ user, findPorfile }: any) => {
   const [id, setId] = useState<string | undefined | string[]>("");
   const [resumeData, setResumeData] = useState<any>({});
+  const [fetchPointer, setFectchPointer] = useState<boolean>(false);
   const router = useRouter();
   useEffect(() => {
     if (router.isReady) {
@@ -28,10 +29,15 @@ const Resume: NextPage = ({ user, findPorfile }: any) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [id, fetchPointer]);
   return (
     <div>
-      <Header id={id} resumeData={resumeData} />
+      <Header
+        id={id}
+        resumeData={resumeData}
+        fetchPointer={fetchPointer}
+        setFectchPointer={setFectchPointer}
+      />
     </div>
   );
 };

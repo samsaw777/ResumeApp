@@ -24,12 +24,26 @@ const EducationInput: React.FC<Props> = (props) => {
 
   //refetch the education from the database.
   useEffect(() => {
+    let mount = true;
     const body = {
       resumeId: id,
     };
-    axios.post("http://localhost:3000/api/fetchEducation", body).then((res) => {
-      setEducation(res.data);
-    });
+    axios
+      .post("http://localhost:3000/api/fetchEducation", body)
+      .then((res) => {
+        if (mount) {
+          setEducation(res.data);
+        }
+      })
+      .catch((error) => {
+        if (mount) {
+          console.log(error);
+        }
+      });
+
+    return () => {
+      mount = false;
+    };
   }, [educationPointer]);
 
   //add the education in the database.

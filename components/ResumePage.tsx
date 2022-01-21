@@ -46,7 +46,14 @@ const renderComponent = (
         />
       );
     case "Skills":
-      return <SkillsInput setRenderValue={setRenderValue} />;
+      return (
+        <SkillsInput
+          setRenderValue={setRenderValue}
+          fetchPointer={fetchPointer}
+          id={id}
+          setFectchPointer={setFectchPointer}
+        />
+      );
     case "Experience":
       return <ExperienceInput setRenderValue={setRenderValue} />;
     case "Projects":

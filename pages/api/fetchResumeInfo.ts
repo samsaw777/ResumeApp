@@ -11,6 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     include: {
       userIntroduction: true,
       userEducation: true,
+      userSkills: true,
     },
   });
 

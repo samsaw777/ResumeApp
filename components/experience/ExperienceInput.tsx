@@ -5,6 +5,9 @@ import ExperienceList from "./ExperienceList";
 import axios from "axios";
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
+  id: any;
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
 
 interface inputArray {
@@ -24,7 +27,7 @@ interface inputArray {
 // }
 
 const ExperienceInput: React.FC<Props> = (props) => {
-  const { setRenderValue } = props;
+  const { setRenderValue, fetchPointer, setFectchPointer, id } = props;
 
   const [error, setError] = useState<string>("");
   const [experience, setExperience] = useState<any>([]);
@@ -56,8 +59,16 @@ const ExperienceInput: React.FC<Props> = (props) => {
       location,
       description,
       inputArr,
+      resumeId: id,
     };
-    axios.post("http://localhost:3000/api/addExperience", experienceObj);
+    axios
+      .post("http://localhost:3000/api/addExperience", experienceObj)
+      .then((res) => {
+        setFectchPointer(!fetchPointer);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     setExperience([...experience, experienceObj]);
     setPosition("");
     setLocation("");

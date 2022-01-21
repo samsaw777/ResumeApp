@@ -80,8 +80,8 @@ model Experience{
   id String @id @default(uuid())
   position String @map("position")
   company String
-  startDate DateTime @map("start_date")
-  endDate DateTime @map("end_date")
+  startDate String @map("start_date")
+  endDate String @map("end_date")
   location String
   aboutCompany String
   resume Resume @relation(fields: [resumeId], references:[id])

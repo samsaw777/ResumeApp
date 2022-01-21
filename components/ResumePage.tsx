@@ -55,7 +55,14 @@ const renderComponent = (
         />
       );
     case "Experience":
-      return <ExperienceInput setRenderValue={setRenderValue} />;
+      return (
+        <ExperienceInput
+          setRenderValue={setRenderValue}
+          fetchPointer={fetchPointer}
+          id={id}
+          setFectchPointer={setFectchPointer}
+        />
+      );
     case "Projects":
       return <ProjectInput setRenderValue={setRenderValue} />;
     default:

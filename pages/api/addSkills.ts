@@ -4,7 +4,7 @@ import prisma from "../../lib/prisma";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { skill, resumeId } = req.body;
 
-  await prisma.skills.create({
+  const skills = await prisma.skills.create({
     data: {
       skillName: skill,
       resumeId: resumeId,

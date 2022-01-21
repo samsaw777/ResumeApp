@@ -85,7 +85,7 @@ const Header = ({
         loading
       )}
       {/* <HeaderInput setMyInfo={setName} /> */}
-      {!loading && <Output information={name} resumeData={resumeData} />}
+      <Output information={name} resumeData={resumeData} />
     </div>
   );
 };

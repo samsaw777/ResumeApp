@@ -2,6 +2,7 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
 import { ExperienceWork } from "./ExperienceWork";
 import ExperienceList from "./ExperienceList";
+import axios from "axios";
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
 }
@@ -56,6 +57,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
       description,
       inputArr,
     };
+    axios.post("http://localhost:3000/api/addExperience", experienceObj);
     setExperience([...experience, experienceObj]);
     setPosition("");
     setLocation("");

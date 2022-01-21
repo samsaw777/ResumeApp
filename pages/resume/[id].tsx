@@ -21,17 +21,17 @@ const Resume: NextPage = ({ user, findPorfile }: any) => {
     const body = {
       resumeId: id,
     };
-    setLoading(true);
+    // setLoading(true);
     axios
       .post("http://localhost:3000/api/fetchResumeInfo", body)
       .then((res) => {
         console.log(res.data);
         setResumeData(res.data);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false);
+        // setLoading(false);
       });
   }, [id, fetchPointer]);
   return (

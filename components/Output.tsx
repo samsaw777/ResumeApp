@@ -171,15 +171,12 @@ const Output: React.FC<any> = (props) => {
           </div>
           <div>
             <span className="text-2xl font-bold">Skills</span>
-            <div className="w-full flex h-fit mt-1">
-              <div className=" bg-gray-100  rounded-lg p-2">HTML</div>
-              <div className=" bg-gray-100 ml-2  rounded-lg p-2">CSS</div>
-              <div className=" bg-gray-100 ml-2  rounded-lg p-2">
-                JAVASCRIPT
-              </div>
-              <div className="w-fit bg-gray-100 ml-2  rounded-lg p-2">
-                REACT
-              </div>
+            <div className="w-full flex h-fit mt-1 space-x-3">
+              {resumeData.userSkills?.map((skill: any, key: number) => (
+                <div className=" bg-gray-300  rounded-lg p-2" key={key}>
+                  {skill.skillName}
+                </div>
+              ))}
             </div>
           </div>
         </div>

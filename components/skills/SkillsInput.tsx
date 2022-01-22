@@ -81,7 +81,15 @@ const SkillsInput = ({
       </div>
       <div className="grid grid-cols-5 mt-5 gap-2">
         {resumeSkills?.map((s: any, key: number) => {
-          return <SkillsList skill={s.skillName} key={key} />;
+          return (
+            <SkillsList
+              skill={s.skillName}
+              key={key}
+              id={s.id}
+              fetchPointer={fetchPointer}
+              setFectchPointer={setFectchPointer}
+            />
+          );
         })}
       </div>
     </div>

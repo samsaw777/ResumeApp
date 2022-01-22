@@ -26,7 +26,7 @@ interface Props {
 
 const Output: React.FC<any> = (props) => {
   const { information, resumeData } = props;
-
+  console.log(resumeData);
   return (
     <div className="bg-gray-300 overflow-scroll">
       <div className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10">
@@ -121,62 +121,80 @@ const Output: React.FC<any> = (props) => {
 
             <div className="p-5">
               <span className="text-2xl font-bold">Work Experience</span>
-              <div className="mt-3">
-                <div className="text-lg font-bold">Front End Intern</div>
-                <div className="text-md font-medium mt-1">Company</div>
-                <div className="flex justify-between mt-1">
-                  <div className="text-sm">01/2022 / 02/2022</div>
-                  <div className="text-sm">WFH</div>
-                </div>
-                <div className="text-md mt-1">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <div className="mt-2">
-                  <span className="text-sm font-bold">Task Done</span>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              {resumeData.userExperience?.map(
+                (experience: any, key: number) => (
+                  <div className="mt-3" key={key}>
+                    <div className="text-lg font-bold">
+                      {experience.position}
+                    </div>
+                    <div className="text-md font-medium mt-1">
+                      {experience.company}
+                    </div>
+                    <div className="flex justify-between mt-1">
+                      <div className="text-sm">
+                        {experience.startDate} / {experience.endDate}
+                      </div>
+                      <div className="text-sm">{experience.location}</div>
+                    </div>
+                    <div className="text-md mt-1">
+                      {experience.aboutCompany}
+                    </div>
+                    <div className="mt-2">
+                      <span className="text-sm font-bold">Task Done</span>
+                      {experience.taskDone?.map((task: any, key: number) => (
+                        <div key={key}>{task.taskDone}</div>
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3">
-                <div className="text-lg font-bold">Front End Intern</div>
-                <div className="text-md font-medium mt-1">Company</div>
-                <div className="flex justify-between mt-1">
-                  <div className="text-sm">01/2022 / 02/2022</div>
-                  <div className="text-sm">WFH</div>
-                </div>
-                <div className="text-md mt-1">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <div className="mt-2">
-                  <span className="text-sm font-bold">Task Done</span>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                </div>
-              </div>
+                )
+              )}
             </div>
           </div>
           <div>
-            <span className="text-2xl font-bold">Skills</span>
-            <div className="w-full flex h-fit mt-1 space-x-3">
-              {resumeData.userSkills?.map((skill: any, key: number) => (
-                <div className=" bg-gray-300  rounded-lg p-2" key={key}>
-                  {skill.skillName}
-                </div>
-              ))}
+            <div>
+              <span className="text-2xl font-bold">Skills</span>
+              <div className="grid grid-cols-3 gap-2 mr-2 mt-3">
+                {resumeData.userSkills?.map((skill: any, key: number) => (
+                  <div
+                    className=" bg-gray-300  rounded-lg p-2 text-center"
+                    key={key}
+                  >
+                    {skill.skillName}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-5">
+              <span className="text-2xl font-bold">Projects</span>
+              <div className="mt-3">
+                {/* First Project */}
+                {resumeData.userProjects?.map((project: any, key: number) => (
+                  <div key={key}>
+                    <div className="flex justify-between mt-3">
+                      <div>
+                        <span>{project.projectName}</span>
+                      </div>
+                      <div className="flex mr-5">
+                        <a
+                          href={project.projectGithubLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <FaGithub className="w-4 h-4 mr-2 mt-1 ml-2" />
+                        </a>
+                        <a
+                          href={project.projectWebsiteLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <FaGlobe className="w-4 h-4 ml-2 mt-1" />
+                        </a>
+                      </div>
+                    </div>
+                    <div>{project.projectDescription}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -1,8 +1,13 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
 import ProjectList from "./ProjectList";
+import axios from "axios";
+
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
+  id: any;
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
 
 interface Project {
@@ -12,7 +17,12 @@ interface Project {
   githubLink: string | undefined;
 }
 
-const ProjectInput = ({ setRenderValue }: Props) => {
+const ProjectInput = ({
+  setRenderValue,
+  fetchPointer,
+  setFectchPointer,
+  id,
+}: Props) => {
   const [projectTitle, setProjectTitle] = useState<string>("");
   const [projectDescription, setProjectDescription] = useState<string>("");
   const [projectLink, setProjectLink] = useState<string>("");
@@ -22,18 +32,26 @@ const ProjectInput = ({ setRenderValue }: Props) => {
   //add into the list.
   const addProjectList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const projectObj = {
-      title: projectTitle,
-      description: projectDescription,
-      website: projectLink,
-      githubLink: projectGithubLink,
+    const body = {
+      projectName: projectTitle,
+      projectDescription: projectDescription,
+      projectWebsiteLink: projectLink,
+      projectGithubLink: projectGithubLink,
+      resumeId: id,
     };
 
-    setProjectList([...projectsList, projectObj]);
-    setProjectTitle("");
-    setProjectDescription("");
-    setProjectLink("");
-    setProjectGithubLink("");
+    axios
+      .post("http://localhost:3000/api/addProjects", body)
+      .then((res) => {
+        setProjectTitle("");
+        setProjectDescription("");
+        setProjectLink("");
+        setProjectGithubLink("");
+        setFectchPointer(!fetchPointer);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

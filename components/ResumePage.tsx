@@ -64,7 +64,14 @@ const renderComponent = (
         />
       );
     case "Projects":
-      return <ProjectInput setRenderValue={setRenderValue} />;
+      return (
+        <ProjectInput
+          setRenderValue={setRenderValue}
+          fetchPointer={fetchPointer}
+          id={id}
+          setFectchPointer={setFectchPointer}
+        />
+      );
     default:
       return true;
   }

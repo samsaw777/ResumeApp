@@ -21,9 +21,9 @@ const renderComponent = (
   setRenderValue: any,
   id: any,
   fetchPointer: boolean,
-
   setFectchPointer: Dispatch<SetStateAction<boolean>>,
-  loading: boolean
+  loading: boolean,
+  resumeData: any
 ) => {
   switch (value) {
     case "Introduction":
@@ -43,6 +43,7 @@ const renderComponent = (
           fetchPointer={fetchPointer}
           id={id}
           setFectchPointer={setFectchPointer}
+          educationData={resumeData?.userEducation}
         />
       );
     case "Skills":
@@ -52,6 +53,7 @@ const renderComponent = (
           fetchPointer={fetchPointer}
           id={id}
           setFectchPointer={setFectchPointer}
+          resumeSkills={resumeData?.userSkills}
         />
       );
     case "Experience":
@@ -61,6 +63,7 @@ const renderComponent = (
           fetchPointer={fetchPointer}
           id={id}
           setFectchPointer={setFectchPointer}
+          resumeExperience={resumeData?.userExperience}
         />
       );
     case "Projects":
@@ -70,6 +73,7 @@ const renderComponent = (
           fetchPointer={fetchPointer}
           id={id}
           setFectchPointer={setFectchPointer}
+          resumeProject={resumeData?.userProjects}
         />
       );
     default:
@@ -96,7 +100,8 @@ const Header = ({
         id,
         fetchPointer,
         setFectchPointer,
-        loading
+        loading,
+        resumeData
       )}
       {/* <HeaderInput setMyInfo={setName} /> */}
       <Output information={name} resumeData={resumeData} />

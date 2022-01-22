@@ -9,6 +9,7 @@ interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
   fetchPointer: boolean;
   setFectchPointer: Dispatch<SetStateAction<boolean>>;
+  educationData: any;
 }
 
 const EducationInput: React.FC<Props> = (props) => {

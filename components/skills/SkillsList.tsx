@@ -2,13 +2,13 @@ import React from "react";
 import { Skill } from "../../Utils/Interfaces";
 
 interface Props {
-  skill: Skill;
+  skill: any;
 }
 
 const SkillsList = ({ skill }: Props) => {
   return (
-    <div className="w-fit bg-white shadow-lg rounded-lg  mt-10 p-2">
-      {skill.skill}
+    <div className=" bg-white shadow-lg rounded-lg text-center p-2">
+      {skill}
     </div>
   );
 };

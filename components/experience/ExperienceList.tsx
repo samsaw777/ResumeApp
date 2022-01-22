@@ -10,7 +10,7 @@ const ExperienceList = ({
   array,
 }: any) => {
   return (
-    <div className="mt-3 w-11/12  bg-white shadow-lg rounded-lg block mx-auto  p-5">
+    <div className="mt-3 w-full  bg-white shadow-lg rounded-lg block mx-auto  p-5">
       <div className="text-lg font-bold">{position}</div>
       <div className="text-md font-medium mt-1">{company}</div>
       <div className="flex justify-between mt-1">

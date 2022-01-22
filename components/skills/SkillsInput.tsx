@@ -8,14 +8,17 @@ interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
   fetchPointer: boolean;
   setFectchPointer: Dispatch<SetStateAction<boolean>>;
+  resumeSkills: any;
 }
 
 const SkillsInput = ({
   setRenderValue,
   id,
   fetchPointer,
+  resumeSkills,
   setFectchPointer,
 }: Props) => {
+  console.log(resumeSkills);
   const [skills, setSkills] = useState<Skill[]>([]);
   const [skill, setSkill] = useState<string>("");
   const addToSkillList = (event: React.FormEvent<HTMLFormElement>) => {
@@ -76,9 +79,9 @@ const SkillsInput = ({
           </div>
         </form>
       </div>
-      <div className="grid grid-cols-8 gap-2">
-        {skills.map((s: Skill, key: number) => {
-          return <SkillsList skill={s} key={key} />;
+      <div className="grid grid-cols-5 mt-5 gap-2">
+        {resumeSkills?.map((s: any, key: number) => {
+          return <SkillsList skill={s.skillName} key={key} />;
         })}
       </div>
     </div>

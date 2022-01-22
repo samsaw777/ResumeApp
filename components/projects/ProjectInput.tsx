@@ -6,6 +6,7 @@ import axios from "axios";
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
   id: any;
+  resumeProject: any;
   fetchPointer: boolean;
   setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
@@ -21,6 +22,7 @@ const ProjectInput = ({
   setRenderValue,
   fetchPointer,
   setFectchPointer,
+  resumeProject,
   id,
 }: Props) => {
   const [projectTitle, setProjectTitle] = useState<string>("");
@@ -104,13 +106,13 @@ const ProjectInput = ({
         </form>
       </div>
       <div>
-        {projectsList.map((project: Project, key: number) => {
+        {resumeProject?.map((project: any, key: number) => {
           return (
             <ProjectList
-              title={project.title}
-              description={project.description}
-              website={project.website}
-              githubLink={project.githubLink}
+              title={project.projectName}
+              description={project.projectDescription}
+              website={project.projectWebsiteLink}
+              githubLink={project.projectGithubLink}
               key={key}
             />
           );

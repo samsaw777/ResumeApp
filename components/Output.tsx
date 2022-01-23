@@ -12,6 +12,7 @@ import {
 import { MdMail } from "react-icons/md";
 
 interface Props {
+  resumeData: any;
   information?: {
     name?: string | undefined;
     profession?: string | undefined;
@@ -24,36 +25,50 @@ interface Props {
 // props
 
 const Output: React.FC<any> = (props) => {
-  const { information } = props;
+  const { information, resumeData } = props;
+  console.log(resumeData);
   return (
     <div className="bg-gray-300 overflow-scroll">
       <div className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10">
         <div className="grid grid-cols-2 gap-1 p-5">
           <div>
             <p className="text-2xl text-black font-bold">
-              {information?.name || "Chandler Bing"}{" "}
+              {resumeData.userIntroduction?.name
+                ? resumeData.userIntroduction?.name
+                : information?.name || "Chandler Bing"}{" "}
             </p>
             <p className="text-xl text-black">
-              {information?.profession ||
-                "Statistical analysis and Data Reconfiguration"}
+              {resumeData.userIntroduction?.profession
+                ? resumeData.userIntroduction?.profession
+                : information?.profession ||
+                  "Statistical analysis and Data Reconfiguration"}
             </p>
             <div>
-              {information?.description ||
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit."}
+              {resumeData.userIntroduction?.description
+                ? resumeData.userIntroduction?.description
+                : information?.description ||
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit."}
             </div>
           </div>
           <div className="flex flex-col">
             <p className="ml-auto flex mb-2 font-thin text-md">
-              {information?.email || "chandlerbing@gmail.com"}{" "}
+              {resumeData.userIntroduction?.email
+                ? resumeData.userIntroduction?.email
+                : information?.email || "chandlerbing@gmail.com"}{" "}
               <MdMail className="w-4 h-4 ml-2 mt-1" />
             </p>
             <p className="ml-auto flex mb-2 font-thin  text-md">
-              {information?.phone || 1245245210}{" "}
+              {resumeData.userIntroduction?.phone
+                ? resumeData.userIntroduction?.phone
+                : information?.phone || 1245245210}{" "}
               <FaPhone className="w-4 h-4 ml-2 mt-1" />
             </p>
             {information?.website && (
               <p className="ml-auto flex mb-2 font-thin  text-md">
-                {information?.website} <FaGlobe className="w-4 h-4 ml-2 mt-1" />
+                {resumeData.userIntroduction?.website
+                  ? resumeData.userIntroduction?.website
+                  : information?.website}{" "}
+                <FaGlobe className="w-4 h-4 ml-2 mt-1" />
               </p>
             )}
           </div>
@@ -89,108 +104,96 @@ const Output: React.FC<any> = (props) => {
         <div className="grid grid-cols-2 gap-2">
           <div>
             <span className="text-2xl font-bold pl-5">Education</span>
-            <div className="w-11/12 p-5">
-              <div className="w-full text-lg font-bold">
-                BE. Computer science
-              </div>
-              <div className="w-full text-lg">VIT</div>
-              <div className="flex justify-between text-md">
-                <div className="flex">
-                  <span>2020</span>/<span>2024</span>
-                </div>
-                <div className="flex">
-                  <span>Mumbai</span>
-                </div>
-              </div>
-            </div>
-            <div className="w-11/12 p-5">
-              <div className="w-full text-lg font-bold">
-                BE. Computer science
-              </div>
-              <div className="w-full text-lg">VIT</div>
-              <div className="flex justify-between text-md">
-                <div className="flex">
-                  <span>2020</span>/<span>2024</span>
-                </div>
-                <div className="flex">
-                  <span>Mumbai</span>
+            {resumeData.userEducation?.map((edu: any, key: number) => (
+              <div className="w-11/12 p-5" key={key}>
+                <div className="w-full text-lg font-bold">{edu.courseName}</div>
+                <div className="w-full text-lg">{edu.institute}</div>
+                <div className="flex justify-between text-md">
+                  <div className="flex">
+                    <span>{edu.startDate}</span>/<span>{edu.endDate}</span>
+                  </div>
+                  <div className="flex">
+                    <span>{edu.location}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="w-11/12 p-5">
-              <div className="w-full text-lg font-bold">
-                BE. Computer science
-              </div>
-              <div className="w-full text-lg">VIT</div>
-              <div className="flex justify-between text-md">
-                <div className="flex">
-                  <span>2020</span>/<span>2024</span>
-                </div>
-                <div className="flex">
-                  <span>Mumbai</span>
-                </div>
-              </div>
-            </div>
+            ))}
+
             <div className="p-5">
               <span className="text-2xl font-bold">Work Experience</span>
-              <div className="mt-3">
-                <div className="text-lg font-bold">Front End Intern</div>
-                <div className="text-md font-medium mt-1">Company</div>
-                <div className="flex justify-between mt-1">
-                  <div className="text-sm">01/2022 / 02/2022</div>
-                  <div className="text-sm">WFH</div>
-                </div>
-                <div className="text-md mt-1">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <div className="mt-2">
-                  <span className="text-sm font-bold">Task Done</span>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              {resumeData.userExperience?.map(
+                (experience: any, key: number) => (
+                  <div className="mt-3" key={key}>
+                    <div className="text-lg font-bold">
+                      {experience.position}
+                    </div>
+                    <div className="text-md font-medium mt-1">
+                      {experience.company}
+                    </div>
+                    <div className="flex justify-between mt-1">
+                      <div className="text-sm">
+                        {experience.startDate} / {experience.endDate}
+                      </div>
+                      <div className="text-sm">{experience.location}</div>
+                    </div>
+                    <div className="text-md mt-1">
+                      {experience.aboutCompany}
+                    </div>
+                    <div className="mt-2">
+                      <span className="text-sm font-bold">Task Done</span>
+                      {experience.taskDone?.map((task: any, key: number) => (
+                        <div key={key}>{task.taskDone}</div>
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3">
-                <div className="text-lg font-bold">Front End Intern</div>
-                <div className="text-md font-medium mt-1">Company</div>
-                <div className="flex justify-between mt-1">
-                  <div className="text-sm">01/2022 / 02/2022</div>
-                  <div className="text-sm">WFH</div>
-                </div>
-                <div className="text-md mt-1">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <div className="mt-2">
-                  <span className="text-sm font-bold">Task Done</span>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
-                </div>
-              </div>
+                )
+              )}
             </div>
           </div>
           <div>
-            <span className="text-2xl font-bold">Skills</span>
-            <div className="w-full flex h-fit mt-1">
-              <div className=" bg-gray-100  rounded-lg p-2">HTML</div>
-              <div className=" bg-gray-100 ml-2  rounded-lg p-2">CSS</div>
-              <div className=" bg-gray-100 ml-2  rounded-lg p-2">
-                JAVASCRIPT
+            <div>
+              <span className="text-2xl font-bold">Skills</span>
+              <div className="grid grid-cols-3 gap-2 mr-2 mt-3">
+                {resumeData.userSkills?.map((skill: any, key: number) => (
+                  <div
+                    className=" bg-gray-300  rounded-lg p-2 text-center"
+                    key={key}
+                  >
+                    {skill.skillName}
+                  </div>
+                ))}
               </div>
-              <div className="w-fit bg-gray-100 ml-2  rounded-lg p-2">
-                REACT
+            </div>
+            <div className="mt-5">
+              <span className="text-2xl font-bold">Projects</span>
+              <div className="mt-3">
+                {/* First Project */}
+                {resumeData.userProjects?.map((project: any, key: number) => (
+                  <div key={key}>
+                    <div className="flex justify-between mt-3">
+                      <div>
+                        <span>{project.projectName}</span>
+                      </div>
+                      <div className="flex mr-5">
+                        <a
+                          href={project.projectGithubLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <FaGithub className="w-4 h-4 mr-2 mt-1 ml-2" />
+                        </a>
+                        <a
+                          href={project.projectWebsiteLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <FaGlobe className="w-4 h-4 ml-2 mt-1" />
+                        </a>
+                      </div>
+                    </div>
+                    <div>{project.projectDescription}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -1,9 +1,9 @@
 export interface Education {
-  course: string;
+  courseName: string;
   institute: string;
-  startYear: number;
-  endYear: number;
-  place: string;
+  startDate: number;
+  endDate: number;
+  location: string;
 }
 
 export interface Skill {

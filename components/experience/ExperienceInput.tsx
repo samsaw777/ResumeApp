@@ -2,8 +2,13 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
 import { ExperienceWork } from "./ExperienceWork";
 import ExperienceList from "./ExperienceList";
+import axios from "axios";
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
+  id: any;
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
+  resumeExperience: any;
 }
 
 interface inputArray {
@@ -12,18 +17,14 @@ interface inputArray {
   value: string | undefined;
 }
 
-// interface ExperienceInput {
-//   position: string | undefined;
-//   company: string | undefined;
-//   startDate: string | undefined;
-//   endDate: string | undefined;
-//   location: string | undefined;
-//   about: string | undefined;
-//   task: inputArray[];
-// }
-
 const ExperienceInput: React.FC<Props> = (props) => {
-  const { setRenderValue } = props;
+  const {
+    setRenderValue,
+    fetchPointer,
+    setFectchPointer,
+    id,
+    resumeExperience,
+  } = props;
 
   const [error, setError] = useState<string>("");
   const [experience, setExperience] = useState<any>([]);
@@ -55,7 +56,16 @@ const ExperienceInput: React.FC<Props> = (props) => {
       location,
       description,
       inputArr,
+      resumeId: id,
     };
+    axios
+      .post("http://localhost:3000/api/addExperience", experienceObj)
+      .then((res) => {
+        setFectchPointer(!fetchPointer);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     setExperience([...experience, experienceObj]);
     setPosition("");
     setLocation("");
@@ -201,15 +211,15 @@ const ExperienceInput: React.FC<Props> = (props) => {
         </div>
       </div>
       <div>
-        {experience.map((exp: any, key: number) => (
+        {resumeExperience?.map((exp: any, key: number) => (
           <ExperienceList
             position={exp.position}
             company={exp.company}
             startDate={exp.startDate}
             endDate={exp.endDate}
             location={exp.location}
-            description={exp.description}
-            array={exp.inputArr}
+            description={exp.aboutCompany}
+            array={exp.taskDone}
             key={key}
           />
         ))}

@@ -2,20 +2,44 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
 import { Skill } from "../../Utils/Interfaces";
 import { SkillsList } from "./SkillsList";
+import axios from "axios";
 interface Props {
+  id: string;
   setRenderValue: Dispatch<SetStateAction<String>>;
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
+  resumeSkills: any;
 }
 
-const SkillsInput = ({ setRenderValue }: Props) => {
+const SkillsInput = ({
+  setRenderValue,
+  id,
+  fetchPointer,
+  resumeSkills,
+  setFectchPointer,
+}: Props) => {
+  console.log(resumeSkills);
   const [skills, setSkills] = useState<Skill[]>([]);
   const [skill, setSkill] = useState<string>("");
   const addToSkillList = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const skillObj = {
+    const body = {
       skill,
+      resumeId: id,
     };
-    setSkills([...skills, skillObj]);
-    setSkill("");
+    axios
+      .post("http://localhost:3000/api/addSkills", body)
+      .then((res) => {
+        console.log(res.data);
+        setFectchPointer(!fetchPointer);
+        setSkill("");
+      })
+      .catch((error) => console.log(error));
+    // const skillObj = {
+    //   skill,
+    // };
+    // setSkills([...skills, skillObj]);
+    // setSkill("");
   };
   return (
     <div className="mx-10">
@@ -55,9 +79,17 @@ const SkillsInput = ({ setRenderValue }: Props) => {
           </div>
         </form>
       </div>
-      <div className="grid grid-cols-8 gap-2">
-        {skills.map((s: Skill, key: number) => {
-          return <SkillsList skill={s} key={key} />;
+      <div className="grid grid-cols-5 mt-5 gap-2">
+        {resumeSkills?.map((s: any, key: number) => {
+          return (
+            <SkillsList
+              skill={s.skillName}
+              key={key}
+              id={s.id}
+              fetchPointer={fetchPointer}
+              setFectchPointer={setFectchPointer}
+            />
+          );
         })}
       </div>
     </div>

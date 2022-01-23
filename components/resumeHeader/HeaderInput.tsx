@@ -35,13 +35,16 @@ interface Props {
   setMyInfo: Dispatch<SetStateAction<Objects | undefined>>;
   setRenderValue: Dispatch<SetStateAction<String>>;
   id: any;
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
 
 const HeaderInput: React.FC<any> = (props: Props) => {
   const [socialName, setSocialName] = useState<string>("");
   console.log(socialName);
 
-  const { setMyInfo, setRenderValue, id } = props;
+  const { setMyInfo, setRenderValue, id, fetchPointer, setFectchPointer } =
+    props;
 
   const Form = useForm<Inputs>();
 
@@ -130,6 +133,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
       .post("http://localhost:3000/api/userIntroduction", body)
       .then((res) => {
         checkValue();
+        setFectchPointer(!fetchPointer);
       })
       .catch((error) => {
         console.log(error);

@@ -1,5 +1,5 @@
 import type { NextPage, GetServerSideProps } from "next";
-
+import Head from "next/head";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import prisma from "../lib/prisma";
@@ -29,6 +29,9 @@ const Home: NextPage = ({ user }: any) => {
 
   return (
     <div className="bg-gray-300 h-screen">
+      <Head>
+        <title>Resume App</title>
+      </Head>
       <Navbar />
       <div
         className="cursor-pointer p-5 bg-purple-400 rounded w-fit ml-10 mt-10 h-16"

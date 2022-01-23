@@ -7,6 +7,9 @@ import prisma from "../../lib/prisma";
 import { Header } from "../../components/ResumePage";
 const Resume: NextPage = ({ user, findPorfile }: any) => {
   const [id, setId] = useState<string | undefined | string[]>("");
+  const [resumeData, setResumeData] = useState<any>({});
+  const [fetchPointer, setFectchPointer] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
   useEffect(() => {
     if (router.isReady) {
@@ -18,18 +21,28 @@ const Resume: NextPage = ({ user, findPorfile }: any) => {
     const body = {
       resumeId: id,
     };
+    // setLoading(true);
     axios
       .post("http://localhost:3000/api/fetchResumeInfo", body)
       .then((res) => {
         console.log(res.data);
+        setResumeData(res.data);
+        // setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        // setLoading(false);
       });
-  }, [id]);
+  }, [id, fetchPointer]);
   return (
     <div>
-      <Header id={id} />
+      <Header
+        id={id}
+        resumeData={resumeData}
+        fetchPointer={fetchPointer}
+        setFectchPointer={setFectchPointer}
+        loading={loading}
+      />
     </div>
   );
 };

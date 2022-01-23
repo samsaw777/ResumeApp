@@ -58,14 +58,12 @@ const ExperienceList = ({
               readOnly={!update}
               onChange={(e) => changeNewTaskDone(e)}
               name="position"
-              className={
-                (classNames(
-                  update === false
-                    ? "bg-white"
-                    : "bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-purple-500 "
-                ),
-                " appearance-none rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none border-none")
-              }
+              className={classNames(
+                update === false
+                  ? "bg-white border-none font-bold text-xl"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
+                "rounded py-2 px-4  leading-tight w-full  focus:outline-none "
+              )}
             />
           </div>
           {!update && (
@@ -96,14 +94,12 @@ const ExperienceList = ({
             readOnly={!update}
             value={experience.company}
             onChange={(e) => changeNewTaskDone(e)}
-            className={
-              (classNames(
-                update === false
-                  ? "bg-white"
-                  : "bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-purple-500 "
-              ),
-              " appearance-none rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none border-none")
-            }
+            className={classNames(
+              update === false
+                ? "bg-white border-none font-medium text-md"
+                : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
+              "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+            )}
           />
         </div>
         <div className="flex justify-between mt-1">
@@ -113,14 +109,12 @@ const ExperienceList = ({
               readOnly={!update}
               value={experience.startDate}
               onChange={(e) => changeNewTaskDone(e)}
-              className={
-                (classNames(
-                  update === false
-                    ? "bg-white"
-                    : "bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-purple-500 "
-                ),
-                " appearance-none rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none border-none")
-              }
+              className={classNames(
+                update === false
+                  ? "bg-white border-none"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
+                "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+              )}
             />{" "}
             /{" "}
             <input
@@ -128,14 +122,12 @@ const ExperienceList = ({
               readOnly={!update}
               value={experience.endDate}
               onChange={(e) => changeNewTaskDone(e)}
-              className={
-                (classNames(
-                  update === false
-                    ? "bg-white"
-                    : "bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-purple-500 "
-                ),
-                " appearance-none rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none border-none")
-              }
+              className={classNames(
+                update === false
+                  ? "bg-white border-none"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
+                "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+              )}
             />
           </div>
           <div className="text-sm">
@@ -144,14 +136,12 @@ const ExperienceList = ({
               readOnly={!update}
               value={experience.location}
               onChange={(e) => changeNewTaskDone(e)}
-              className={
-                (classNames(
-                  update === false
-                    ? "bg-white"
-                    : "bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-purple-500 "
-                ),
-                " appearance-none rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none border-none")
-              }
+              className={classNames(
+                update === false
+                  ? "bg-white border-none"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
+                "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+              )}
             />
           </div>
         </div>
@@ -161,18 +151,16 @@ const ExperienceList = ({
             readOnly={!update}
             value={experience.description}
             onChange={(e) => changeNewTaskDone(e)}
-            className={
-              (classNames(
-                update === false
-                  ? "bg-white"
-                  : "bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-purple-500 "
-              ),
-              " appearance-none rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none border-none")
-            }
+            className={classNames(
+              update === false
+                ? "bg-white border-none"
+                : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
+              "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+            )}
           />
         </div>
         <div className="mt-2">
-          <span className="text-sm font-bold">Task Done</span>
+          <span className="text-lg font-bold px-4">Task Done</span>
           {newTaskDone?.map((arr: any, key: any) => (
             <input
               key={key}
@@ -180,14 +168,12 @@ const ExperienceList = ({
               onChange={(e) => changeTaskDone(e)}
               value={arr.taskDone}
               id={key}
-              className={
-                (classNames(
-                  update === true
-                    ? "bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-purple-500 "
-                    : "bg-white"
-                ),
-                " appearance-none rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none border-none mt-1")
-              }
+              className={classNames(
+                update === false
+                  ? "bg-white border-none"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
+                "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none mt-1 "
+              )}
             />
           ))}
         </div>

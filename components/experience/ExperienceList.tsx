@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
+import axios from "axios";
+import _ from "lodash";
+
 const ExperienceList = ({
   position,
   company,
@@ -8,7 +11,13 @@ const ExperienceList = ({
   startDate,
   endDate,
   array,
+  id,
+  fetchPointer,
+  setFectchPointer,
 }: any) => {
+  // console.log(array);
+  // const newTaskArray = _.cloneDeep(array);
+  // console.log(newTaskArray);
   const [experience, setExperience] = useState<any>({
     position: position,
     company: company,
@@ -17,11 +26,10 @@ const ExperienceList = ({
     location: location,
     description: description,
   });
-  const [update, setUpdate] = useState<boolean>(false);
 
+  const [update, setUpdate] = useState<boolean>(false);
   const [newTaskDone, setNewTaskDone] = useState<any>([...array]);
-  console.log(newTaskDone);
-  console.log(array);
+  // console.log(newTaskDone);
   const changeNewTaskDone = (e: any) => {
     setExperience({
       ...experience,
@@ -29,9 +37,10 @@ const ExperienceList = ({
     });
   };
 
+  const newArray = [...newTaskDone];
+
   const changeTaskDone = (e: any) => {
-    const newArray = [...newTaskDone];
-    newArray[e.target.id] = e.target.value;
+    newArray[e.target.id].taskDone = e.target.value;
     setNewTaskDone(newArray);
   };
 
@@ -45,12 +54,33 @@ const ExperienceList = ({
       location: location,
       description: description,
     });
-    setNewTaskDone([...array]);
-    console.log(newTaskDone);
+    // setNewTaskDone([...newTaskArray]);
+  };
+
+  const updateExperience = (e: any) => {
+    e.preventDefault();
+    const body = {
+      position: experience.position,
+      company: experience.company,
+      startDate: experience.startDate,
+      endDate: experience.endDate,
+      location: experience.location,
+      description: experience.description,
+      id,
+      taskArray: newTaskDone,
+    };
+
+    axios
+      .post("http://localhost:3000/api/updateExperience", body)
+      .then((res) => {
+        setFectchPointer(!fetchPointer);
+        setUpdate(false);
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div className="mt-3 w-full  bg-white shadow-lg rounded-lg block mx-auto  p-5">
-      <form>
+      <form onSubmit={(e) => updateExperience(e)}>
         <div className="flex justify-between">
           <div className="text-lg font-bold">
             <input
@@ -185,7 +215,10 @@ const ExperienceList = ({
             >
               Cancel
             </p>
-            <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+            <button
+              className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              type="submit"
+            >
               Update
             </button>
           </div>

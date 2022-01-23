@@ -221,6 +221,9 @@ const ExperienceInput: React.FC<Props> = (props) => {
             description={exp.aboutCompany}
             array={exp.taskDone}
             key={key}
+            id={exp.id}
+            fetchPointer={fetchPointer}
+            setFectchPointer={setFectchPointer}
           />
         ))}
       </div>

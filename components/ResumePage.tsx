@@ -89,7 +89,7 @@ const Header = ({
   loading,
 }: Props) => {
   const [name, setName] = useState<any>({});
-  const [renderValue, setRenderValue] = useState<string>("Skills");
+  const [renderValue, setRenderValue] = useState<string>("Experience");
   const [educationList, setEducationList] = useState<Education[]>([]);
   return (
     <div className="grid grid-cols-2 gap-1 p-3  h-screen bg-gray-400">

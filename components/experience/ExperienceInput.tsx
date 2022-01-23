@@ -114,7 +114,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
         forward="Projects"
         setRenderValue={setRenderValue}
       />
-      <div className="mt-5 w-full bg-white shadow-lg rounded-lg p-5">
+      <div className="mt-5 w-full bg-white shadow-lg rounded-lg p-5 hidden">
         <div>
           <form onSubmit={(e) => addExperienceList(e)}>
             <div className="grid grid-cols-2 gap-2">

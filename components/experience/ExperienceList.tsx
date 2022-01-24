@@ -15,9 +15,6 @@ const ExperienceList = ({
   fetchPointer,
   setFectchPointer,
 }: any) => {
-  // console.log(array);
-  // const newTaskArray = _.cloneDeep(array);
-  // console.log(newTaskArray);
   const [experience, setExperience] = useState<any>({
     position: position,
     company: company,
@@ -30,6 +27,7 @@ const ExperienceList = ({
   const [update, setUpdate] = useState<boolean>(false);
   const [newTaskDone, setNewTaskDone] = useState<any>([...array]);
   // console.log(newTaskDone);
+
   const changeNewTaskDone = (e: any) => {
     setExperience({
       ...experience,

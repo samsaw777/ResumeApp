@@ -63,6 +63,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
       .post("http://localhost:3000/api/addExperience", experienceObj)
       .then((res) => {
         setFectchPointer(!fetchPointer);
+        setShowExperienceInput(true);
       })
       .catch((error) => {
         console.log(error);
@@ -248,7 +249,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
         </div>
       )}
       {showExperienceInput && (
-        <div>
+        <div className="h-experienceListHeight mt-2 overflow-scroll">
           {resumeExperience?.map((exp: any, key: number) => (
             <ExperienceList
               position={exp.position}

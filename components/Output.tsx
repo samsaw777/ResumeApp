@@ -141,9 +141,13 @@ const Output: React.FC<any> = (props) => {
                     </div>
                     <div className="mt-2">
                       <span className="text-sm font-bold">Task Done</span>
-                      {experience.taskDone?.map((task: any, key: number) => (
-                        <div key={key}>{task.taskDone}</div>
-                      ))}
+                      <ul className="ml-4">
+                        {experience.taskDone?.map((task: any, key: number) => (
+                          <li key={key} className="list-disc">
+                            {task.taskDone}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 )

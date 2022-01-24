@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       height: {
         experienceListHeight: "75vh",
+        projectListHeight: "68vh",
       },
     },
   },

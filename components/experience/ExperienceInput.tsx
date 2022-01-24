@@ -232,6 +232,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
               </div>
               <div className="mt-4 flex justify-end space-x-2">
                 <button
+                  type="button"
                   className="shadow bg-white  focus:shadow-outline focus:outline-none text-purple-500 font-bold py-2 px-4 rounded border border-purple-500"
                   onClick={cancelExperience}
                 >

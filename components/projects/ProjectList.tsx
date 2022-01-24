@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import { FaGithub, FaGlobe } from "react-icons/fa";
 import classNames from "classnames";
+import axios from "axios";
+
 interface Props {
   title: string | undefined;
   description: string | undefined;
   website?: string | undefined;
   githubLink?: string | undefined;
+  id?: string | undefined;
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
 
-const ProjectList = ({ title, description, website, githubLink }: Props) => {
+const ProjectList = ({
+  title,
+  description,
+  website,
+  githubLink,
+  id,
+  fetchPointer,
+  setFectchPointer,
+}: Props) => {
   const [projectInfo, setProjectInfo] = useState<any>({
     title,
     description,
@@ -26,6 +39,28 @@ const ProjectList = ({ title, description, website, githubLink }: Props) => {
     });
   };
 
+  //function to update the projects information.
+  const updateProjectInfo = async (e: any) => {
+    e.preventDefault();
+    const body = {
+      projectName: projectInfo.title,
+      projectDescription: projectInfo.description,
+      projectWebsiteLink: projectInfo.website,
+      projectgithubLink: projectInfo.githubLink,
+      projectId: id,
+    };
+
+    await axios
+      .post("http://localhost:3000/api/updateProjects", body)
+      .then((res) => {
+        setUpdate(false);
+        setFectchPointer(!fetchPointer);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   //change the input for the project.
   const changeProjectInfo = (e: any) => {
     setProjectInfo({ ...projectInfo, [e.target.name]: e.target.value });
@@ -33,7 +68,7 @@ const ProjectList = ({ title, description, website, githubLink }: Props) => {
 
   return (
     <div className="w=11/12 bg-white rounded shadow p-3 mt-2">
-      <form>
+      <form onSubmit={(e) => updateProjectInfo(e)}>
         <div className="flex justify-between">
           <span className="text-lg font-bold">
             <input

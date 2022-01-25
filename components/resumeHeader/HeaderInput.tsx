@@ -146,7 +146,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
         forward="Education"
         setRenderValue={setRenderValue}
       />
-      <div className=" w-full bg-white shadow-lg rounded-lg p-5 mt-2 hidden">
+      <div className=" w-full bg-white shadow-lg rounded-lg p-5 mt-2">
         <form className="mt-5" onSubmit={(e) => submitIntroduction(e)}>
           <div className="grid grid-cols-2 gap-2">
             <div className="flex flex-col mb-6 ">

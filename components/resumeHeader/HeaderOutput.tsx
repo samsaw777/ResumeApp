@@ -191,76 +191,70 @@ const HeaderOutput = ({
             />
           </div>
           <div className="grid grid-cols-2 gap-2 mt-2">
-            {github && (
-              <input
-                value={introduction.github}
-                readOnly={!update}
-                name="github"
-                onChange={(e) => changeIntroductionDate(e)}
-                className={classNames(
-                  update === false
-                    ? "bg-white border-none text-md"
-                    : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                  "rounded w-full  focus:outline-none "
-                )}
-              />
-            )}
-            {website && (
-              <input
-                value={introduction.website}
-                readOnly={!update}
-                name="website"
-                onChange={(e) => changeIntroductionDate(e)}
-                className={classNames(
-                  update === false
-                    ? "bg-white border-none text-md"
-                    : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                  "rounded w-full  focus:outline-none "
-                )}
-              />
-            )}
-            {linkedin && (
-              <input
-                value={introduction.linkedin}
-                readOnly={!update}
-                name="linkedin"
-                onChange={(e) => changeIntroductionDate(e)}
-                className={classNames(
-                  update === false
-                    ? "bg-white border-none text-md"
-                    : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                  "rounded w-full  focus:outline-none "
-                )}
-              />
-            )}
-            {twitter && (
-              <input
-                value={introduction.twitter}
-                readOnly={!update}
-                name="twitter"
-                onChange={(e) => changeIntroductionDate(e)}
-                className={classNames(
-                  update === false
-                    ? "bg-white border-none text-md"
-                    : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                  "rounded w-full  focus:outline-none "
-                )}
-              />
-            )}
-            {instagram && (
-              <input
-                value={introduction.instagram}
-                readOnly={!update}
-                name="instagram"
-                onChange={(e) => changeIntroductionDate(e)}
-                className={classNames(
-                  update === false
-                    ? "bg-white border-none text-md"
-                    : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                  "rounded w-full  focus:outline-none "
-                )}
-              />
-            )}
+            <input
+              value={introduction.github}
+              readOnly={!update}
+              name="github"
+              onChange={(e) => changeIntroductionDate(e)}
+              className={classNames(
+                update === false
+                  ? "bg-white border-none text-md"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
+                "rounded w-full  focus:outline-none "
+              )}
+            />
+
+            <input
+              value={introduction.website}
+              readOnly={!update}
+              name="website"
+              onChange={(e) => changeIntroductionDate(e)}
+              className={classNames(
+                update === false
+                  ? "bg-white border-none text-md"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
+                "rounded w-full  focus:outline-none "
+              )}
+            />
+
+            <input
+              value={introduction.linkedin}
+              readOnly={!update}
+              name="linkedin"
+              onChange={(e) => changeIntroductionDate(e)}
+              className={classNames(
+                update === false
+                  ? "bg-white border-none text-md"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
+                "rounded w-full  focus:outline-none "
+              )}
+            />
+
+            <input
+              value={introduction.twitter}
+              readOnly={!update}
+              name="twitter"
+              onChange={(e) => changeIntroductionDate(e)}
+              className={classNames(
+                update === false
+                  ? "bg-white border-none text-md"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
+                "rounded w-full  focus:outline-none "
+              )}
+            />
+
+            <input
+              value={introduction.instagram}
+              readOnly={!update}
+              name="instagram"
+              onChange={(e) => changeIntroductionDate(e)}
+              className={classNames(
+                update === false
+                  ? "bg-white border-none text-md"
+                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
+                "rounded w-full  focus:outline-none "
+              )}
+            />
           </div>
           {update && (
             <div className="flex justify-end mt-2 space-x-2">

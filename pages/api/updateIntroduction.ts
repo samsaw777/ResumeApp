@@ -16,7 +16,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     instagramLink,
     id,
   } = req.body;
-  console.log(req.body);
 
   await prisma.introduction.update({
     where: {

@@ -63,41 +63,36 @@ const Output: React.FC<any> = (props) => {
                 : information?.phone || 1245245210}{" "}
               <FaPhone className="w-4 h-4 ml-2 mt-1" />
             </p>
-            {information?.website && (
-              <p className="ml-auto flex mb-2 font-thin  text-md">
-                {resumeData.userIntroduction?.website
-                  ? resumeData.userIntroduction?.website
-                  : information?.website}{" "}
-                <FaGlobe className="w-4 h-4 ml-2 mt-1" />
-              </p>
-            )}
+
+            <p className="ml-auto flex mb-2 font-thin  text-md">
+              {resumeData.userIntroduction?.websiteLink
+                ? resumeData.userIntroduction?.websiteLink
+                : information?.website}{" "}
+              <FaGlobe className="w-4 h-4 ml-2 mt-1" />
+            </p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          {information?.github && (
-            <div className="pl-3 flex">
-              <FaGithub className="w-4 h-4 mr-2 mt-1 ml-2" />
-              {information?.github}
-            </div>
-          )}
-          {information?.linkedin && (
-            <div className="pl-3 flex">
-              <FaLinkedinIn className="w-4 h-4 mr-2 mt-1 ml-2" />
-              {information?.linkedin}
-            </div>
-          )}
-          {information?.twitter && (
-            <div className="pl-3 flex">
-              <FaTwitter className="w-4 h-4 mr-2 mt-1 ml-2" />
-              {information?.twitter}
-            </div>
-          )}
-          {information?.instagram && (
-            <div className="pl-3 flex">
-              <FaInstagram className="w-4 h-4 mr-2 mt-1 ml-2" />
-              {information?.instagram}
-            </div>
-          )}
+          <div className="pl-3 flex">
+            <FaGithub className="w-4 h-4 mr-2 mt-1 ml-2" />
+            {information?.github || resumeData.userIntroduction?.githubLink}
+          </div>
+
+          <div className="pl-3 flex">
+            <FaLinkedinIn className="w-4 h-4 mr-2 mt-1 ml-2" />
+            {information?.linkedin || resumeData.userIntroduction?.linkedinLink}
+          </div>
+
+          <div className="pl-3 flex">
+            <FaTwitter className="w-4 h-4 mr-2 mt-1 ml-2" />
+            {information?.twitter || resumeData.userIntroduction?.twitterLink}
+          </div>
+
+          <div className="pl-3 flex">
+            <FaInstagram className="w-4 h-4 mr-2 mt-1 ml-2" />
+            {information?.instagram ||
+              resumeData.userIntroduction?.instagramLink}
+          </div>
         </div>
 
         {/* Education Details Output */}

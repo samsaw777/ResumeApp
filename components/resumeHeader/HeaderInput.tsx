@@ -4,6 +4,7 @@ import Social from "./Social";
 import axios from "axios";
 import Router from "next/router";
 import { Header } from "../../Utils/Header";
+import HeaderOutput from "./HeaderOutput";
 
 type Inputs = {
   name: string;
@@ -37,16 +38,27 @@ interface Props {
   id: any;
   fetchPointer: boolean;
   setFectchPointer: Dispatch<SetStateAction<boolean>>;
+  introductionData: any;
 }
 
 const HeaderInput: React.FC<any> = (props: Props) => {
   const [socialName, setSocialName] = useState<string>("");
   console.log(socialName);
 
-  const { setMyInfo, setRenderValue, id, fetchPointer, setFectchPointer } =
-    props;
+  const {
+    setMyInfo,
+    setRenderValue,
+    id,
+    fetchPointer,
+    setFectchPointer,
+    introductionData,
+  } = props;
 
-  const Form = useForm<Inputs>();
+  const Form = useForm<Inputs>({
+    defaultValues: {
+      name: introductionData ? introductionData.name : "",
+    },
+  });
 
   const {
     register,
@@ -55,20 +67,6 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     formState: { errors },
   } = Form;
 
-  const submitHeaderInformation: SubmitHandler<Inputs> = async (data) => {
-    // const body = {
-    //   name,
-    //   profession,
-    //   description,
-    //   email,
-    //   phone,
-    //   github,
-    //   twitter,
-    //   instagram,
-    //   linkedin,
-    //   website,
-    // };
-  };
   console.log(id);
   const checkValue = () => {
     setRenderValue("Education");
@@ -148,7 +146,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
         forward="Education"
         setRenderValue={setRenderValue}
       />
-      <div className=" w-full bg-white shadow-lg rounded-lg p-5 mt-2">
+      <div className=" w-full bg-white shadow-lg rounded-lg p-5 mt-2 hidden">
         <form className="mt-5" onSubmit={(e) => submitIntroduction(e)}>
           <div className="grid grid-cols-2 gap-2">
             <div className="flex flex-col mb-6 ">
@@ -319,6 +317,23 @@ const HeaderInput: React.FC<any> = (props: Props) => {
           </div>
         </form>
       </div>
+      {introductionData && (
+        <HeaderOutput
+          id={introductionData.id}
+          name={introductionData.name}
+          profession={introductionData.profession}
+          email={introductionData.email}
+          phone={introductionData.phone}
+          description={introductionData.description}
+          github={introductionData.githubLink}
+          website={introductionData.websiteLink}
+          twitter={introductionData.twitterLink}
+          linkedin={introductionData.linkedinLink}
+          instagram={introductionData.instagramLink}
+          fetchPointer={fetchPointer}
+          setFectchPointer={setFectchPointer}
+        />
+      )}
     </div>
   );
 };

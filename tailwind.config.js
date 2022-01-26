@@ -10,6 +10,9 @@ module.exports = {
         projectListHeight: "68vh",
         landingHeight: "91.2vh",
       },
+      colors: {
+        landingHeading: "#2CBFAA",
+      },
       inset: {
         experienceTop: "490px",
         experienceLeft: "10px",

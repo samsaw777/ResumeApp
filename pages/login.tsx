@@ -10,7 +10,7 @@ const Login: NextPage = () => {
 
   //User is present send to / route.
   if (user) {
-    router.push("/");
+    router.push("/landing");
   }
 
   return (

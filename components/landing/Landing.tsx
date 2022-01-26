@@ -1,6 +1,7 @@
 import React from "react";
 import LandingImage from "./LandingImages";
 import LandingHeader from "./LandingHeading";
+
 const Landing = () => {
   return (
     <div className="h-landingHeight bg-white">

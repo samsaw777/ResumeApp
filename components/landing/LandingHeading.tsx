@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../../Utils/Variants";
+import Link from "next/link";
 const LandingHeading = () => {
   return (
     <>
@@ -27,11 +28,13 @@ const LandingHeading = () => {
             Build it prefectly!
           </motion.span>
         </div>
-        <motion.div variants={fadeIn("down")} className="mt-5">
-          <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
-            Get Started
-          </button>
-        </motion.div>
+        <Link href="/resume" passHref>
+          <motion.div variants={fadeIn("down")} className="mt-5">
+            <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+              Get Started
+            </button>
+          </motion.div>
+        </Link>
       </motion.div>
     </>
   );

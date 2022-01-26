@@ -5,7 +5,7 @@ import { supabase } from "../../Utils/initSupabase";
 import axios from "axios";
 import prisma from "../../lib/prisma";
 import { Header } from "../../components/ResumePage";
-const Resume: NextPage = ({ user, findPorfile }: any) => {
+const Resume: NextPage = ({ user }: any) => {
   const [id, setId] = useState<string | undefined | string[]>("");
   const [resumeData, setResumeData] = useState<any>({});
   const [fetchPointer, setFectchPointer] = useState<boolean>(false);
@@ -56,27 +56,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     return { redirect: { destination: "/login", permanent: false } };
   }
 
-  //Fetch the user Profile
-  const findPorfile = await prisma.profile.findFirst({
-    where: { id: user.id },
-  });
-
-  //Create a new profile for the user.
-  if (!findPorfile) {
-    await prisma.profile.create({
-      data: {
-        id: user.id,
-        name: user.user_metadata.full_name,
-        email: user.user_metadata.email,
-        image: user.user_metadata.avatar_url,
-      },
-    });
-  }
-
   return {
     props: {
       user,
-      findPorfile,
     },
   };
 };

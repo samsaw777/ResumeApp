@@ -133,7 +133,7 @@ const EducationInput: React.FC<Props> = (props) => {
                 className="block text-gray-500 font-bold mb-3 pr-4"
                 htmlFor="institute"
               >
-                institute
+                Institute
               </label>
             </div>
             <div>

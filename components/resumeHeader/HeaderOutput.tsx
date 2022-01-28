@@ -101,7 +101,7 @@ const HeaderOutput = ({
 
   return (
     <div className="mt-2">
-      <div className=" w-full bg-white shadow-lg rounded-lg p-5">
+      <div className=" w-full bg-white shadow-lg rounded-lg p-5 border-2 border-gray-200">
         {!update && (
           <div
             className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-gray-200 block ml-auto"
@@ -128,11 +128,12 @@ const HeaderOutput = ({
             <input
               value={introduction.name}
               readOnly={!update}
+              placeholder="Full Name"
               name="name"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
-                  ? "bg-white border-none text-md"
+                  ? "bg-white border-none text-lg"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
                 "rounded w-full  focus:outline-none font-bold "
               )}
@@ -140,13 +141,14 @@ const HeaderOutput = ({
             <input
               value={introduction.profession}
               readOnly={!update}
+              placeholder="Profession"
               name="profession"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none font-medium text-gray-900"
               )}
             />
           </div>
@@ -154,25 +156,27 @@ const HeaderOutput = ({
             <input
               value={introduction.email}
               readOnly={!update}
+              placeholder="Email"
               name="email"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none font-medium"
               )}
             />
             <input
               value={introduction.phone}
               readOnly={!update}
+              placeholder="Phone"
               name="phone"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none font-medium"
               )}
             />
           </div>
@@ -180,13 +184,14 @@ const HeaderOutput = ({
             <input
               value={introduction.description}
               readOnly={!update}
+              placeholder="Description"
               name="description"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none font-medium"
               )}
             />
           </div>
@@ -194,65 +199,70 @@ const HeaderOutput = ({
             <input
               value={introduction.github}
               readOnly={!update}
+              placeholder="Github Link"
               name="github"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none font-medium"
               )}
             />
 
             <input
               value={introduction.website}
               readOnly={!update}
+              placeholder="Website Link"
               name="website"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none  font-medium"
               )}
             />
 
             <input
               value={introduction.linkedin}
               readOnly={!update}
+              placeholder="Linkedin Link"
               name="linkedin"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none  font-medium"
               )}
             />
 
             <input
               value={introduction.twitter}
               readOnly={!update}
+              placeholder="Twitter Link"
               name="twitter"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none  font-medium"
               )}
             />
 
             <input
               value={introduction.instagram}
               readOnly={!update}
+              placeholder="Instagram Link"
               name="instagram"
               onChange={(e) => changeIntroductionDate(e)}
               className={classNames(
                 update === false
                   ? "bg-white border-none text-md"
                   : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
-                "rounded w-full  focus:outline-none "
+                "rounded w-full  focus:outline-none  font-medium"
               )}
             />
           </div>

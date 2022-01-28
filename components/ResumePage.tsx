@@ -91,12 +91,12 @@ const Header = ({
   loading,
 }: Props) => {
   const [name, setName] = useState<any>({});
-  const [renderValue, setRenderValue] = useState<string>("Education");
+  const [renderValue, setRenderValue] = useState<string>("Introduction");
   const [educationList, setEducationList] = useState<Education[]>([]);
   return (
     <div className="h-screen">
       <Navbar />
-      <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground">
+      <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground ">
         {renderComponent(
           renderValue,
           setName,

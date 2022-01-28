@@ -27,7 +27,7 @@ const Resume: NextPage = ({ user }: any) => {
     <div className="bg-landingBackground h-screen">
       <Navbar />
       <div
-        className="cursor-pointer p-5 bg-buttonColor rounded w-fit ml-10 mt-10 h-16"
+        className="cursor-pointer p-5 bg-buttonColor text-white font-medium rounded w-fit ml-10 mt-10 h-16"
         onClick={() => setModelOpen(true)}
       >
         Create Resume

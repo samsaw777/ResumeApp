@@ -13,9 +13,10 @@ interface Props {
 }
 
 const EducationInput: React.FC<Props> = (props) => {
-  const { setRenderValue, fetchPointer, setFectchPointer, id } = props;
-  const [education, setEducation] = useState<Education[]>([]);
-  console.log(education);
+  const { setRenderValue, fetchPointer, setFectchPointer, id, educationData } =
+    props;
+  // const [education, setEducation] = useState<Education[]>([]);
+  // console.log(education);
   const [educationPointer, setEducationPointer] = useState<boolean>(false);
   const [course, setCourse] = useState<string>("");
   const [institute, setInstitute] = useState<string>("");
@@ -23,29 +24,29 @@ const EducationInput: React.FC<Props> = (props) => {
   const [endDate, setEndDate] = useState<number>(2004);
   const [location, setLocation] = useState<string>("");
   const [createEducation, setCreateEducation] = useState<boolean>(false);
-  //refetch the education from the database.
-  useEffect(() => {
-    let mount = true;
-    const body = {
-      resumeId: id,
-    };
-    axios
-      .post("http://localhost:3000/api/fetchEducation", body)
-      .then((res) => {
-        if (mount) {
-          setEducation(res.data);
-        }
-      })
-      .catch((error) => {
-        if (mount) {
-          console.log(error);
-        }
-      });
+  // //refetch the education from the database.
+  // useEffect(() => {
+  //   let mount = true;
+  //   const body = {
+  //     resumeId: id,
+  //   };
+  //   axios
+  //     .post("http://localhost:3000/api/fetchEducation", body)
+  //     .then((res) => {
+  //       if (mount) {
+  //         setEducation(res.data);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       if (mount) {
+  //         console.log(error);
+  //       }
+  //     });
 
-    return () => {
-      mount = false;
-    };
-  }, [educationPointer]);
+  //   return () => {
+  //     mount = false;
+  //   };
+  // }, [educationPointer]);
 
   //add the education in the database.
   const addEducationToList = (event: React.FormEvent<HTMLFormElement>) => {
@@ -70,7 +71,8 @@ const EducationInput: React.FC<Props> = (props) => {
         setStartDate(2000);
         setEndDate(2004);
         setInstitute("");
-        setEducationPointer(!educationPointer);
+        // setEducationPointer(!educationPointer);
+        setCreateEducation(false);
       })
       .then((error) => {
         console.log(error);
@@ -213,7 +215,7 @@ const EducationInput: React.FC<Props> = (props) => {
       {/* {education.map(edu:Education,key:number) => {return <EducationList />})} */}
       {!createEducation && (
         <div className=" overflow-scroll mt-2 h-experienceListHeight">
-          {education.map((edu: any, key: number) => {
+          {educationData?.map((edu: any, key: number) => {
             return (
               <EducationList
                 key={key}

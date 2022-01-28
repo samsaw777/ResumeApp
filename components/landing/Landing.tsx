@@ -4,7 +4,7 @@ import LandingHeader from "./LandingHeading";
 
 const Landing = () => {
   return (
-    <div className="h-landingHeight bg-white">
+    <div className="h-landingHeight bg-landingBackground">
       <div className="grid grid-cols-2 gap-3">
         <LandingHeader />
         <LandingImage />

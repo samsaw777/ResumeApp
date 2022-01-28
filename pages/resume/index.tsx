@@ -24,10 +24,10 @@ const Resume: NextPage = ({ user }: any) => {
     fetchresume();
   }, [refetchResume]);
   return (
-    <div className="bg-gray-300 h-screen">
+    <div className="bg-landingBackground h-screen">
       <Navbar />
       <div
-        className="cursor-pointer p-5 bg-purple-400 rounded w-fit ml-10 mt-10 h-16"
+        className="cursor-pointer p-5 bg-buttonColor rounded w-fit ml-10 mt-10 h-16"
         onClick={() => setModelOpen(true)}
       >
         Create Resume
@@ -42,7 +42,13 @@ const Resume: NextPage = ({ user }: any) => {
       <div className="grid grid-cols-3 gap-4 mx-10 mt-10">
         {resumeList.map((resume: any, key: number) => {
           return (
-            <ResumeSkeleton title={resume.title} key={key} id={resume.id} />
+            <ResumeSkeleton
+              title={resume.title}
+              key={key}
+              id={resume.id}
+              refetchResume={refetchResume}
+              setRefetchResume={setRefetchResume}
+            />
           );
         })}
       </div>

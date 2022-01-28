@@ -28,7 +28,7 @@ const Output: React.FC<any> = (props) => {
   const { information, resumeData } = props;
   console.log(resumeData);
   return (
-    <div className="bg-gray-300 overflow-scroll">
+    <div className="overflow-scroll">
       <div className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10">
         <div className="grid grid-cols-2 gap-1 p-5">
           <div>

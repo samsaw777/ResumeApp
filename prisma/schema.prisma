@@ -3,11 +3,13 @@
 
 generator client {
   provider = "prisma-client-js"
+  // previewFeatures=["referentialActions"]
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+
 }
 
 
@@ -23,7 +25,7 @@ model Profile{
 model Resume {
   id     String @id @default(uuid())
   title  String
-  user   Profile @relation(fields: [userId], references: [id])
+  user   Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String @map("user_id")
   userIntroduction Introduction?
   userEducation Education[]
@@ -44,7 +46,7 @@ model Introduction {
   twitterLink String? @map("twitter_link")
   linkedinLink String? @map("linkedin_link")
   instagramLink String? @map("instagram_link")
-  resume Resume @relation(fields: [resumeId], references:[id])
+  resume Resume @relation(fields: [resumeId], references:[id], onDelete: Cascade)
   resumeId String @map("resume_id")
 }
 
@@ -55,14 +57,14 @@ model Education{
   startDate Int @map("start_date")
   endDate Int @map("end_date")
   location String
-  resume Resume @relation(fields: [resumeId], references:[id])
+  resume Resume @relation(fields: [resumeId], references:[id], onDelete: Cascade)
   resumeId String @map("resume_id")
 }
 
 model Skills{
   id String @id @default(uuid())
   skillName String @map("skill_name")
-  resume Resume @relation(fields: [resumeId], references:[id])
+  resume Resume @relation(fields: [resumeId], references:[id], onDelete: Cascade)
   resumeId String @map("resume_id")
 }
 
@@ -72,7 +74,7 @@ model Projects{
   projectDescription String @map("project_description")
   projectGithubLink String @map("project_github_link")
   projectWebsiteLink String @map("project_website_link")
-  resume Resume @relation(fields: [resumeId], references:[id])
+  resume Resume @relation(fields: [resumeId], references:[id], onDelete: Cascade)
   resumeId String @map("resume_id")
 }
 
@@ -84,7 +86,7 @@ model Experience{
   endDate String @map("end_date")
   location String
   aboutCompany String
-  resume Resume @relation(fields: [resumeId], references:[id])
+  resume Resume @relation(fields: [resumeId], references:[id], onDelete: Cascade)
   resumeId String @map("resume_id")
   taskDone Task[]
 }
@@ -92,6 +94,6 @@ model Experience{
 model Task{
   id String @id @default(uuid())
   taskDone String @map("task_done")
-  experience Experience @relation(fields: [experienceId], references: [id])
+  experience Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
   experienceId String
 }

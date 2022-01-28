@@ -13,7 +13,10 @@ module.exports = {
       },
       colors: {
         landingHeading: "#2CBFAA",
-        landingBackground: "#f8f9fa",
+        // landingBackground: "#f8f9fa",
+        landingBackground: "#EEF5F9",
+        buttonColor: "#222F3C",
+        navbarBackground: "#1C2732",
       },
       inset: {
         experienceTop: "490px",

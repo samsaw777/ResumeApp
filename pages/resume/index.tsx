@@ -42,7 +42,13 @@ const Resume: NextPage = ({ user }: any) => {
       <div className="grid grid-cols-3 gap-4 mx-10 mt-10">
         {resumeList.map((resume: any, key: number) => {
           return (
-            <ResumeSkeleton title={resume.title} key={key} id={resume.id} />
+            <ResumeSkeleton
+              title={resume.title}
+              key={key}
+              id={resume.id}
+              refetchResume={refetchResume}
+              setRefetchResume={setRefetchResume}
+            />
           );
         })}
       </div>

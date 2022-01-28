@@ -58,7 +58,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     setFectchPointer,
     introductionData,
   } = props;
-
+  console.log(introductionData);
   const Form = useForm<Inputs>();
 
   const {
@@ -341,17 +341,17 @@ const HeaderInput: React.FC<any> = (props: Props) => {
       )}
       {!createInformation && (
         <HeaderOutput
-          id={introductionData.id}
-          name={introductionData.name}
-          profession={introductionData.profession}
-          email={introductionData.email}
-          phone={introductionData.phone}
-          description={introductionData.description}
-          github={introductionData.githubLink}
-          website={introductionData.websiteLink}
-          twitter={introductionData.twitterLink}
-          linkedin={introductionData.linkedinLink}
-          instagram={introductionData.instagramLink}
+          id={introductionData?.id}
+          name={introductionData?.name}
+          profession={introductionData?.profession}
+          email={introductionData?.email}
+          phone={introductionData?.phone}
+          description={introductionData?.description}
+          github={introductionData?.githubLink}
+          website={introductionData?.websiteLink}
+          twitter={introductionData?.twitterLink}
+          linkedin={introductionData?.linkedinLink}
+          instagram={introductionData?.instagramLink}
           fetchPointer={fetchPointer}
           setFectchPointer={setFectchPointer}
         />

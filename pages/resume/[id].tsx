@@ -8,6 +8,7 @@ import { Header } from "../../components/ResumePage";
 const Resume: NextPage = ({ user }: any) => {
   const [id, setId] = useState<string | undefined | string[]>("");
   const [resumeData, setResumeData] = useState<any>({});
+  console.log(resumeData);
   const [fetchPointer, setFectchPointer] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();

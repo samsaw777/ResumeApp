@@ -12,6 +12,7 @@ module.exports = {
       },
       colors: {
         landingHeading: "#2CBFAA",
+        landingBackground: "#f8f9fa",
       },
       inset: {
         experienceTop: "490px",

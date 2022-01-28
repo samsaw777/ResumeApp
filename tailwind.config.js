@@ -15,7 +15,7 @@ module.exports = {
         landingHeading: "#2CBFAA",
         // landingBackground: "#f8f9fa",
         landingBackground: "#EEF5F9",
-        buttonColor: "#222F3C",
+        buttonColor: "#28BEBD",
         navbarBackground: "#1C2732",
       },
       inset: {

@@ -9,6 +9,7 @@ module.exports = {
         experienceListHeight: "75vh",
         projectListHeight: "68vh",
         landingHeight: "91.2vh",
+        resumeHeight: "80vh",
       },
       colors: {
         landingHeading: "#2CBFAA",

@@ -6,6 +6,7 @@ import { SkillsInput } from "./skills/SkillsInput";
 import { Education } from "../Utils/Interfaces";
 import ExperienceInput from "./experience/ExperienceInput";
 import ProjectInput from "./projects/ProjectInput";
+import Navbar from "./navigation/Navbar";
 //Declaring the type of the Inputs.
 interface Props {
   id: any;
@@ -93,19 +94,22 @@ const Header = ({
   const [renderValue, setRenderValue] = useState<string>("Education");
   const [educationList, setEducationList] = useState<Education[]>([]);
   return (
-    <div className="grid grid-cols-2 gap-1 p-3  h-screen bg-gray-400">
-      {renderComponent(
-        renderValue,
-        setName,
-        setRenderValue,
-        id,
-        fetchPointer,
-        setFectchPointer,
-        loading,
-        resumeData
-      )}
-      {/* <HeaderInput setMyInfo={setName} /> */}
-      <Output information={name} resumeData={resumeData} />
+    <div className="h-screen">
+      <Navbar />
+      <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground">
+        {renderComponent(
+          renderValue,
+          setName,
+          setRenderValue,
+          id,
+          fetchPointer,
+          setFectchPointer,
+          loading,
+          resumeData
+        )}
+        {/* <HeaderInput setMyInfo={setName} /> */}
+        <Output information={name} resumeData={resumeData} />
+      </div>
     </div>
   );
 };

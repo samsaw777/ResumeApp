@@ -15,7 +15,7 @@ const Resume: NextPage = ({ user }: any) => {
     if (router.isReady) {
       setId(router.query.id);
     }
-  }, [router.isReady]);
+  }, [router.isReady, router.query.id]);
 
   useEffect(() => {
     const body = {
@@ -36,13 +36,15 @@ const Resume: NextPage = ({ user }: any) => {
   }, [id, fetchPointer]);
   return (
     <div>
-      <Header
-        id={id}
-        resumeData={resumeData}
-        fetchPointer={fetchPointer}
-        setFectchPointer={setFectchPointer}
-        loading={loading}
-      />
+      {resumeData && (
+        <Header
+          id={id}
+          resumeData={resumeData}
+          fetchPointer={fetchPointer}
+          setFectchPointer={setFectchPointer}
+          loading={loading}
+        />
+      )}
     </div>
   );
 };

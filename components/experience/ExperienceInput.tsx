@@ -25,7 +25,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
     id,
     resumeExperience,
   } = props;
-
+  console.log(resumeExperience);
   const [error, setError] = useState<string>("");
   const [experience, setExperience] = useState<any>([]);
   console.log(experience);

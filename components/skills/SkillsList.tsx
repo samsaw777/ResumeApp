@@ -32,16 +32,16 @@ const SkillsList = ({ skill, id, setFectchPointer, fetchPointer }: Props) => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className=" bg-white shadow-lg rounded-lg text-center p-2 relative">
+    <div className=" bg-white shadow-lg rounded-lg text-center p-2 relative mt-2">
       <form onSubmit={(e) => updateSkill(e)}>
         <input
           value={newSkill}
           onChange={(e) => setNewSkill(e.target.value)}
-          className="w-full bg-white appearance-none border-2 border-white rounded  py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+          className="w-full bg-white appearance-none border-2 border-white rounded  py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
         />
       </form>
       <div
-        className="cursor-pointer p-2  rounded hover:bg-gray-100 absolute -top-5 -right-3"
+        className="cursor-pointer p-2  rounded hover:bg-red-100 absolute -top-5 -right-3"
         onClick={deleteSkill}
       >
         <svg

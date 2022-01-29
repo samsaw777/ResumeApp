@@ -15,7 +15,7 @@ const ExperienceWork = ({ handleChange, value, id, type }: Props) => {
       id={id}
       type={type}
       placeholder={`Task ${id}`}
-      className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full"
+      className="bg-gray-100 appearance-none border-2 border-gray-100 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-full placeholder-gray-900"
     />
   );
 };

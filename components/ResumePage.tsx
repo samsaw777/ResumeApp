@@ -91,7 +91,7 @@ const Header = ({
   loading,
 }: Props) => {
   const [name, setName] = useState<any>({});
-  const [renderValue, setRenderValue] = useState<string>("Introduction");
+  const [renderValue, setRenderValue] = useState<string>("Experience");
   const [educationList, setEducationList] = useState<Education[]>([]);
   return (
     <div className="h-screen">

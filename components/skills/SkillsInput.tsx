@@ -71,7 +71,7 @@ const SkillsInput = ({
           <form onSubmit={(e) => addToSkillList(e)}>
             <div className="md:w-1/3 mt-5">
               <label
-                className="block text-gray-900 font-bold mb-3 pr-4"
+                className="block text-black font-bold mb-3 pr-4"
                 htmlFor="skills"
               >
                 Add your skills

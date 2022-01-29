@@ -138,7 +138,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
         <div className="flex justify-end mt-2">
           <button
             onClick={() => setShowExperienceInput(false)}
-            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
+            className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
           >
             Add Experience
           </button>
@@ -155,7 +155,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
                     value={position}
                     onChange={(e) => setPosition(e.target.value)}
                     placeholder="Position"
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
                   />
                 </div>
                 <div>
@@ -164,7 +164,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
                     type="text"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
                   />
                 </div>
               </div>
@@ -175,7 +175,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
                     placeholder="Start"
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full h-12"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-full h-12 placeholder-gray-900"
                   />
 
                   <input
@@ -183,14 +183,14 @@ const ExperienceInput: React.FC<Props> = (props) => {
                     placeholder="End"
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full h-12"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-full h-12 placeholder-gray-900"
                   />
                   <input
                     type="text"
                     placeholder="Location"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full h-12"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-full h-12 placeholder-gray-900"
                   />
                 </div>
                 <div>
@@ -199,7 +199,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
                     placeholder="About Company"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 w-full h-28"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-full h-28 placeholder-gray-900"
                   />
                 </div>
               </div>
@@ -207,7 +207,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
                 <div className="flex justify-between">
                   <span className="text-lg font-bold">Task Done</span>
                   <button
-                    className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto"
+                    className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto placeholder-gray-900"
                     onClick={addExperience}
                     type="button"
                   >
@@ -233,13 +233,13 @@ const ExperienceInput: React.FC<Props> = (props) => {
               <div className="mt-4 flex justify-end space-x-2">
                 <button
                   type="button"
-                  className="shadow bg-white  focus:shadow-outline focus:outline-none text-purple-500 font-bold py-2 px-4 rounded border border-purple-500"
+                  className="shadow bg-white  focus:shadow-outline focus:outline-none text-red-500 font-bold py-2 px-4 rounded border border-red-500"
                   onClick={cancelExperience}
                 >
                   Cancle
                 </button>
                 <button
-                  className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                  className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                   type="submit"
                 >
                   Add

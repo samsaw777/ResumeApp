@@ -34,6 +34,7 @@ const Resume: NextPage = ({ user }: any) => {
         // setLoading(false);
       });
   }, [id, fetchPointer]);
+
   return (
     <div>
       {resumeData && (

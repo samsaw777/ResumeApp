@@ -2,7 +2,9 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Auth } from "@supabase/ui";
 import { supabase } from "../Utils/initSupabase";
+
 import { useEffect } from "react";
+import NextNProgress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -23,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <Auth.UserContextProvider supabaseClient={supabase}>
+      <NextNProgress color="#28BEBD" />
       <Component {...pageProps} />
     </Auth.UserContextProvider>
   );

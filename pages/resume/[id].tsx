@@ -37,7 +37,7 @@ const Resume: NextPage = ({ user }: any) => {
 
   return (
     <div>
-      {resumeData && (
+      {resumeData ? (
         <Header
           id={id}
           resumeData={resumeData}
@@ -45,6 +45,8 @@ const Resume: NextPage = ({ user }: any) => {
           setFectchPointer={setFectchPointer}
           loading={loading}
         />
+      ) : (
+        <div>Loading....</div>
       )}
     </div>
   );

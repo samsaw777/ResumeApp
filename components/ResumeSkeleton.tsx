@@ -1,6 +1,8 @@
 import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { motion } from "framer-motion";
+import { fadeIn } from "../Utils/Variants";
 interface Props {
   title: string;
   id: string;
@@ -26,7 +28,10 @@ const ResumeSkeleton = ({
       });
   };
   return (
-    <div className="w-11/12 bg-white shadow-lg rounded-lg block mx-auto pt-5 pb-10 cursor-pointer">
+    <motion.div
+      className="w-11/12 bg-white shadow-lg rounded-lg block mx-auto pt-5 pb-10 cursor-pointer"
+      variants={fadeIn("down")}
+    >
       <div className="flex mx-5 mt-1 justify-between">
         <div className="text-2xl text-navbarBackground font-bold">{title}</div>
         <div className="flex space-x-2">
@@ -138,7 +143,7 @@ const ResumeSkeleton = ({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

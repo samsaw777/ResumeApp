@@ -15,7 +15,7 @@ const Header: React.FC<Props> = (props) => {
       <div className="flex ml-auto">
         {previous && (
           <button
-            className="shadow bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded block"
+            className="shadow bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded block"
             type="submit"
             onClick={() => setRenderValue(previous)}
           >
@@ -24,7 +24,7 @@ const Header: React.FC<Props> = (props) => {
         )}
         {forward && (
           <button
-            className="shadow bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded block ml-5"
+            className="shadow bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded block ml-5"
             type="submit"
             onClick={() => setRenderValue(forward)}
           >

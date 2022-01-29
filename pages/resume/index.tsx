@@ -5,6 +5,8 @@ import Navbar from "../../components/navigation/Navbar";
 import Modal from "../../components/ResumeModal";
 import axios from "axios";
 import ResumeSkeleton from "../../components/ResumeSkeleton";
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainer } from "../../Utils/Variants";
 
 const Resume: NextPage = ({ user }: any) => {
   const [modelOpen, setModelOpen] = useState<boolean>(false);
@@ -39,7 +41,12 @@ const Resume: NextPage = ({ user }: any) => {
         setRefetchResume={setRefetchResume}
       />
       {/* <Header /> */}
-      <div className="grid grid-cols-3 gap-4 mx-10 mt-10">
+      <motion.div
+        className="grid grid-cols-3 gap-4 mx-10 mt-10"
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+      >
         {resumeList.map((resume: any, key: number) => {
           return (
             <ResumeSkeleton
@@ -51,7 +58,7 @@ const Resume: NextPage = ({ user }: any) => {
             />
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };

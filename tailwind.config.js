@@ -17,6 +17,9 @@ module.exports = {
         landingBackground: "#EEF5F9",
         buttonColor: "#28BEBD",
         navbarBackground: "#1C2732",
+        instagram: "#8a3ab9",
+        linkedin: "#0077B5",
+        github: "#6e5494",
       },
       inset: {
         experienceTop: "490px",

@@ -103,24 +103,40 @@ const HeaderOutput = ({
     <div className="mt-2">
       <div className=" w-full bg-white shadow-lg rounded-lg p-5 border-2 border-gray-200">
         {!update && (
-          <div
-            className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-gray-200 block ml-auto"
-            onClick={() => setUpdate(true)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className=" w-full flex justify-between">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-red-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-gray-200"
+              onClick={() => setUpdate(true)}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                />
+              </svg>
+            </div>
           </div>
         )}
         <form onSubmit={(e) => updateIntroduction(e)}>
@@ -269,13 +285,13 @@ const HeaderOutput = ({
           {update && (
             <div className="flex justify-end mt-2 space-x-2">
               <p
-                className="p-2 bg-white text-purple-500 border-2 border-purple-500 cursor-pointer"
+                className="p-2 bg-white text-blue-500 border-2 border-blue-500 cursor-pointer"
                 onClick={cancelUpdate}
               >
                 Cancel
               </p>
               <button
-                className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                 type="submit"
               >
                 Update

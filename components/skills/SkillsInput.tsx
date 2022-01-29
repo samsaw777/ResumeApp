@@ -60,7 +60,7 @@ const SkillsInput = ({
         <div className="flex justify-end mt-2">
           <button
             onClick={() => setCreateSkill(true)}
-            className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
+            className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
           >
             Add Experience
           </button>
@@ -90,14 +90,14 @@ const SkillsInput = ({
             <div className="w-full mt-10 flex justify-end space-x-2">
               <button
                 type="button"
-                className="shadow bg-white  focus:shadow-outline focus:outline-none text-blue-500 font-bold py-2 px-4 rounded border border-blue-500"
+                className="shadow bg-white  focus:shadow-outline focus:outline-none text-red-500 font-bold py-2 px-4 rounded border border-red-500"
                 onClick={cancelSkill}
               >
                 Cancle
               </button>
               <button
                 type="submit"
-                className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto"
+                className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto"
               >
                 Add
               </button>

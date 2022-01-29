@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       height: {
         experienceListHeight: "75vh",
-        projectListHeight: "68vh",
+        projectListHeight: "60vh",
+        projectInputHeight: "65vh",
         landingHeight: "91.2vh",
         resumeHeight: "91vh",
       },

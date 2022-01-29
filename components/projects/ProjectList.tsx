@@ -77,7 +77,7 @@ const ProjectList = ({
       });
   };
   return (
-    <div className="w=11/12 bg-white rounded shadow p-3 mt-2">
+    <div className="w=11/12 bg-white rounded shadow p-5 mt-2">
       <form onSubmit={(e) => updateProjectInfo(e)}>
         <div className="flex justify-between">
           <span className="text-lg font-bold">
@@ -89,7 +89,7 @@ const ProjectList = ({
               className={classNames(
                 update === false
                   ? "bg-white border-none font-bold text-xl"
-                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
+                  : "bg-gray-100 focus:outline-none border-2 border-gray-100 focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
                 "rounded w-full  focus:outline-none "
               )}
             />
@@ -97,12 +97,12 @@ const ProjectList = ({
           {!update && (
             <div className="flex space-x-2">
               <div
-                className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-gray-200"
+                className="cursor-pointer w-fit p-2  rounded hover:bg-blue-200"
                 onClick={() => setUpdate(true)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5 text-blue-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -116,7 +116,7 @@ const ProjectList = ({
                 </svg>
               </div>
               <div
-                className="cursor-pointer p-2 bg-gray-100 rounded hover:bg-gray-200"
+                className="cursor-pointer p-2  rounded hover:bg-red-200"
                 onClick={deleteProject}
               >
                 <svg
@@ -134,14 +134,14 @@ const ProjectList = ({
                   />
                 </svg>
               </div>
-              <span className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-gray-200">
+              <span className="cursor-pointer w-fit p-2  rounded hover:bg-purple-200">
                 <a href={githubLink}>
-                  <FaGithub className="w-5 h-5  mt-1" />
+                  <FaGithub className="w-5 h-5 text-github mt-1" />
                 </a>
               </span>
-              <span className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-gray-200">
+              <span className="cursor-pointer w-fit p-2  rounded hover:bg-gray-100">
                 <a href={website}>
-                  <FaGlobe className="w-5 h-5  mt-1" />
+                  <FaGlobe className="w-5 h-5 text-gray-500  mt-1" />
                 </a>
               </span>
             </div>
@@ -157,7 +157,7 @@ const ProjectList = ({
             className={classNames(
               update === false
                 ? "bg-white border-none text-md"
-                : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
+                : "bg-gray-100 focus:outline-none border-2 border-gray-100 focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight ",
               "rounded w-full  focus:outline-none "
             )}
           />
@@ -170,7 +170,7 @@ const ProjectList = ({
               value={projectInfo.githubLink}
               onChange={(e) => changeProjectInfo(e)}
               name="githubLink"
-              className="bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight rounded w-full  "
+              className="bg-gray-100 focus:outline-none border-2 border-gray-100  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight rounded w-full  "
             />
             <input
               type="text"
@@ -178,20 +178,20 @@ const ProjectList = ({
               value={projectInfo.website}
               onChange={(e) => changeProjectInfo(e)}
               name="website"
-              className="bg-gray-200  border-2  focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight rounded w-full  focus:outline-none"
+              className="bg-gray-100  border-2 border-gray-100 focus:bg-white focus:border-purple-500 py-2 px-4  leading-tight rounded w-full  focus:outline-none"
             />
           </div>
         )}
         {update && (
           <div className="flex justify-end mt-2 space-x-2">
             <p
-              className="p-2 bg-white text-purple-500 border-2 border-purple-500 cursor-pointer"
+              className="p-2 bg-white text-red-500 border-2 border-red-500 cursor-pointer"
               onClick={cancelUpdate}
             >
               Cancel
             </p>
             <button
-              className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
               type="submit"
             >
               Update

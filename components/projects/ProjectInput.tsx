@@ -67,7 +67,7 @@ const ProjectInput = ({
   };
 
   return (
-    <div className="px-10 bg-gray-300">
+    <div className="px-10">
       <Header
         title="Projects"
         previous="Experience"
@@ -77,61 +77,77 @@ const ProjectInput = ({
         <div className="flex justify-end mt-2">
           <button
             onClick={() => setCreateProject(true)}
-            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
+            className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
           >
             Add Experience
           </button>
         </div>
       )}
       {createProject && (
-        <div className="mt-5 w-full bg-white shadow-lg rounded-lg p-5">
-          <form onSubmit={(e) => addProjectList(e)}>
-            <input
-              type="text"
-              placeholder="Project Name"
-              value={projectTitle}
-              onChange={(e) => setProjectTitle(e.target.value)}
-              className="bg-gray-200 mt-2 placeholder-gray-500 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-            />
-            <input
-              type="text"
-              placeholder="Project Description"
-              value={projectDescription}
-              onChange={(e) => setProjectDescription(e.target.value)}
-              className="bg-gray-200 mt-2 placeholder-gray-500 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-            />
-            <div className="grid grid-cols-2 gap-2 mt-2">
+        <div className="h-projectInputHeight">
+          <div className="mt-5 w-full bg-white shadow-lg rounded-lg p-5">
+            <form onSubmit={(e) => addProjectList(e)}>
+              <label className="font-bold text-black text-md">Title</label>
               <input
                 type="text"
-                placeholder="Project Github Link"
-                value={projectGithubLink}
-                onChange={(e) => setProjectGithubLink(e.target.value)}
-                className="bg-gray-200 placeholder-gray-500 appearance-none border-2 border-gray-200  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                placeholder="Project Name"
+                value={projectTitle}
+                onChange={(e) => setProjectTitle(e.target.value)}
+                className="bg-gray-100 mt-2 placeholder-gray-900 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mb-2"
               />
+              <label className="font-bold text-black pl-1 text-md">
+                Description
+              </label>
               <input
                 type="text"
-                placeholder="Project Website Link"
-                value={projectLink}
-                onChange={(e) => setProjectLink(e.target.value)}
-                className="bg-gray-200 placeholder-gray-500 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                placeholder="Project Description"
+                value={projectDescription}
+                onChange={(e) => setProjectDescription(e.target.value)}
+                className="bg-gray-100 mt-2 placeholder-gray-900 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
               />
-            </div>
-            <div className="mt-4 flex justify-end space-x-2">
-              <button
-                type="button"
-                className="shadow bg-white  focus:shadow-outline focus:outline-none text-purple-500 font-bold py-2 px-4 rounded border border-purple-500"
-                onClick={cancleProject}
-              >
-                Cancle
-              </button>
-              <button
-                className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                type="submit"
-              >
-                Add
-              </button>
-            </div>
-          </form>
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                <div>
+                  <label className="font-bold text-black pl-1 text-md">
+                    Github Link
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Project Github Link"
+                    value={projectGithubLink}
+                    onChange={(e) => setProjectGithubLink(e.target.value)}
+                    className="mt-1 bg-gray-100 placeholder-gray-900 appearance-none border-2 border-gray-100  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="font-bold text-black pl-1 text-md">
+                    Live
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Project Live Link"
+                    value={projectLink}
+                    onChange={(e) => setProjectLink(e.target.value)}
+                    className="mt-1 bg-gray-100 placeholder-gray-900 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                  />
+                </div>
+              </div>
+              <div className="mt-4 flex justify-end space-x-2">
+                <button
+                  type="button"
+                  className="shadow bg-white  focus:shadow-outline focus:outline-none text-red-500 font-bold py-2 px-4 rounded border border-red-500"
+                  onClick={cancleProject}
+                >
+                  Cancle
+                </button>
+                <button
+                  className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                  type="submit"
+                >
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
       {!createProject && (
@@ -154,7 +170,7 @@ const ProjectInput = ({
       )}
       <div className="w-full flex justify-end mt-2">
         <button
-          className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+          className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
           type="button"
         >
           Create Resume

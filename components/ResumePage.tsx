@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { HeaderInput } from "./resumeHeader/HeaderInput";
 import { Output } from "./Output";
 import { EducationInput } from "./education/EducationInput";
@@ -7,14 +7,9 @@ import { Education } from "../Utils/Interfaces";
 import ExperienceInput from "./experience/ExperienceInput";
 import ProjectInput from "./projects/ProjectInput";
 import Navbar from "./navigation/Navbar";
+import { useRouter } from "next/router";
+import axios from "axios";
 //Declaring the type of the Inputs.
-interface Props {
-  id: any;
-  resumeData: any;
-  fetchPointer: boolean;
-  loading: boolean;
-  setFectchPointer: Dispatch<SetStateAction<boolean>>;
-}
 
 const renderComponent = (
   value: string,
@@ -23,7 +18,6 @@ const renderComponent = (
   id: any,
   fetchPointer: boolean,
   setFectchPointer: Dispatch<SetStateAction<boolean>>,
-  loading: boolean,
   resumeData: any
 ) => {
   switch (value) {
@@ -83,33 +77,57 @@ const renderComponent = (
   }
 };
 
-const Header = ({
-  id,
-  resumeData,
-  fetchPointer,
-  setFectchPointer,
-  loading,
-}: Props) => {
+const Header = () => {
+  const router = useRouter();
   const [name, setName] = useState<any>({});
-  const [renderValue, setRenderValue] = useState<string>("Experience");
-  const [educationList, setEducationList] = useState<Education[]>([]);
+  const [renderValue, setRenderValue] = useState<string>("Introduction");
+  const [resumeData, setResumeData] = useState<any>({});
+  const [fetchPointer, setFectchPointer] = useState<boolean>(false);
+  const [id, setId] = useState<string | undefined | string[]>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (router.isReady) {
+      setId(router.query.id);
+    }
+  }, [router.isReady, router.query.id]);
+
+  useEffect(() => {
+    const body = {
+      resumeId: id,
+    };
+    setLoading(true);
+    axios
+      .post("http://localhost:3000/api/fetchResumeInfo", body)
+      .then((res) => {
+        console.log(res.data);
+        setResumeData(res.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  }, [id, fetchPointer]);
+
   return (
     <div className="h-screen">
       <Navbar />
-      <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground ">
-        {renderComponent(
-          renderValue,
-          setName,
-          setRenderValue,
-          id,
-          fetchPointer,
-          setFectchPointer,
-          loading,
-          resumeData
-        )}
-        {/* <HeaderInput setMyInfo={setName} /> */}
-        <Output information={name} resumeData={resumeData} />
-      </div>
+      {!loading && (
+        <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground ">
+          {renderComponent(
+            renderValue,
+            setName,
+            setRenderValue,
+            id,
+            fetchPointer,
+            setFectchPointer,
+            resumeData
+          )}
+          {/* <HeaderInput setMyInfo={setName} /> */}
+          <Output information={name} resumeData={resumeData} />
+        </div>
+      )}
     </div>
   );
 };

@@ -97,7 +97,7 @@ const ProjectList = ({
           {!update && (
             <div className="flex space-x-2">
               <div
-                className="cursor-pointer w-fit p-2  rounded hover:bg-blue-200"
+                className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-blue-200"
                 onClick={() => setUpdate(true)}
               >
                 <svg
@@ -116,7 +116,7 @@ const ProjectList = ({
                 </svg>
               </div>
               <div
-                className="cursor-pointer p-2  rounded hover:bg-red-200"
+                className="cursor-pointer p-2  rounded bg-gray-100 hover:bg-red-200"
                 onClick={deleteProject}
               >
                 <svg
@@ -134,12 +134,12 @@ const ProjectList = ({
                   />
                 </svg>
               </div>
-              <span className="cursor-pointer w-fit p-2  rounded hover:bg-purple-200">
+              <span className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-purple-200">
                 <a href={githubLink}>
                   <FaGithub className="w-5 h-5 text-github mt-1" />
                 </a>
               </span>
-              <span className="cursor-pointer w-fit p-2  rounded hover:bg-gray-100">
+              <span className="cursor-pointer w-fit p-2 bg-gray-100 rounded hover:bg-gray-200">
                 <a href={website}>
                   <FaGlobe className="w-5 h-5 text-gray-500  mt-1" />
                 </a>

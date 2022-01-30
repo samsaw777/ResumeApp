@@ -34,7 +34,23 @@ const Resume: NextPage = ({ user }: any) => {
         console.log(error);
         setLoading(false);
       });
-  }, [id, fetchPointer]);
+  }, [id]);
+
+  useEffect(() => {
+    const body = {
+      resumeId: id,
+    };
+
+    axios
+      .post("http://localhost:3000/api/fetchResumeInfo", body)
+      .then((res) => {
+        console.log(res.data);
+        setResumeData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [fetchPointer]);
 
   return (
     <>

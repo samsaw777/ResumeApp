@@ -6,9 +6,8 @@ import { SkillsInput } from "./skills/SkillsInput";
 import { Education } from "../Utils/Interfaces";
 import ExperienceInput from "./experience/ExperienceInput";
 import ProjectInput from "./projects/ProjectInput";
-import Navbar from "./navigation/Navbar";
 import { useRouter } from "next/router";
-import axios from "axios";
+
 //Declaring the type of the Inputs.
 
 const renderComponent = (
@@ -77,57 +76,61 @@ const renderComponent = (
   }
 };
 
-const Header = () => {
+interface Props {
+  id: string | undefined | string[];
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
+  resumeData: any;
+}
+
+const Header = ({ resumeData, fetchPointer, setFectchPointer, id }: Props) => {
   const router = useRouter();
   const [name, setName] = useState<any>({});
   const [renderValue, setRenderValue] = useState<string>("Introduction");
-  const [resumeData, setResumeData] = useState<any>({});
-  const [fetchPointer, setFectchPointer] = useState<boolean>(false);
-  const [id, setId] = useState<string | undefined | string[]>("");
-  const [loading, setLoading] = useState<boolean>(false);
+  // const [resumeData, setResumeData] = useState<any>({});
+  // const [fetchPointer, setFectchPointer] = useState<boolean>(false);
+  // const [id, setId] = useState<string | undefined | string[]>("");
+  // const [loading, setLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (router.isReady) {
-      setId(router.query.id);
-    }
-  }, [router.isReady, router.query.id]);
+  // useEffect(() => {
+  //   if (router.isReady) {
+  //     setId(router.query.id);
+  //   }
+  // }, [router.isReady, router.query.id]);
 
-  useEffect(() => {
-    const body = {
-      resumeId: id,
-    };
-    setLoading(true);
-    axios
-      .post("http://localhost:3000/api/fetchResumeInfo", body)
-      .then((res) => {
-        console.log(res.data);
-        setResumeData(res.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
-  }, [id, fetchPointer]);
+  // useEffect(() => {
+  //   const body = {
+  //     resumeId: id,
+  //   };
+  //   setLoading(true);
+  //   axios
+  //     .post("http://localhost:3000/api/fetchResumeInfo", body)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       setResumeData(res.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       setLoading(false);
+  //     });
+  // }, [id, fetchPointer]);
 
   return (
     <div className="h-screen">
-      <Navbar />
-      {!loading && (
-        <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground ">
-          {renderComponent(
-            renderValue,
-            setName,
-            setRenderValue,
-            id,
-            fetchPointer,
-            setFectchPointer,
-            resumeData
-          )}
-          {/* <HeaderInput setMyInfo={setName} /> */}
-          <Output information={name} resumeData={resumeData} />
-        </div>
-      )}
+      <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground ">
+        {renderComponent(
+          renderValue,
+          setName,
+          setRenderValue,
+          id,
+          fetchPointer,
+          setFectchPointer,
+          resumeData
+        )}
+        {/* <HeaderInput setMyInfo={setName} /> */}
+        <Output information={name} resumeData={resumeData} />
+      </div>
     </div>
   );
 };

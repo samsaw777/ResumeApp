@@ -218,7 +218,7 @@ const EducationInput: React.FC<Props> = (props) => {
         </div>
       )}
       {/* {education.map(edu:Education,key:number) => {return <EducationList />})} */}
-      {!createEducation && (
+      {!createEducation && educationData && (
         <div className=" overflow-scroll mt-2 h-experienceListHeight">
           {educationData?.map((edu: any, key: number) => {
             return (

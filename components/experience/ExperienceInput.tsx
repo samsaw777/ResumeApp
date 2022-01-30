@@ -249,7 +249,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
           </div>
         </div>
       )}
-      {showExperienceInput && (
+      {showExperienceInput && resumeExperience && (
         <div className="h-experienceListHeight mt-2 overflow-scroll">
           {resumeExperience?.map((exp: any, key: number) => (
             <ExperienceList

@@ -344,7 +344,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
           </form>
         </div>
       )}
-      {!createInformation && (
+      {!createInformation && introductionData && (
         <HeaderOutput
           id={introductionData?.id}
           name={introductionData?.name}

@@ -150,7 +150,7 @@ const ProjectInput = ({
           </div>
         </div>
       )}
-      {!createProject && (
+      {!createProject && resumeProject && (
         <div className="h-projectListHeight mt-2 overflow-scroll">
           {resumeProject?.map((project: any, key: number) => {
             return (

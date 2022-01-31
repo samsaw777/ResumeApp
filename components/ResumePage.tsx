@@ -117,7 +117,7 @@ const Header = ({ resumeData, fetchPointer, setFectchPointer, id }: Props) => {
   // }, [id, fetchPointer]);
 
   return (
-    <div className="h-screen">
+    <div>
       <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground ">
         {renderComponent(
           renderValue,

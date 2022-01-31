@@ -34,6 +34,7 @@ const SkillsInput = ({
         console.log(res.data);
         setFectchPointer(!fetchPointer);
         setSkill("");
+        setCreateSkill(false);
       })
       .catch((error) => console.log(error));
     // const skillObj = {
@@ -62,7 +63,7 @@ const SkillsInput = ({
             onClick={() => setCreateSkill(true)}
             className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
           >
-            Add Experience
+            Add Skills
           </button>
         </div>
       )}

@@ -131,8 +131,8 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     axios
       .post("http://localhost:3000/api/userIntroduction", body)
       .then((res) => {
-        checkValue();
         setFectchPointer(!fetchPointer);
+        setCreateInformation(false);
       })
       .catch((error) => {
         console.log(error);
@@ -153,7 +153,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
             onClick={() => setCreateInformation(true)}
             className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
           >
-            Add Experience
+            Add Introduction
           </button>
         </div>
       )}

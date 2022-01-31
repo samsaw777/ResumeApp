@@ -64,7 +64,10 @@ const Resume: NextPage = ({ user }: any) => {
         />
       ) : (
         <div className="w-full flex align-center justify-center p-72">
-          <div className="w-16 h-16 border-8 border-blue-500 border-dotted animate-spin rounded-full mx-atuo"></div>
+          <div className="flex flex-col">
+            <div className="w-16 h-16 border-8 border-blue-500 border-dotted animate-spin rounded-full mx-atuo"></div>
+            <div className="-ml-10">Fetching Resume</div>
+          </div>
         </div>
       )}
     </>

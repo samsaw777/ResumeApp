@@ -53,8 +53,8 @@ const EducationList: React.FC<Props> = (props) => {
     const body = {
       courseName: education.courseName,
       institute: education.institute,
-      startDate: education.startDate,
-      endDate: education.endDate,
+      startDate: Number(education.startDate),
+      endDate: Number(education.endDate),
       location: education.location,
       educationId: id,
     };

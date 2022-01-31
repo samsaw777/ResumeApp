@@ -84,37 +84,8 @@ interface Props {
 }
 
 const Header = ({ resumeData, fetchPointer, setFectchPointer, id }: Props) => {
-  const router = useRouter();
   const [name, setName] = useState<any>({});
   const [renderValue, setRenderValue] = useState<string>("Introduction");
-  // const [resumeData, setResumeData] = useState<any>({});
-  // const [fetchPointer, setFectchPointer] = useState<boolean>(false);
-  // const [id, setId] = useState<string | undefined | string[]>("");
-  // const [loading, setLoading] = useState<boolean>(false);
-
-  // useEffect(() => {
-  //   if (router.isReady) {
-  //     setId(router.query.id);
-  //   }
-  // }, [router.isReady, router.query.id]);
-
-  // useEffect(() => {
-  //   const body = {
-  //     resumeId: id,
-  //   };
-  //   setLoading(true);
-  //   axios
-  //     .post("http://localhost:3000/api/fetchResumeInfo", body)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setResumeData(res.data);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       setLoading(false);
-  //     });
-  // }, [id, fetchPointer]);
 
   return (
     <div>

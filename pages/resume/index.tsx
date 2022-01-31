@@ -26,7 +26,11 @@ const Resume: NextPage = ({ user }: any) => {
     fetchresume();
   }, [refetchResume]);
   return (
-    <div className="bg-landingBackground h-screen">
+    <motion.div
+      className="bg-landingBackground h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <Navbar />
       <div
         className="cursor-pointer p-5 bg-buttonColor text-white font-medium rounded w-fit ml-10 mt-10 h-16"
@@ -59,7 +63,7 @@ const Resume: NextPage = ({ user }: any) => {
           );
         })}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

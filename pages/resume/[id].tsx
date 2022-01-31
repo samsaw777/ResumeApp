@@ -55,13 +55,17 @@ const Resume: NextPage = ({ user }: any) => {
   return (
     <>
       <Navbar />
-      {!loading && resumeData && (
+      {!loading && resumeData ? (
         <Header
           id={id}
           resumeData={resumeData}
           fetchPointer={fetchPointer}
           setFectchPointer={setFectchPointer}
         />
+      ) : (
+        <div className="w-full flex align-center justify-center p-72">
+          <div className="w-16 h-16 border-8 border-blue-500 border-dotted animate-spin rounded-full mx-atuo"></div>
+        </div>
       )}
     </>
   );

@@ -1,19 +1,20 @@
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import prisma from "../lib/prisma";
+import { motion } from "framer-motion";
 import { supabase } from "../Utils/initSupabase";
 import Navbar from "../components/navigation/Navbar";
 
 import Landing from "../components/landing/Landing";
 const Home: NextPage = ({ user }: any) => {
   return (
-    <>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <Head>
         <title>ESYResume</title>
       </Head>
       <Navbar />
       <Landing />
-    </>
+    </motion.div>
   );
 };
 

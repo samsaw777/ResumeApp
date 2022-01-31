@@ -131,8 +131,8 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     axios
       .post("http://localhost:3000/api/userIntroduction", body)
       .then((res) => {
-        checkValue();
         setFectchPointer(!fetchPointer);
+        setCreateInformation(false);
       })
       .catch((error) => {
         console.log(error);
@@ -151,9 +151,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
         <div className="flex justify-end mt-2">
           <button
             onClick={() => setCreateInformation(true)}
-            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
+            className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
           >
-            Add Experience
+            Add Introduction
           </button>
         </div>
       )}
@@ -164,7 +164,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               <div className="flex flex-col mb-6 ">
                 <div className="md:w-1/3">
                   <label
-                    className="block text-gray-500 font-bold mb-3 pr-4"
+                    className="block text-black font-bold mb-3 pr-4"
                     htmlFor="name"
                   >
                     Full Name
@@ -172,8 +172,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                 </div>
                 <div className="w-full">
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="name"
+                    placeholder="Your Full Name"
                     {...register("name", { required: "Name cannot be empty!" })}
                   />
                 </div>
@@ -181,7 +182,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               <div className="flex flex-col mb-6 ">
                 <div className="md:w-1/3">
                   <label
-                    className="block text-gray-500 font-bold mb-3 pr-4"
+                    className="block text-black font-bold mb-3 pr-4"
                     htmlFor="profession"
                   >
                     Profession
@@ -189,8 +190,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                 </div>
                 <div className="w-full">
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="profession"
+                    placeholder="Your Profession"
                     {...register("profession", {
                       required: "Profession cannot be empty!",
                     })}
@@ -203,7 +205,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               <div className="flex flex-col mb-6 ">
                 <div className="md:w-1/3">
                   <label
-                    className="block text-gray-500 font-bold mb-3 pr-4"
+                    className="block text-black font-bold mb-3 pr-4"
                     htmlFor="email"
                   >
                     Email
@@ -211,8 +213,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                 </div>
                 <div className="w-full">
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="email"
+                    placeholder="Your Email"
                     {...register("email", {
                       required: "Email cannot be empty!",
                     })}
@@ -222,7 +225,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               <div className="flex flex-col mb-6 ">
                 <div className="md:w-1/3">
                   <label
-                    className="block text-gray-500 font-bold mb-3 pr-4"
+                    className="block text-black font-bold mb-3 pr-4"
                     htmlFor="phone"
                   >
                     Phone
@@ -230,8 +233,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                 </div>
                 <div className="w-full  ">
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="phone"
+                    placeholder="Your Phone Number"
                     {...register("phone", {
                       required: "PhoneNumber cannot be empty!",
                     })}
@@ -242,7 +246,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
             <div className="flex flex-col mb-6 ">
               <div className="w-full">
                 <label
-                  className="block text-gray-500 font-bold mb-3 pr-4"
+                  className="block text-black font-bold mb-3 pr-4"
                   htmlFor="description"
                 >
                   Decription
@@ -250,8 +254,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               </div>
               <div className="w-full">
                 <input
-                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                  className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                   id="description"
+                  placeholder="About You"
                   {...register("description", {
                     required: "Profession cannot be empty!",
                   })}
@@ -265,12 +270,12 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               <div className={socialName ? "text-lg" : "hidden"}>
                 Add your {socialName} link below!
               </div>
-              <div className="w-1/2 block mx-auto mt-5">
+              <div className="w-full mt-5">
                 {socialName === "github" && (
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="anonmus"
-                    placeholder="Link"
+                    placeholder="Github Link"
                     {...register("github", {
                       required: "PhoneNumber cannot be empty!",
                     })}
@@ -278,9 +283,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                 )}
                 {socialName === "instagram" && (
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="anonmus"
-                    placeholder="Link"
+                    placeholder="Instagram Link"
                     {...register("instagram", {
                       required: "PhoneNumber cannot be empty!",
                     })}
@@ -288,9 +293,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                 )}
                 {socialName === "website" && (
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="anonmus"
-                    placeholder="Link"
+                    placeholder="Webssite Link"
                     {...register("website", {
                       required: "PhoneNumber cannot be empty!",
                     })}
@@ -298,9 +303,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                 )}
                 {socialName == "linkedin" && (
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="anonmus"
-                    placeholder="Link"
+                    placeholder="Linkedin Link"
                     {...register("linkedin", {
                       required: "PhoneNumber cannot be empty!",
                     })}
@@ -308,9 +313,9 @@ const HeaderInput: React.FC<any> = (props: Props) => {
                 )}
                 {socialName == "twitter" && (
                   <input
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="anonmus"
-                    placeholder="Link"
+                    placeholder="Twitter Link"
                     {...register("twitter", {
                       required: "PhoneNumber cannot be empty!",
                     })}
@@ -322,13 +327,13 @@ const HeaderInput: React.FC<any> = (props: Props) => {
               <div className="w-full flex justify-end space-x-2">
                 <button
                   type="button"
-                  className="shadow bg-white  focus:shadow-outline focus:outline-none text-purple-500 font-bold py-2 px-4 rounded border border-purple-500"
+                  className="shadow bg-white  focus:shadow-outline focus:outline-none text-red-500 font-bold py-2 px-4 rounded border border-red-500"
                   onClick={cancelInformation}
                 >
                   Cancle
                 </button>
                 <button
-                  className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto mr-10"
+                  className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
                   type="submit"
                   onSubmit={(e) => submitIntroduction(e)}
                 >
@@ -339,7 +344,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
           </form>
         </div>
       )}
-      {!createInformation && (
+      {!createInformation && introductionData && (
         <HeaderOutput
           id={introductionData?.id}
           name={introductionData?.name}

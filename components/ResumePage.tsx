@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { HeaderInput } from "./resumeHeader/HeaderInput";
 import { Output } from "./Output";
 import { EducationInput } from "./education/EducationInput";
@@ -6,15 +6,9 @@ import { SkillsInput } from "./skills/SkillsInput";
 import { Education } from "../Utils/Interfaces";
 import ExperienceInput from "./experience/ExperienceInput";
 import ProjectInput from "./projects/ProjectInput";
-import Navbar from "./navigation/Navbar";
+import { useRouter } from "next/router";
+
 //Declaring the type of the Inputs.
-interface Props {
-  id: any;
-  resumeData: any;
-  fetchPointer: boolean;
-  loading: boolean;
-  setFectchPointer: Dispatch<SetStateAction<boolean>>;
-}
 
 const renderComponent = (
   value: string,
@@ -23,7 +17,6 @@ const renderComponent = (
   id: any,
   fetchPointer: boolean,
   setFectchPointer: Dispatch<SetStateAction<boolean>>,
-  loading: boolean,
   resumeData: any
 ) => {
   switch (value) {
@@ -83,20 +76,20 @@ const renderComponent = (
   }
 };
 
-const Header = ({
-  id,
-  resumeData,
-  fetchPointer,
-  setFectchPointer,
-  loading,
-}: Props) => {
+interface Props {
+  id: string | undefined | string[];
+  fetchPointer: boolean;
+  setFectchPointer: Dispatch<SetStateAction<boolean>>;
+  resumeData: any;
+}
+
+const Header = ({ resumeData, fetchPointer, setFectchPointer, id }: Props) => {
   const [name, setName] = useState<any>({});
-  const [renderValue, setRenderValue] = useState<string>("Education");
-  const [educationList, setEducationList] = useState<Education[]>([]);
+  const [renderValue, setRenderValue] = useState<string>("Introduction");
+
   return (
-    <div className="h-screen">
-      <Navbar />
-      <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground">
+    <div>
+      <div className="grid grid-cols-2 gap-1 p-3 h-resumeHeight bg-landingBackground ">
         {renderComponent(
           renderValue,
           setName,
@@ -104,7 +97,6 @@ const Header = ({
           id,
           fetchPointer,
           setFectchPointer,
-          loading,
           resumeData
         )}
         {/* <HeaderInput setMyInfo={setName} /> */}

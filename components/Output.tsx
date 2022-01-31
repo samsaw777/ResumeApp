@@ -32,7 +32,7 @@ const Output: React.FC<any> = (props) => {
       <div className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10">
         <div className="grid grid-cols-2 gap-1 p-5">
           <div>
-            <p className="text-2xl text-black font-bold">
+            <p className="text-2xl text-landingHeading font-bold">
               {resumeData.userIntroduction?.name
                 ? resumeData.userIntroduction?.name
                 : information?.name || "Chandler Bing"}{" "}
@@ -55,50 +55,52 @@ const Output: React.FC<any> = (props) => {
               {resumeData.userIntroduction?.email
                 ? resumeData.userIntroduction?.email
                 : information?.email || "chandlerbing@gmail.com"}{" "}
-              <MdMail className="w-4 h-4 ml-2 mt-1" />
+              <MdMail className="w-4 h-4 ml-2 mt-1 text-landingHeading" />
             </p>
             <p className="ml-auto flex mb-2 font-thin  text-md">
               {resumeData.userIntroduction?.phone
                 ? resumeData.userIntroduction?.phone
                 : information?.phone || 1245245210}{" "}
-              <FaPhone className="w-4 h-4 ml-2 mt-1" />
+              <FaPhone className="w-4 h-4 ml-2 mt-1 text-landingHeading" />
             </p>
 
             <p className="ml-auto flex mb-2 font-thin  text-md">
               {resumeData.userIntroduction?.websiteLink
                 ? resumeData.userIntroduction?.websiteLink
                 : information?.website}{" "}
-              <FaGlobe className="w-4 h-4 ml-2 mt-1" />
+              <FaGlobe className="w-4 h-4 ml-2 mt-1 text-landingHeading" />
             </p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
           <div className="pl-3 flex">
-            <FaGithub className="w-4 h-4 mr-2 mt-1 ml-2" />
+            <FaGithub className="w-4 h-4 mr-2 mt-1 ml-2 text-landingHeading" />
             {information?.github || resumeData.userIntroduction?.githubLink}
           </div>
 
           <div className="pl-3 flex">
-            <FaLinkedinIn className="w-4 h-4 mr-2 mt-1 ml-2" />
+            <FaLinkedinIn className="w-4 h-4 mr-2 mt-1 ml-2 text-landingHeading" />
             {information?.linkedin || resumeData.userIntroduction?.linkedinLink}
           </div>
 
           <div className="pl-3 flex">
-            <FaTwitter className="w-4 h-4 mr-2 mt-1 ml-2" />
+            <FaTwitter className="w-4 h-4 mr-2 mt-1 ml-2 text-landingHeading" />
             {information?.twitter || resumeData.userIntroduction?.twitterLink}
           </div>
 
           <div className="pl-3 flex">
-            <FaInstagram className="w-4 h-4 mr-2 mt-1 ml-2" />
+            <FaInstagram className="w-4 h-4 mr-2 mt-1 ml-2 text-landingHeading" />
             {information?.instagram ||
               resumeData.userIntroduction?.instagramLink}
           </div>
         </div>
 
         {/* Education Details Output */}
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2 mt-3">
           <div>
-            <span className="text-2xl font-bold pl-5">Education</span>
+            <span className="text-2xl font-bold pl-5 text-landingHeading">
+              Education
+            </span>
             {resumeData.userEducation?.map((edu: any, key: number) => (
               <div className="w-11/12 p-5" key={key}>
                 <div className="w-full text-lg font-bold">{edu.courseName}</div>
@@ -115,7 +117,9 @@ const Output: React.FC<any> = (props) => {
             ))}
 
             <div className="p-5">
-              <span className="text-2xl font-bold">Work Experience</span>
+              <span className="text-2xl font-bold text-landingHeading">
+                Work Experience
+              </span>
               {resumeData.userExperience?.map(
                 (experience: any, key: number) => (
                   <div className="mt-3" key={key}>
@@ -151,11 +155,13 @@ const Output: React.FC<any> = (props) => {
           </div>
           <div>
             <div>
-              <span className="text-2xl font-bold">Skills</span>
+              <span className="text-2xl font-bold text-landingHeading">
+                Skills
+              </span>
               <div className="grid grid-cols-3 gap-2 mr-2 mt-3">
                 {resumeData.userSkills?.map((skill: any, key: number) => (
                   <div
-                    className=" bg-gray-300  rounded-lg p-2 text-center"
+                    className=" bg-landingHeading text-black  rounded-lg p-2 text-center"
                     key={key}
                   >
                     {skill.skillName}
@@ -164,7 +170,9 @@ const Output: React.FC<any> = (props) => {
               </div>
             </div>
             <div className="mt-5">
-              <span className="text-2xl font-bold">Projects</span>
+              <span className="text-2xl font-bold text-landingHeading">
+                Projects
+              </span>
               <div className="mt-3">
                 {/* First Project */}
                 {resumeData.userProjects?.map((project: any, key: number) => (

@@ -1,0 +1,521 @@
+[33mcommit 0cce18a86c4463470087787a5d15f1705321bfa4[m[33m ([m[1;36mHEAD -> [m[1;32mupdateUI[m[33m, [m[1;31morigin/updateUI[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 30 17:26:17 2022 +0530
+
+    user checked
+
+[33mcommit 959206e533796d7a5c521b1dd97dc3365deb1d7a[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 29 21:01:12 2022 +0530
+
+    data fetching change from [id] component to resumePage component
+
+[33mcommit 5bc84165a96376c20add3a767890ce840643d56e[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 29 17:45:32 2022 +0530
+
+    project ui updated
+
+[33mcommit ffda350ba20f90963037c73d8745335e61517a32[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 29 17:11:35 2022 +0530
+
+    experience ui updated
+
+[33mcommit 67273f46ad756d3104c3b65eddb7f1310db04e47[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 29 16:49:26 2022 +0530
+
+    introduction and education ui updated
+
+[33mcommit 1f9f65218ac241b8247dc5767a2dcd844f7dd0d2[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 29 12:10:45 2022 +0530
+
+    loading navbar added
+
+[33mcommit dcb3099cd547c59e04184db4ce9638e890e79368[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 29 01:04:20 2022 +0530
+
+    introduction UI updated
+
+[33mcommit e940edffbf8065ff51db0ade6d9b9bcb149372a7[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 29 00:22:11 2022 +0530
+
+    resume route ui uodated
+
+[33mcommit 7b2532fda73a338dbe5521b4f1717f7fc7ee76e2[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Merge: a3e55db 1257c7e
+Author: Sameep Sawant <52825565+samsaw777@users.noreply.github.com>
+Date:   Fri Jan 28 23:34:13 2022 +0530
+
+    Merge pull request #8 from samsaw777/deleteAPI
+    
+    Delete functionality added into the app.
+
+[33mcommit 1257c7ecf5c561aedb918f6ecb1666efd5da0c27[m[33m ([m[1;31morigin/deleteAPI[m[33m, [m[1;32mdeleteAPI[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 28 23:32:57 2022 +0530
+
+    api created to delete the entire resume
+
+[33mcommit da551084f80c46dbfdd21403e0da18a2ad5aface[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 28 23:13:01 2022 +0530
+
+    navbar color and button color updated
+
+[33mcommit e359e55a749823beb662ce6f0be631b9538e9f0c[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 28 21:26:32 2022 +0530
+
+    color palet added into the tailwind.config file
+
+[33mcommit 693c72c99d750e7b09f6a77b5733da8a66841e1c[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 28 21:05:31 2022 +0530
+
+    height changed
+
+[33mcommit 176e6353bb033a73418ceaba9dafd241403cbd61[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 28 20:58:21 2022 +0530
+
+    Api created to delete the components
+
+[33mcommit b8b55ebfec5f1cbaf32fb1bd56857eb284a54c8a[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 28 10:49:09 2022 +0530
+
+    experience deletion compoleted
+
+[33mcommit a3e55db82b3d22b59f16266da3598a975afd17e1[m
+Merge: ffeaa8c 3a558c3
+Author: Sameep Sawant <52825565+samsaw777@users.noreply.github.com>
+Date:   Thu Jan 27 13:24:55 2022 +0530
+
+    Merge pull request #7 from samsaw777/updateComponent
+    
+    All components now have update feature and landing page is also set up.
+
+[33mcommit 3a558c378b08e9f1da6d3ffcd5ff2775c0a767ea[m[33m ([m[1;31morigin/updateComponent[m[33m, [m[1;32mupdateComponent[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 27 13:23:21 2022 +0530
+
+    introduction part implemented
+
+[33mcommit ff89d9a1215f0436d79198b767bbb5aa1d0983b1[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 27 11:45:16 2022 +0530
+
+    education updation completed sucessfully
+
+[33mcommit 371fc92b189ad83fec16c950235e305fad96aa66[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 26 23:38:37 2022 +0530
+
+    landing page route changed to /
+
+[33mcommit 88bae9d3da0a520b7aaa888652ca856916c7dc64[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 26 21:47:20 2022 +0530
+
+    landing apge with animation completed
+
+[33mcommit f72e0baa1a185f8e0743102449029266f7981a7d[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 26 15:20:05 2022 +0530
+
+    landing iamges animation done
+
+[33mcommit 9c994db8f0003e249fbd732707701cf4e64eb2ab[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 26 00:23:10 2022 +0530
+
+    svg added
+
+[33mcommit be10a959d5aefca9e42cacd861781e703792c19d[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Tue Jan 25 13:40:31 2022 +0530
+
+    header Input changed
+
+[33mcommit 4f39f2d76f53bbb8400d4157adfb2d2df7a8791d[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Tue Jan 25 11:29:52 2022 +0530
+
+    introduction naem description and email done
+
+[33mcommit ae50fdeb760bb49126f0b041628ca900bc0d2c4d[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 24 14:14:35 2022 +0530
+
+    Projects updation completed
+
+[33mcommit cbb2e88e1df1578521cf7a3ed1005488630e318c[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 24 11:43:32 2022 +0530
+
+    projects updatation ui created
+
+[33mcommit 61e3ca7cd551f1b3c0ead02baee805466dfd36d5[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 24 09:59:43 2022 +0530
+
+    experienceList height added
+
+[33mcommit b3c6a2b9f9322726b763bd0ac6b0360f437edb41[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 24 09:49:52 2022 +0530
+
+    expeience part completed
+
+[33mcommit 69c2700215af4d3182845464d8596798b4bb6e2f[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 23 16:23:41 2022 +0530
+
+    experience updated
+
+[33mcommit 0b5584680a05722f6c26edf4cbeefbe8ab74bd43[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 23 13:33:15 2022 +0530
+
+    experience ui updated
+
+[33mcommit e476ae9f69104e93fda3c9d5753831c2e6e0b1dc[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 23 13:22:24 2022 +0530
+
+    updating the experience list
+
+[33mcommit ffeaa8ce576212d33e3691b82b67082434a8f617[m
+Merge: 7ba3d4a 331fa5d
+Author: Sameep Sawant <52825565+samsaw777@users.noreply.github.com>
+Date:   Sun Jan 23 10:25:22 2022 +0530
+
+    Merge pull request #6 from samsaw777/PrismaApi
+    
+    Api create to add data in the DB.
+
+[33mcommit 331fa5ddbe56d544081b29f3facb45f9ff068b93[m[33m ([m[1;31morigin/PrismaApi[m[33m, [m[1;32mPrismaApi[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 23 01:43:15 2022 +0530
+
+    skills updated sucessfully
+
+[33mcommit 728313909b02cb6a0158ce64762ae3f6925e10df[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 23 00:56:02 2022 +0530
+
+    resume real time fixes done
+
+[33mcommit 80f43b53bcee49a8ee15ca82122b8eb0a6e08ade[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 22 12:38:54 2022 +0530
+
+    experience added into the database
+
+[33mcommit e721372add60c9e11b45b348468f6d67f3d46789[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 21 20:23:53 2022 +0530
+
+    experience added into the database
+
+[33mcommit e30f462167bd52f0bd073c86452a58622728f5ed[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 21 13:13:16 2022 +0530
+
+    added skills to the output
+
+[33mcommit 915aa2f01941e4d4a7838f846209021da2ef3a99[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 21 12:37:01 2022 +0530
+
+    skills added into the database
+
+[33mcommit 8c16e4148ccff25020908897ea1fc41c56a89b37[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 20 11:51:16 2022 +0530
+
+    loading added
+
+[33mcommit bceb6bf7e4359610c39e0162e711bbfe426177e2[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 20 10:56:34 2022 +0530
+
+    education added into the output side
+
+[33mcommit 16ed3e8b699facb75bfab919723cf5236d391e75[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 20 10:47:15 2022 +0530
+
+    education added into the data and also retrived it in the frontend
+
+[33mcommit c567ed8a20d5d267917203bbc128c6b9e94165ce[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 19 20:08:53 2022 +0530
+
+    created the education api
+
+[33mcommit 7ba3d4a3e1a91ead94b95dfa5786a64e11a61f42[m
+Merge: 6cb520f e904c17
+Author: Sameep Sawant <52825565+samsaw777@users.noreply.github.com>
+Date:   Wed Jan 19 13:20:17 2022 +0530
+
+    Merge pull request #5 from samsaw777/samsaw/feat/introductionDB
+    
+    Model for each and every part is completed.
+
+[33mcommit e904c17585904d7e17beaeef4b4f82d7d7f07664[m[33m ([m[1;31morigin/samsaw/feat/introductionDB[m[33m, [m[1;32msamsaw/feat/introductionDB[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 19 13:18:41 2022 +0530
+
+    models for each resume part is created with api for fetching the resume data and also adding the resume introduction data in db
+
+[33mcommit a8a11450b84d59cd04b5c45c2746e3e160ee5adb[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 19 10:33:43 2022 +0530
+
+    Resume component models completed
+
+[33mcommit 0e694443bd0d400620d3fe40b19eefcfe9ec0f70[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 19 09:56:53 2022 +0530
+
+    introduction layout changed in resume
+
+[33mcommit b4a515429672a7ab2e739967ae200134c9956178[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 19 09:50:05 2022 +0530
+
+    resume skeleton updated
+
+[33mcommit 926dba3c77066bb1cdf507742496c01782ef4abd[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 17 20:51:56 2022 +0530
+
+    Link added to the resume skeleton
+
+[33mcommit 76f7563f81f5c26e09f9743dfaa639696ef5fde1[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 17 20:32:34 2022 +0530
+
+    resume skeleton finished
+
+[33mcommit 2e2b2f6dc16bd7dfdc6343c6bd415078d37ab6c8[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 17 12:58:20 2022 +0530
+
+    resume created
+
+[33mcommit a5c11760fbbc9e5980b861bce48595de1acff549[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 17 11:47:28 2022 +0530
+
+    createResume api created
+
+[33mcommit d3d2b2aa95d0e6645e9a5530b4f19ee8781cb794[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 17 11:04:11 2022 +0530
+
+    modal created using tailwindcss
+
+[33mcommit bb754795eb116e7baaea1e966e8f35c06d9ed349[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 17 10:16:31 2022 +0530
+
+    feat: modal added to the create resume button
+
+[33mcommit f1c394b460d11f4269a9953948bfc95b11d2fc1a[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 17 09:30:17 2022 +0530
+
+    model Resume created in the schema.prisma file
+
+[33mcommit 6cb520f0bcdb73828ea3851accae2c033d1f8320[m
+Merge: 40270d3 59da3a2
+Author: Sameep Sawant <52825565+samsaw777@users.noreply.github.com>
+Date:   Mon Jan 17 09:10:07 2022 +0530
+
+    Merge pull request #4 from samsaw777/samsaw/experience
+    
+    Experience Skills Project portal is added in to the app.
+
+[33mcommit 59da3a2ce5b0a904377221b09f1478947bcd6169[m[33m ([m[1;31morigin/samsaw/experience[m[33m, [m[1;32msamsaw/experience[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 16 01:09:56 2022 +0530
+
+    card layout added behind the inputs
+
+[33mcommit c775598c9800a0480f239b595211b7151cdfbaa9[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sat Jan 15 20:41:14 2022 +0530
+
+    feat:project pannel added
+
+[33mcommit 59fd7edd2522855dcf4a95d16cdf6037ad614120[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 14 19:43:56 2022 +0530
+
+    feat:Experience List added
+
+[33mcommit bc68431adb8383edf97289c571170bc0c57da634[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 14 15:09:56 2022 +0530
+
+    Experience Input Added
+
+[33mcommit 30876d4c84ea05a3e59f0a02b301cb6634903c20[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 14 00:54:17 2022 +0530
+
+    feat:Static input fields for experience added in ExperienceInput folder
+
+[33mcommit 3d70715179d7a045b144ac4f188a9f7b856974d5[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 13 23:05:29 2022 +0530
+
+    feat: Header setuped in ExperienceInput file
+
+[33mcommit a954ecdd840a05a71b964934c1ce23f70cc302ce[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 13 22:59:25 2022 +0530
+
+    experience base folder created
+
+[33mcommit 40270d3db1487b1a800f413ac9f8d09b6fc59551[m
+Merge: 03b960f 1808863
+Author: Sameep Sawant <52825565+samsaw777@users.noreply.github.com>
+Date:   Wed Jan 12 17:50:28 2022 +0530
+
+    Merge pull request #3 from samsaw777/samsaw/feat/navbar
+    
+    Navbar is setuped
+
+[33mcommit 1808863c5d40e7c4b9f87e718e8bb74555402d79[m[33m ([m[1;31morigin/samsaw/feat/navbar[m[33m, [m[1;32msamsaw/feat/navbar[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 12 17:49:04 2022 +0530
+
+    feat:navbar set uped in the app
+
+[33mcommit 03b960fa2ebbbb937a09021f1a925048faa09f05[m
+Merge: 10af92f 15b51bf
+Author: Sameep Sawant <52825565+samsaw777@users.noreply.github.com>
+Date:   Wed Jan 12 17:05:18 2022 +0530
+
+    Merge pull request #2 from samsaw777/userAuth
+    
+    User authentication added into the app and now up and ready.
+
+[33mcommit 15b51bf1c7733ca9efdb33da9c88c25f4ba3d7cc[m[33m ([m[1;31morigin/userAuth[m[33m, [m[1;32muserAuth[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 12 14:09:29 2022 +0530
+
+    feat:Sign out implemented
+
+[33mcommit bfe0676e22d99f350eb57e72a5f60b7dbf816288[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 12 14:00:13 2022 +0530
+
+    feat:user authentication added to the app
+
+[33mcommit 10af92f5a477daa29403475ca87c6a45745675e2[m
+Merge: e7a3676 a9c6f61
+Author: Sameep Sawant <52825565+samsaw777@users.noreply.github.com>
+Date:   Wed Jan 12 11:35:14 2022 +0530
+
+    Merge pull request #1 from samsaw777/basicFunction
+    
+    Base Function Added
+
+[33mcommit a9c6f61a48a03c6d464d2fb2d64104308ceaaf49[m[33m ([m[1;31morigin/basicFunction[m[33m, [m[1;32mbasicFunction[m[33m)[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Tue Jan 11 13:16:31 2022 +0530
+
+    feat: prisma added
+
+[33mcommit b83b7b2cb91c622d79447ec2b7dd0c521a1bb6f4[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 10 16:39:43 2022 +0530
+
+    deleted: Api route removed
+
+[33mcommit b7749a5ff973bc15854324d140b4def48025f28a[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 10 12:07:26 2022 +0530
+
+    Skills created
+
+[33mcommit b5a9120ee3e8c6d2310fad522fc1e590a658c2cf[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 7 18:16:07 2022 +0530
+
+    fixes
+
+[33mcommit d6cc217751881c56fa1dd08565f68a42c31bd93a[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Fri Jan 7 17:46:22 2022 +0530
+
+    feat: Educaiton List added in UI
+
+[33mcommit 8c2e3b67609fd0327c5d1ed0a83153237505a3fa[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 6 18:36:18 2022 +0530
+
+    feat:educatin input added
+
+[33mcommit ad407de008d8928fe509beb74256ab7b2fcb4aa5[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Thu Jan 6 17:06:46 2022 +0530
+
+    feat:Education folder added
+
+[33mcommit 01d31fdba4b95d427d4f0a7b24cf0367c00dd02c[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 5 15:54:58 2022 +0530
+
+    feat:basic design added
+
+[33mcommit 3373ac599eed8a78a70511cb86da60c869498731[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Wed Jan 5 00:09:12 2022 +0530
+
+    feat: social icons added
+
+[33mcommit 1bbfb4ac66117df2bf0a9450d7bd85778aabd592[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Tue Jan 4 16:48:29 2022 +0530
+
+    feat: social icons added
+
+[33mcommit 35d69bcc106a5a9fd66d477752ac699799461d16[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Mon Jan 3 21:50:39 2022 +0530
+
+    progress: name, profession, description added
+
+[33mcommit c6694aa90268162462620436b90507c49da4857c[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 2 23:54:19 2022 +0530
+
+    feat: name added parallely to resume
+
+[33mcommit e7a36766c9103df56baabd502231bd5f53acd646[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 2 16:09:22 2022 +0530
+
+    Supabase setup completed
+
+[33mcommit c8704d8cc7d45a0505fb371f782a560ce6f89e38[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 2 13:16:59 2022 +0530
+
+    Tailwind css added
+
+[33mcommit 68032ce2aba468d6994587f92ae97f352ebba046[m
+Author: Sameep <sameepsawant10@gmail.com>
+Date:   Sun Jan 2 12:24:44 2022 +0530
+
+    Initial commit from Create Next App

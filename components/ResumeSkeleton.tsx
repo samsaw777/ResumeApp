@@ -1,6 +1,8 @@
 import React, { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { motion } from "framer-motion";
+import { fadeIn } from "../Utils/Variants";
 interface Props {
   title: string;
   id: string;
@@ -26,15 +28,18 @@ const ResumeSkeleton = ({
       });
   };
   return (
-    <div className="w-11/12 bg-white shadow-lg rounded block mx-auto pt-5 pb-10 cursor-pointer">
+    <motion.div
+      className="w-11/12 bg-white shadow-lg rounded-lg block mx-auto pt-5 pb-10 cursor-pointer"
+      variants={fadeIn("down")}
+    >
       <div className="flex mx-5 mt-1 justify-between">
-        <div className="text-2xl text-gray-600 font-medium">{title}</div>
+        <div className="text-2xl text-navbarBackground font-bold">{title}</div>
         <div className="flex space-x-2">
           <Link href={`/resume/${id}`} passHref>
-            <div className="cursor-pointer p-2  rounded hover:bg-gray-200">
+            <div className="group cursor-pointer p-2  rounded hover:bg-blue-200">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 group-hover:text-blue-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -49,12 +54,12 @@ const ResumeSkeleton = ({
             </div>
           </Link>
           <div
-            className="cursor-pointer p-2  rounded hover:bg-gray-200"
+            className="group cursor-pointer p-2  rounded hover:bg-red-100"
             onClick={deleteResume}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-red-500"
+              className="h-5 w-5 text-red-500 group-hover:text-red-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -72,73 +77,73 @@ const ResumeSkeleton = ({
       <div className="flex justify-between mx-5">
         <div className="block">
           <div className="w-40 h-2 bg-gray-400 rounded mt-1"></div>
-          <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-          <div className="w-40 h-10 bg-gray-400 rounded mt-1"></div>
+          <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
+          <div className="w-40 h-10 bg-gray-200 rounded mt-1"></div>
         </div>
         <div>
           <div className="w-40 h-2 bg-gray-400 rounded mt-1 ml-auto"></div>
-          <div className="w-32 h-2 bg-gray-400 rounded mt-1 ml-auto"></div>
-          <div className="w-20 h-2 bg-gray-400 rounded mt-1 ml-auto"></div>
-          <div className="w-32 h-2 bg-gray-400 rounded mt-1 ml-auto"></div>
+          <div className="w-32 h-2 bg-gray-300 rounded mt-1 ml-auto"></div>
+          <div className="w-20 h-2 bg-gray-300 rounded mt-1 ml-auto"></div>
+          <div className="w-32 h-2 bg-gray-200 rounded mt-1 ml-auto"></div>
         </div>
       </div>
       <div className="mt-5 mx-5 flex justify-between">
         <div>
           <div className="w-40 h-2 bg-gray-400 rounded mt-1"></div>
           <div className="mt-3">
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
           </div>
           <div className="mt-3">
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1"></div>
           </div>
           <div className="w-40 h-2 bg-gray-400 rounded mt-4"></div>
           <div className="mt-3">
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1"></div>
           </div>
           <div className="mt-3">
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1"></div>
           </div>
         </div>
         <div>
           <div className="w-40 h-2 bg-gray-400 rounded mt-1"></div>
           <div className="mt-3">
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1  ml-auto"></div>
           </div>
           <div className="mt-3">
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-300 rounded mt-1  ml-auto"></div>
           </div>
           <div className="w-40 h-2 bg-gray-400 rounded mt-4"></div>
           <div className="mt-3">
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1  ml-auto"></div>
           </div>
           <div className="mt-3">
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
-            <div className="w-32 h-2 bg-gray-400 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1  ml-auto"></div>
+            <div className="w-32 h-2 bg-gray-200 rounded mt-1  ml-auto"></div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -103,7 +103,7 @@ const ExperienceList = ({
               className={classNames(
                 update === false
                   ? "bg-white border-none font-bold text-xl"
-                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
+                  : "bg-gray-100 focus:outline-none border-2 border-gray-100  focus:bg-white focus:border-blue-500",
                 "rounded py-2 px-4  leading-tight w-full  focus:outline-none "
               )}
             />
@@ -111,7 +111,7 @@ const ExperienceList = ({
           {!update && (
             <div className="flex space-x-2">
               <div
-                className="cursor-pointer p-2 bg-gray-100 rounded hover:bg-gray-200"
+                className="cursor-pointer p-2 bg-gray-100 rounded hover:bg-gray-100"
                 onClick={() => setUpdate(true)}
               >
                 <svg
@@ -130,7 +130,7 @@ const ExperienceList = ({
                 </svg>
               </div>
               <div
-                className="cursor-pointer p-2 bg-gray-100 rounded hover:bg-gray-200"
+                className="cursor-pointer p-2 bg-gray-100 rounded hover:bg-gray-100"
                 onClick={deleteExperience}
               >
                 <svg
@@ -151,7 +151,7 @@ const ExperienceList = ({
             </div>
           )}
         </div>
-        <div className="text-md font-medium mt-1">
+        <div className="text-md font-medium mt-2">
           <input
             name="company"
             readOnly={!update}
@@ -160,13 +160,13 @@ const ExperienceList = ({
             className={classNames(
               update === false
                 ? "bg-white border-none font-medium text-md"
-                : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
-              "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+                : "bg-gray-100 focus:outline-none border-2 border-gray-100 focus:bg-white focus:border-blue-500",
+              "rounded py-2 px-4 text-black leading-tight w-full  focus:outline-none "
             )}
           />
         </div>
-        <div className="flex justify-between mt-1">
-          <div className="text-sm flex">
+        <div className="flex justify-between mt-2">
+          <div className="text-sm flex space-x-2  ">
             <input
               name="startDate"
               readOnly={!update}
@@ -175,11 +175,10 @@ const ExperienceList = ({
               className={classNames(
                 update === false
                   ? "bg-white border-none"
-                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
-                "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+                  : "bg-gray-100 focus:outline-none border-2 border-gray-100 focus:bg-white focus:border-blue-500",
+                "rounded py-2 px-4 text-black font-medium leading-tight w-full  focus:outline-none "
               )}
             />{" "}
-            /{" "}
             <input
               name="endDate"
               readOnly={!update}
@@ -188,8 +187,8 @@ const ExperienceList = ({
               className={classNames(
                 update === false
                   ? "bg-white border-none"
-                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
-                "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+                  : "bg-gray-100 focus:outline-none border-2 border-gray-100 focus:bg-white focus:border-blue-500",
+                "rounded py-2 px-4 text-black font-medium leading-tight w-full  focus:outline-none "
               )}
             />
           </div>
@@ -202,13 +201,13 @@ const ExperienceList = ({
               className={classNames(
                 update === false
                   ? "bg-white border-none"
-                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
-                "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+                  : "bg-gray-100 focus:outline-none border-2 border-gray-100 focus:bg-white focus:border-blue-500",
+                "rounded py-2 px-4 text-black font-medium leading-tight w-full  focus:outline-none "
               )}
             />
           </div>
         </div>
-        <div className="text-md mt-1">
+        <div className="text-md mt-2">
           <input
             name="description"
             readOnly={!update}
@@ -217,8 +216,8 @@ const ExperienceList = ({
             className={classNames(
               update === false
                 ? "bg-white border-none"
-                : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
-              "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none "
+                : "bg-gray-100 focus:outline-none border-2 border-gray-100 focus:bg-white focus:border-blue-500",
+              "rounded py-2 px-4 text-black font-medium leading-tight w-full  focus:outline-none "
             )}
           />
         </div>
@@ -234,8 +233,8 @@ const ExperienceList = ({
               className={classNames(
                 update === false
                   ? "bg-white border-none"
-                  : "bg-gray-200 focus:outline-none border-2  focus:bg-white focus:border-purple-500",
-                "rounded py-2 px-4 text-gray-700 leading-tight w-full  focus:outline-none mt-1 "
+                  : "bg-gray-100 focus:outline-none border-2 border-gray-100 focus:bg-white focus:border-blue-500",
+                "rounded py-2 px-4 text-black font-medium leading-tight w-full  focus:outline-none mt-1 "
               )}
             />
           ))}
@@ -243,13 +242,13 @@ const ExperienceList = ({
         {update && (
           <div className="flex justify-end mt-2 space-x-2">
             <p
-              className="p-2 bg-white text-purple-500 border-2 border-purple-500 cursor-pointer"
+              className="p-2 bg-white text-red-500 border-2 border-red-500 cursor-pointer"
               onClick={cancelUpdate}
             >
               Cancel
             </p>
             <button
-              className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
               type="submit"
             >
               Update

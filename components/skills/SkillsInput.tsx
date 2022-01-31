@@ -34,6 +34,7 @@ const SkillsInput = ({
         console.log(res.data);
         setFectchPointer(!fetchPointer);
         setSkill("");
+        setCreateSkill(false);
       })
       .catch((error) => console.log(error));
     // const skillObj = {
@@ -60,9 +61,9 @@ const SkillsInput = ({
         <div className="flex justify-end mt-2">
           <button
             onClick={() => setCreateSkill(true)}
-            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
+            className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block cursor-pointer"
           >
-            Add Experience
+            Add Skills
           </button>
         </div>
       )}
@@ -71,7 +72,7 @@ const SkillsInput = ({
           <form onSubmit={(e) => addToSkillList(e)}>
             <div className="md:w-1/3 mt-5">
               <label
-                className="block text-gray-900 font-bold mb-3 pr-4"
+                className="block text-black font-bold mb-3 pr-4"
                 htmlFor="skills"
               >
                 Add your skills
@@ -81,22 +82,23 @@ const SkillsInput = ({
               <input
                 type="text"
                 id="skills"
+                placeholder="Add a skill here"
                 value={skill}
                 onChange={(e) => setSkill(e.target.value)}
-                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-500"
               />
             </div>
             <div className="w-full mt-10 flex justify-end space-x-2">
               <button
                 type="button"
-                className="shadow bg-white  focus:shadow-outline focus:outline-none text-purple-500 font-bold py-2 px-4 rounded border border-purple-500"
+                className="shadow bg-white  focus:shadow-outline focus:outline-none text-red-500 font-bold py-2 px-4 rounded border border-red-500"
                 onClick={cancelSkill}
               >
                 Cancle
               </button>
               <button
                 type="submit"
-                className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto"
+                className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded block ml-auto"
               >
                 Add
               </button>
@@ -105,7 +107,7 @@ const SkillsInput = ({
         </div>
       )}
 
-      {!createSkill && (
+      {!createSkill && resumeSkills && (
         <div className="grid grid-cols-5 mt-5 gap-2">
           {resumeSkills?.map((s: any, key: number) => {
             return (

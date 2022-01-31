@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { supabase } from "../../Utils/initSupabase";
 import axios from "axios";
 import prisma from "../../lib/prisma";
+import Navbar from "../../components/navigation/Navbar";
 import { Header } from "../../components/ResumePage";
 const Resume: NextPage = ({ user }: any) => {
   const [id, setId] = useState<string | undefined | string[]>("");
@@ -21,31 +22,55 @@ const Resume: NextPage = ({ user }: any) => {
     const body = {
       resumeId: id,
     };
-    // setLoading(true);
+    setLoading(true);
     axios
       .post("http://localhost:3000/api/fetchResumeInfo", body)
       .then((res) => {
         console.log(res.data);
         setResumeData(res.data);
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
-        // setLoading(false);
+        setLoading(false);
       });
-  }, [id, fetchPointer]);
+  }, [id]);
+
+  useEffect(() => {
+    const body = {
+      resumeId: id,
+    };
+
+    axios
+      .post("http://localhost:3000/api/fetchResumeInfo", body)
+      .then((res) => {
+        console.log(res.data);
+        setResumeData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [fetchPointer]);
+
   return (
-    <div>
-      {resumeData && (
+    <>
+      <Navbar />
+      {!loading && resumeData ? (
         <Header
           id={id}
           resumeData={resumeData}
           fetchPointer={fetchPointer}
           setFectchPointer={setFectchPointer}
-          loading={loading}
         />
+      ) : (
+        <div className="w-full flex align-center justify-center p-72">
+          <div className="flex flex-col">
+            <div className="w-16 h-16 border-8 border-blue-500 border-dotted animate-spin rounded-full mx-atuo"></div>
+            <div className="-ml-10">Fetching Resume</div>
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

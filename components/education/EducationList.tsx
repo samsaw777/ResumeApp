@@ -34,7 +34,7 @@ const EducationList: React.FC<Props> = (props) => {
     endDate,
     location,
   });
-  console.log(education);
+  // console.log(education);
   const [update, setUpdate] = useState<boolean>(false);
 
   const cancelUpdate = () => {

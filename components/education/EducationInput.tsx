@@ -1,9 +1,22 @@
 import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { Header } from "../../Utils/Header";
+import classNames from "classNames";
 import { EducationList } from "./EducationList";
 import { Education } from "../../Utils/Interfaces";
 import axios from "axios";
+import { validateCourseName } from "../../Utils/EducationValidation";
 
+interface setVariables {
+  new (value: string | number): any;
+}
+
+interface EducationInput {
+  courseName: string | undefined;
+  institute: string | undefined;
+  startDate: number | undefined;
+  endDate: number | undefined;
+  location: string | undefined;
+}
 interface Props {
   id: string;
   setRenderValue: Dispatch<SetStateAction<String>>;
@@ -17,36 +30,27 @@ const EducationInput: React.FC<Props> = (props) => {
     props;
   // const [education, setEducation] = useState<Education[]>([]);
   // console.log(education);
-  const [educationPointer, setEducationPointer] = useState<boolean>(false);
+
   const [course, setCourse] = useState<string>("");
   const [institute, setInstitute] = useState<string>("");
   const [startDate, setStartDate] = useState<number>(2000);
   const [endDate, setEndDate] = useState<number>(2004);
   const [location, setLocation] = useState<string>("");
   const [createEducation, setCreateEducation] = useState<boolean>(false);
-  // //refetch the education from the database.
-  // useEffect(() => {
-  //   let mount = true;
-  //   const body = {
-  //     resumeId: id,
-  //   };
-  //   axios
-  //     .post("http://localhost:3000/api/fetchEducation", body)
-  //     .then((res) => {
-  //       if (mount) {
-  //         setEducation(res.data);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       if (mount) {
-  //         console.log(error);
-  //       }
-  //     });
+  const [error, setError] = useState<any>({});
+  const [educationInfo, setEducationInfo] = useState<Partial<EducationInput>>(
+    {}
+  );
 
-  //   return () => {
-  //     mount = false;
-  //   };
-  // }, [educationPointer]);
+  console.log(educationInfo);
+  console.log(error);
+
+  //validation in each field.
+  const validateEducation = (name: string, value: string | number) => {
+    setEducationInfo({ ...educationInfo, [name]: value });
+    const values = { ...educationInfo, [name]: value };
+    setError(validateCourseName(values));
+  };
 
   //add the education in the database.
   const addEducationToList = (event: React.FormEvent<HTMLFormElement>) => {
@@ -123,10 +127,19 @@ const EducationInput: React.FC<Props> = (props) => {
               <input
                 type="text"
                 id="course"
-                value={course}
+                name="courseName"
+                value={educationInfo.courseName}
                 placeholder="Course Name"
-                onChange={(e) => setCourse(e.target.value)}
-                className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                // onChange={(e) => setCourse(e.target.value)}
+                onChange={(e) =>
+                  validateEducation(e.target.name, e.target.value)
+                }
+                className={classNames(
+                  error.courseName
+                    ? " focus:border-red-500"
+                    : "focus:border-blue-500",
+                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                )}
               />
             </div>
             <div className="md:w-1/3 mt-5">
@@ -141,10 +154,18 @@ const EducationInput: React.FC<Props> = (props) => {
               <input
                 type="text"
                 id="institute"
-                value={institute}
+                name="institute"
+                value={educationInfo.institute}
                 placeholder="Institute Name"
-                onChange={(e) => setInstitute(e.target.value)}
-                className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                onChange={(e) =>
+                  validateEducation(e.target.name, e.target.value)
+                }
+                className={classNames(
+                  error.institute
+                    ? " focus:border-red-500"
+                    : "focus:border-blue-500",
+                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                )}
               />
             </div>
             <div className="flex mt-5">
@@ -158,10 +179,18 @@ const EducationInput: React.FC<Props> = (props) => {
                 <input
                   type="text"
                   id="start"
-                  value={startDate}
+                  name="startDate"
+                  value={educationInfo.startDate}
                   placeholder="Start Year"
-                  onChange={(e) => setStartDate(Number(e.target.value))}
-                  className="bg-gray-100 appearance-none border-2 border-gray-100 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-28 placeholder-gray-900"
+                  onChange={(e) =>
+                    validateEducation(e.target.name, Number(e.target.value))
+                  }
+                  className={classNames(
+                    error.startDate
+                      ? " focus:border-red-500"
+                      : "focus:border-blue-500",
+                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                  )}
                 />
               </div>
               <div className="flex-col flex ml-5">
@@ -174,10 +203,18 @@ const EducationInput: React.FC<Props> = (props) => {
                 <input
                   type="text"
                   id="end"
-                  value={endDate}
+                  name="endDate"
+                  value={educationInfo.endDate}
                   placeholder="End Year"
-                  onChange={(e) => setEndDate(Number(e.target.value))}
-                  className="bg-gray-100 appearance-none border-2 border-gray-100 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-28 placeholder-gray-900"
+                  onChange={(e) =>
+                    validateEducation(e.target.name, Number(e.target.value))
+                  }
+                  className={classNames(
+                    error.endDate
+                      ? " focus:border-red-500"
+                      : "focus:border-blue-500",
+                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                  )}
                 />
               </div>
               <div className="ml-auto">
@@ -192,10 +229,18 @@ const EducationInput: React.FC<Props> = (props) => {
                 <input
                   type="text"
                   id="location"
-                  value={location}
+                  name="location"
+                  value={educationInfo.location}
                   placeholder="Location"
-                  onChange={(e) => setLocation(e.target.value)}
-                  className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-30 placeholder-gray-900"
+                  onChange={(e) =>
+                    validateEducation(e.target.name, e.target.value)
+                  }
+                  className={classNames(
+                    error.location
+                      ? " focus:border-red-500"
+                      : "focus:border-blue-500",
+                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                  )}
                 />
               </div>
             </div>

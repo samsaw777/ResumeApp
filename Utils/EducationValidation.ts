@@ -1,4 +1,4 @@
-import { educationValidation } from "./Interfaces";
+import { educationValidation, projectValidation } from "./Interfaces";
 
 export const validateCourseName = ({
   courseName,
@@ -62,5 +62,37 @@ export const validateCourseName = ({
   } else if (location === "") {
     errors.location = "Location is required";
   }
+  return errors;
+};
+
+//validating the url.
+const validateUrl = (url: string | undefined) => {
+  var res = url?.match(
+    /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+  );
+  return res !== null;
+};
+
+export const projectValidate = ({
+  projectName,
+  description,
+  githubLink,
+  liveLink,
+}: projectValidation | any) => {
+  const errors: any = {};
+  if (projectName === "") {
+    errors.projectName = "Project name cannot be empty!";
+  } else if (projectName?.length < 3) {
+    errors.projectName = "Project Name should be alteast 3 characters";
+  } else if (description === "") {
+    errors.description = "Description cannot be empty!";
+  } else if (description?.length < 3) {
+    errors.description = "Description should be atleast 3 characters";
+  } else if (githubLink && !validateUrl(githubLink)) {
+    errors.githubLink = "Github link is not valid!";
+  } else if (liveLink && !validateUrl(liveLink)) {
+    errors.liveLink = "Live link is not valid!";
+  }
+
   return errors;
 };

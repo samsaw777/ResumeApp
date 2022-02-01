@@ -85,7 +85,7 @@ interface Props {
 
 const Header = ({ resumeData, fetchPointer, setFectchPointer, id }: Props) => {
   const [name, setName] = useState<any>({});
-  const [renderValue, setRenderValue] = useState<string>("Education");
+  const [renderValue, setRenderValue] = useState<string>("Projects");
 
   return (
     <div>

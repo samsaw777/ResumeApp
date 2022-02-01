@@ -17,3 +17,10 @@ export interface educationValidation {
   endDate: number | undefined;
   location: string | undefined;
 }
+
+export interface projectValidation {
+  projectName: string | undefined;
+  description: string | undefined;
+  githubLink?: string | undefined;
+  liveLink?: string | undefined;
+}

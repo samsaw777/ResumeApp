@@ -6,10 +6,6 @@ import { Education } from "../../Utils/Interfaces";
 import axios from "axios";
 import { validateCourseName } from "../../Utils/EducationValidation";
 
-interface setVariables {
-  new (value: string | number): any;
-}
-
 interface EducationInput {
   courseName: string | undefined;
   institute: string | undefined;
@@ -31,11 +27,11 @@ const EducationInput: React.FC<Props> = (props) => {
   // const [education, setEducation] = useState<Education[]>([]);
   // console.log(education);
 
-  const [course, setCourse] = useState<string>("");
-  const [institute, setInstitute] = useState<string>("");
-  const [startDate, setStartDate] = useState<number>(2000);
-  const [endDate, setEndDate] = useState<number>(2004);
-  const [location, setLocation] = useState<string>("");
+  // const [course, setCourse] = useState<string>("");
+  // const [institute, setInstitute] = useState<string>("");
+  // const [startDate, setStartDate] = useState<number>(2000);
+  // const [endDate, setEndDate] = useState<number>(2004);
+  // const [location, setLocation] = useState<string>("");
   const [createEducation, setCreateEducation] = useState<boolean>(false);
   const [error, setError] = useState<any>({});
   const [educationInfo, setEducationInfo] = useState<Partial<EducationInput>>(
@@ -56,11 +52,11 @@ const EducationInput: React.FC<Props> = (props) => {
   const addEducationToList = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const body = {
-      courseName: course,
-      institute: institute,
-      startDate: startDate,
-      endDate: endDate,
-      location: location,
+      courseName: educationInfo.courseName,
+      institute: educationInfo.institute,
+      startDate: educationInfo.startDate,
+      endDate: educationInfo.endDate,
+      location: educationInfo.location,
       resumeId: id,
     };
 
@@ -70,11 +66,7 @@ const EducationInput: React.FC<Props> = (props) => {
       .then((res) => {
         console.log(res.data);
         setFectchPointer(!fetchPointer);
-        setCourse("");
-        setLocation("");
-        setStartDate(2000);
-        setEndDate(2004);
-        setInstitute("");
+        setEducationInfo({});
         // setEducationPointer(!educationPointer);
         setCreateEducation(false);
       })
@@ -86,12 +78,9 @@ const EducationInput: React.FC<Props> = (props) => {
   };
 
   const cancelEducation = () => {
+    setEducationInfo({});
     setCreateEducation(false);
-    setCourse("");
-    setLocation("");
-    setStartDate(2000);
-    setEndDate(2004);
-    setInstitute("");
+    setError({});
   };
 
   return (
@@ -114,6 +103,13 @@ const EducationInput: React.FC<Props> = (props) => {
       )}
       {createEducation && (
         <div className=" w-full bg-white shadow-lg rounded-lg p-5 mt-2 ">
+          <div className="text-md font-bold text-red-500">
+            {error?.courseName ||
+              error?.institute ||
+              error?.startDate ||
+              error?.endDate ||
+              error?.location}
+          </div>
           <form onSubmit={(e) => addEducationToList(e)}>
             <div className="md:w-1/3 mt-5">
               <label

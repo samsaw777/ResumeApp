@@ -1,6 +1,6 @@
 import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { Header } from "../../Utils/Header";
-import classNames from "classNames";
+import classNames from "classnames";
 import { EducationList } from "./EducationList";
 import { Education } from "../../Utils/Interfaces";
 import axios from "axios";

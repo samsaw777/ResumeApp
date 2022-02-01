@@ -9,3 +9,11 @@ export interface Education {
 export interface Skill {
   skill: string;
 }
+
+export interface educationValidation {
+  courseName: string | undefined;
+  institute: string | undefined;
+  startDate: number | undefined;
+  endDate: number | undefined;
+  location: string | undefined;
+}

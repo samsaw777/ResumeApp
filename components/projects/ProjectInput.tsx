@@ -4,6 +4,7 @@ import classNames from "classnames";
 import ProjectList from "./ProjectList";
 import axios from "axios";
 import { projectValidate } from "../../Utils/EducationValidation";
+import { Project, Error } from "../../Utils/Interfaces";
 
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
@@ -13,20 +14,6 @@ interface Props {
   setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
 
-interface Project {
-  projectName: string | undefined;
-  description: string | undefined;
-  liveLink: string | undefined;
-  githubLink: string | undefined;
-}
-
-interface Error {
-  projectName: string | undefined;
-  description: string | undefined;
-  liveLink?: string | undefined;
-  githubLink?: string | undefined;
-}
-
 const ProjectInput = ({
   setRenderValue,
   fetchPointer,
@@ -34,10 +21,6 @@ const ProjectInput = ({
   resumeProject,
   id,
 }: Props) => {
-  const [projectTitle, setProjectTitle] = useState<string>("");
-  const [projectDescription, setProjectDescription] = useState<string>("");
-  const [projectLink, setProjectLink] = useState<string>("");
-  const [projectGithubLink, setProjectGithubLink] = useState<string>("");
   const [createProject, setCreateProject] = useState<boolean>(false);
 
   const [projectInfo, setProjectInfo] = useState<Project>({
@@ -127,14 +110,14 @@ const ProjectInput = ({
       {createProject && (
         <div className="h-projectInputHeight">
           <div className="mt-5 w-full bg-white shadow-lg rounded-lg p-5">
-            <div>
+            <div className="text-md font-bold text-red-500">
               {errors.projectName ||
                 errors.description ||
                 errors.githubLink ||
                 errors.liveLink}
             </div>
             <form onSubmit={(e) => addProjectList(e)}>
-              <label className="font-bold text-black text-md">Title</label>
+              <label className="font-bold text-black text-md">Name</label>
               <input
                 type="text"
                 placeholder="Project Name"
@@ -148,7 +131,7 @@ const ProjectInput = ({
                   "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white placeholder-gray-900"
                 )}
               />
-              <label className="font-bold text-black pl-1 text-md">
+              <label className="font-bold text-black pl-1 text-md mt-2">
                 Description
               </label>
               <input
@@ -161,7 +144,7 @@ const ProjectInput = ({
                   errors.description
                     ? " focus:border-red-500"
                     : "focus:border-blue-500",
-                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white placeholder-gray-900"
+                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white placeholder-gray-900 mt-2"
                 )}
               />
               <div className="grid grid-cols-2 gap-2 mt-2">

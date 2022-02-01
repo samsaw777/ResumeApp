@@ -24,3 +24,17 @@ export interface projectValidation {
   githubLink?: string | undefined;
   liveLink?: string | undefined;
 }
+
+export interface Project {
+  projectName: string | undefined;
+  description: string | undefined;
+  liveLink: string | undefined;
+  githubLink: string | undefined;
+}
+
+export interface Error {
+  projectName: string | undefined;
+  description: string | undefined;
+  liveLink?: string | undefined;
+  githubLink?: string | undefined;
+}

@@ -5,6 +5,7 @@ import { supabase } from "../Utils/initSupabase";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import NextNProgress from "nextjs-progressbar";
+import { Toaster } from "react-hot-toast";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Auth.UserContextProvider supabaseClient={supabase}>
         <NextNProgress color="#28BEBD" />
         <Component {...pageProps} />
+        <Toaster />
       </Auth.UserContextProvider>
     </AnimatePresence>
   );

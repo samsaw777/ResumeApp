@@ -44,5 +44,5 @@ export interface SkillValidation {
 }
 
 export interface skillError {
-  skillName: string | undefined;
+  [skillName: string]: string | undefined;
 }

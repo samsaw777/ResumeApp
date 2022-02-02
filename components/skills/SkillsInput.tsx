@@ -4,6 +4,7 @@ import { skillError } from "../../Utils/Interfaces";
 import { SkillsList } from "./SkillsList";
 import classNames from "classnames";
 import axios from "axios";
+import toast from "react-hot-toast";
 import { skillValidation } from "../../Utils/EducationValidation";
 interface Props {
   id: string;
@@ -25,6 +26,20 @@ const SkillsInput = ({
   const [createSkill, setCreateSkill] = useState<boolean>(false);
   const [errors, setErrors] = useState<skillError>({ skillName: "" });
 
+  //checking of errors are present.
+  const isSkills = () => {
+    let errorStatus = false;
+    Object.keys(errors).map((key: any, index: any) => {
+      if (errors[key]) {
+        errorStatus = true;
+      } else {
+        errorStatus = false;
+      }
+    });
+
+    return errorStatus;
+  };
+
   //validating the skill.
   const validateSkill = (skillName: string) => {
     setSkill(skillName);
@@ -37,20 +52,20 @@ const SkillsInput = ({
       skill,
       resumeId: id,
     };
-    axios
-      .post("http://localhost:3000/api/addSkills", body)
-      .then((res) => {
-        console.log(res.data);
-        setFectchPointer(!fetchPointer);
-        setSkill("");
-        setCreateSkill(false);
-      })
-      .catch((error) => console.log(error));
-    // const skillObj = {
-    //   skill,
-    // };
-    // setSkills([...skills, skillObj]);
-    // setSkill("");
+    if (!isSkills()) {
+      axios
+        .post("http://localhost:3000/api/addSkills", body)
+        .then((res) => {
+          console.log(res.data);
+          setFectchPointer(!fetchPointer);
+          setSkill("");
+          setCreateSkill(false);
+          toast.success("Skill Added", { className: "font-bold" });
+        })
+        .catch((error) => console.log(error));
+    } else {
+      toast.error("Skill name is invalid!", { className: "font-bold" });
+    }
   };
 
   const cancelSkill = () => {

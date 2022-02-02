@@ -134,7 +134,7 @@ const EducationInput: React.FC<Props> = (props) => {
                   error.courseName
                     ? " focus:border-red-500"
                     : "focus:border-blue-500",
-                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  placeholder-gray-900"
                 )}
               />
             </div>
@@ -160,7 +160,7 @@ const EducationInput: React.FC<Props> = (props) => {
                   error.institute
                     ? " focus:border-red-500"
                     : "focus:border-blue-500",
-                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  placeholder-gray-900"
                 )}
               />
             </div>
@@ -185,7 +185,7 @@ const EducationInput: React.FC<Props> = (props) => {
                     error.startDate
                       ? " focus:border-red-500"
                       : "focus:border-blue-500",
-                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  placeholder-gray-900"
                   )}
                 />
               </div>
@@ -209,7 +209,7 @@ const EducationInput: React.FC<Props> = (props) => {
                     error.endDate
                       ? " focus:border-red-500"
                       : "focus:border-blue-500",
-                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  placeholder-gray-900"
                   )}
                 />
               </div>
@@ -235,7 +235,7 @@ const EducationInput: React.FC<Props> = (props) => {
                     error.location
                       ? " focus:border-red-500"
                       : "focus:border-blue-500",
-                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-900"
+                    "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  placeholder-gray-900"
                   )}
                 />
               </div>

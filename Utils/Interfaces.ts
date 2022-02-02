@@ -38,3 +38,11 @@ export interface Error {
   liveLink?: string | undefined;
   githubLink?: string | undefined;
 }
+
+export interface SkillValidation {
+  skillName: string | undefined;
+}
+
+export interface skillError {
+  skillName: string | undefined;
+}

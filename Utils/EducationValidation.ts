@@ -1,4 +1,9 @@
-import { educationValidation, projectValidation } from "./Interfaces";
+import {
+  educationValidation,
+  projectValidation,
+  skillError,
+  SkillValidation,
+} from "./Interfaces";
 
 export const validateCourseName = ({
   courseName,
@@ -92,6 +97,19 @@ export const projectValidate = ({
     errors.githubLink = "Github link is not valid!";
   } else if (liveLink && !validateUrl(liveLink)) {
     errors.liveLink = "Live link is not valid!";
+  }
+
+  return errors;
+};
+
+export const skillValidation = ({ skillName }: SkillValidation | any) => {
+  const errors: skillError = {
+    skillName: "",
+  };
+  if (skillName === "") {
+    errors.skillName = "Skill name cannot be empty!";
+  } else if (skillName?.length < 3) {
+    errors.skillName = "Skill name should be atleast 3 characters";
   }
 
   return errors;

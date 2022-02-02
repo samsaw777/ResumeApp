@@ -1,8 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
-import { Skill } from "../../Utils/Interfaces";
+import { skillError } from "../../Utils/Interfaces";
 import { SkillsList } from "./SkillsList";
+import classNames from "classnames";
 import axios from "axios";
+import { skillValidation } from "../../Utils/EducationValidation";
 interface Props {
   id: string;
   setRenderValue: Dispatch<SetStateAction<String>>;
@@ -19,9 +21,16 @@ const SkillsInput = ({
   setFectchPointer,
 }: Props) => {
   console.log(resumeSkills);
-  const [skills, setSkills] = useState<Skill[]>([]);
   const [skill, setSkill] = useState<string>("");
   const [createSkill, setCreateSkill] = useState<boolean>(false);
+  const [errors, setErrors] = useState<skillError>({ skillName: "" });
+
+  //validating the skill.
+  const validateSkill = (skillName: string) => {
+    setSkill(skillName);
+    setErrors(skillValidation({ skillName }));
+  };
+
   const addToSkillList = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const body = {
@@ -69,6 +78,9 @@ const SkillsInput = ({
       )}
       {createSkill && (
         <div className="mt-5 w-full bg-white shadow-lg rounded-lg p-5">
+          <div className="text-mg font-bold text-red-500">
+            {errors.skillName}
+          </div>
           <form onSubmit={(e) => addToSkillList(e)}>
             <div className="md:w-1/3 mt-5">
               <label
@@ -84,8 +96,14 @@ const SkillsInput = ({
                 id="skills"
                 placeholder="Add a skill here"
                 value={skill}
-                onChange={(e) => setSkill(e.target.value)}
-                className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 placeholder-gray-500"
+                name="skill"
+                onChange={(e) => validateSkill(e.target.value)}
+                className={classNames(
+                  errors.skillName
+                    ? " focus:border-red-500"
+                    : "focus:border-blue-500",
+                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  placeholder-gray-900"
+                )}
               />
             </div>
             <div className="w-full mt-10 flex justify-end space-x-2">

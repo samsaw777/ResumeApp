@@ -15,25 +15,9 @@ export const validateCourseName = ({
   const errors: any = {};
   if (courseName?.length < 3) {
     errors.courseName = "Course name must be at least 3 characters";
-  } else if (
-    courseName?.split("").map((letter: any, index: number) => {
-      if (typeof letter == "number") {
-        return true;
-      }
-    })
-  ) {
-    errors.courseName = "Course name must not contain numbers";
   } else if (courseName?.length > 15) {
   } else if (courseName?.length > 15) {
     errors.courseName = "Course name must be less than 15 characters";
-  } else if (
-    institute?.split("").map((letter: any, index: number) => {
-      if (typeof letter == "number") {
-        return true;
-      }
-    })
-  ) {
-    errors.institute = "Institute must not contain numbers";
   } else if (typeof courseName === "number") {
     errors.courseName = "Course name must be a string";
   } else if (institute?.length < 3) {
@@ -48,14 +32,6 @@ export const validateCourseName = ({
     errors.location = "Location must be at least 3 characters";
   } else if (location?.length > 15) {
     errors.location = "Location must be less than 15 characters";
-  } else if (
-    location?.split("").map((letter: any, index: number) => {
-      if (typeof letter == "number") {
-        return true;
-      }
-    })
-  ) {
-    errors.location = "Location should not include numbers";
   } else if (courseName === "") {
     errors.courseName = "Course name is required";
   } else if (institute === "") {
@@ -114,3 +90,13 @@ export const skillValidation = ({ skillName }: SkillValidation | any) => {
 
   return errors;
 };
+
+/* else if (
+    courseName?.split("").map((letter: any, index: number) => {
+      if (typeof letter == "number") {
+        return true;
+      }
+    })
+  ) {
+    errors.courseName = "Course name must not contain numbers";
+  }*/

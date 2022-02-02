@@ -5,7 +5,7 @@ import { EducationList } from "./EducationList";
 import { Education } from "../../Utils/Interfaces";
 import axios from "axios";
 import { validateCourseName } from "../../Utils/EducationValidation";
-
+import toast from "react-hot-toast";
 interface EducationInput {
   courseName: string | undefined;
   institute: string | undefined;
@@ -41,6 +41,19 @@ const EducationInput: React.FC<Props> = (props) => {
   console.log(educationInfo);
   console.log(error);
 
+  const isSkills = () => {
+    let errorStatus = false;
+    Object.keys(error).map((key: any, index: any) => {
+      if (error[key]) {
+        errorStatus = true;
+      } else {
+        errorStatus = false;
+      }
+    });
+
+    return errorStatus;
+  };
+
   //validation in each field.
   const validateEducation = (name: string, value: string | number) => {
     setEducationInfo({ ...educationInfo, [name]: value });
@@ -60,19 +73,24 @@ const EducationInput: React.FC<Props> = (props) => {
       resumeId: id,
     };
 
-    //call the api
-    axios
-      .post("http://localhost:3000/api/addEducation", body)
-      .then((res) => {
-        console.log(res.data);
-        setFectchPointer(!fetchPointer);
-        setEducationInfo({});
-        // setEducationPointer(!educationPointer);
-        setCreateEducation(false);
-      })
-      .then((error) => {
-        console.log(error);
-      });
+    if (!isSkills()) {
+      //call the api
+      axios
+        .post("http://localhost:3000/api/addEducation", body)
+        .then((res) => {
+          console.log(res.data);
+          setFectchPointer(!fetchPointer);
+          setEducationInfo({});
+          // setEducationPointer(!educationPointer);
+          toast.success("Education Added", { className: "font-bold" });
+          setCreateEducation(false);
+        })
+        .then((error) => {
+          toast.error(`${error}`, { className: "font-bold" });
+        });
+    } else {
+      toast.error("Invalid fields detected!", { className: "font-bold" });
+    }
 
     // setEducation([...education, educationObj]);
   };

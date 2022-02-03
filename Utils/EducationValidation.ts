@@ -100,3 +100,36 @@ export const skillValidation = ({ skillName }: SkillValidation | any) => {
   ) {
     errors.courseName = "Course name must not contain numbers";
   }*/
+
+export const ExperienceValidation = ({
+  position,
+  company,
+  description,
+  startDate,
+  endDate,
+  location,
+}: any) => {
+  const errors: any = {};
+  if (position === "") {
+    errors.position = "Position cannot be empty!";
+  } else if (position?.length < 3) {
+    errors.position = "Position should be atleast 3 characters";
+  } else if (company === "") {
+    errors.company = "Company cannot be empty!";
+  } else if (company?.length < 3) {
+    errors.company = "Company should be atleast 3 characters";
+  } else if (description === "") {
+    errors.description = "Description cannot be empty!";
+  } else if (description?.length < 3) {
+    errors.description = "Description should be atleast 3 characters";
+  } else if (startDate === "") {
+    errors.startDate = "Start date cannot be empty!";
+  } else if (endDate === "") {
+    errors.endDate = "End date cannot be empty!";
+  } else if (location === "") {
+    errors.location = "Location cannot be empty!";
+  } else if (location?.length < 3) {
+    errors.location = "Location should be atleast 3 characters";
+  }
+  return errors;
+};

@@ -1,7 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
+import classNames from "classnames";
 import ProjectList from "./ProjectList";
 import axios from "axios";
+import { projectValidate } from "../../Utils/EducationValidation";
+import { Project, Error } from "../../Utils/Interfaces";
 
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
@@ -11,13 +14,6 @@ interface Props {
   setFectchPointer: Dispatch<SetStateAction<boolean>>;
 }
 
-interface Project {
-  title: string | undefined;
-  description: string | undefined;
-  website: string | undefined;
-  githubLink: string | undefined;
-}
-
 const ProjectInput = ({
   setRenderValue,
   fetchPointer,
@@ -25,31 +21,51 @@ const ProjectInput = ({
   resumeProject,
   id,
 }: Props) => {
-  const [projectTitle, setProjectTitle] = useState<string>("");
-  const [projectDescription, setProjectDescription] = useState<string>("");
-  const [projectLink, setProjectLink] = useState<string>("");
-  const [projectGithubLink, setProjectGithubLink] = useState<string>("");
-  const [projectsList, setProjectList] = useState<Project[]>([]);
   const [createProject, setCreateProject] = useState<boolean>(false);
+
+  const [projectInfo, setProjectInfo] = useState<Project>({
+    projectName: "",
+    description: "",
+    liveLink: "",
+    githubLink: "",
+  });
+
+  const [errors, setErrors] = useState<Error>({
+    projectName: "",
+    description: "",
+    liveLink: "",
+    githubLink: "",
+  });
+
+  console.log(projectInfo);
+  console.log(errors);
+
+  //validate the project inputFields
+  const validateProject = (name: string, value: string) => {
+    setProjectInfo({ ...projectInfo, [name]: value });
+    setErrors(projectValidate({ ...projectInfo, [name]: value }));
+  };
 
   //add into the list.
   const addProjectList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const body = {
-      projectName: projectTitle,
-      projectDescription: projectDescription,
-      projectWebsiteLink: projectLink,
-      projectGithubLink: projectGithubLink,
+      projectName: projectInfo.projectName,
+      projectDescription: projectInfo.description,
+      projectWebsiteLink: projectInfo.liveLink,
+      projectGithubLink: projectInfo.githubLink,
       resumeId: id,
     };
 
     axios
       .post("http://localhost:3000/api/addProjects", body)
       .then((res) => {
-        setProjectTitle("");
-        setProjectDescription("");
-        setProjectLink("");
-        setProjectGithubLink("");
+        setProjectInfo({
+          projectName: "",
+          description: "",
+          liveLink: "",
+          githubLink: "",
+        });
         setFectchPointer(!fetchPointer);
         setCreateProject(false);
       })
@@ -59,10 +75,18 @@ const ProjectInput = ({
   };
 
   const cancleProject = () => {
-    setProjectTitle("");
-    setProjectDescription("");
-    setProjectLink("");
-    setProjectGithubLink("");
+    setProjectInfo({
+      projectName: "",
+      description: "",
+      liveLink: "",
+      githubLink: "",
+    });
+    setErrors({
+      projectName: "",
+      description: "",
+      liveLink: "",
+      githubLink: "",
+    });
     setCreateProject(false);
   };
 
@@ -86,24 +110,42 @@ const ProjectInput = ({
       {createProject && (
         <div className="h-projectInputHeight">
           <div className="mt-5 w-full bg-white shadow-lg rounded-lg p-5">
+            <div className="text-md font-bold text-red-500">
+              {errors.projectName ||
+                errors.description ||
+                errors.githubLink ||
+                errors.liveLink}
+            </div>
             <form onSubmit={(e) => addProjectList(e)}>
-              <label className="font-bold text-black text-md">Title</label>
+              <label className="font-bold text-black text-md">Name</label>
               <input
                 type="text"
                 placeholder="Project Name"
-                value={projectTitle}
-                onChange={(e) => setProjectTitle(e.target.value)}
-                className="bg-gray-100 mt-2 placeholder-gray-900 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mb-2"
+                name="projectName"
+                value={projectInfo.projectName}
+                onChange={(e) => validateProject(e.target.name, e.target.value)}
+                className={classNames(
+                  errors.projectName
+                    ? " focus:border-red-500"
+                    : "focus:border-blue-500",
+                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white placeholder-gray-900"
+                )}
               />
-              <label className="font-bold text-black pl-1 text-md">
+              <label className="font-bold text-black pl-1 text-md mt-2">
                 Description
               </label>
               <input
                 type="text"
                 placeholder="Project Description"
-                value={projectDescription}
-                onChange={(e) => setProjectDescription(e.target.value)}
-                className="bg-gray-100 mt-2 placeholder-gray-900 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                name="description"
+                value={projectInfo.description}
+                onChange={(e) => validateProject(e.target.name, e.target.value)}
+                className={classNames(
+                  errors.description
+                    ? " focus:border-red-500"
+                    : "focus:border-blue-500",
+                  "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white placeholder-gray-900 mt-2"
+                )}
               />
               <div className="grid grid-cols-2 gap-2 mt-2">
                 <div>
@@ -113,9 +155,17 @@ const ProjectInput = ({
                   <input
                     type="text"
                     placeholder="Project Github Link"
-                    value={projectGithubLink}
-                    onChange={(e) => setProjectGithubLink(e.target.value)}
-                    className="mt-1 bg-gray-100 placeholder-gray-900 appearance-none border-2 border-gray-100  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                    name="githubLink"
+                    value={projectInfo.githubLink}
+                    onChange={(e) =>
+                      validateProject(e.target.name, e.target.value)
+                    }
+                    className={classNames(
+                      errors.githubLink
+                        ? " focus:border-red-500"
+                        : "focus:border-blue-500",
+                      "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white placeholder-gray-900"
+                    )}
                   />
                 </div>
                 <div>
@@ -125,9 +175,17 @@ const ProjectInput = ({
                   <input
                     type="text"
                     placeholder="Project Live Link"
-                    value={projectLink}
-                    onChange={(e) => setProjectLink(e.target.value)}
-                    className="mt-1 bg-gray-100 placeholder-gray-900 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                    name="liveLink"
+                    value={projectInfo.liveLink}
+                    onChange={(e) =>
+                      validateProject(e.target.name, e.target.value)
+                    }
+                    className={classNames(
+                      errors.liveLink
+                        ? " focus:border-red-500"
+                        : "focus:border-blue-500",
+                      "bg-gray-100 appearance-none border-2  rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white placeholder-gray-900"
+                    )}
                   />
                 </div>
               </div>

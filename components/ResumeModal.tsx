@@ -5,6 +5,7 @@ import { Auth } from "@supabase/ui";
 import Image from "next/image";
 import Resume from "../public/resume.svg";
 import axios from "axios";
+import { urlFetcher } from "../Utils/urlFetcher";
 
 // Modal.setAppElement("#root");
 
@@ -38,7 +39,7 @@ const ModalNotebook = ({
       userId: user?.id,
     };
     await axios
-      .post("http://localhost:3000/api/createResume", body)
+      .post(`${urlFetcher()}/api/createResume`, body)
       .then((res) => {
         setModalOpen(false);
         setLoading(false);

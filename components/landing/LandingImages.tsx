@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import MainResume from "../../public/mainresume.svg";
 import Experience from "../../public/experience.svg";
-import Skill from "../../public/skill.svg";
+import Skill from "../../public/Skill.svg";
 import Project from "../../public/projectgroup.svg";
-import Education from "../../public/education.svg";
+import Education from "../../public/Education.svg";
 import { fadeSide, staggerContainer, fade } from "../../Utils/Variants";
 
 const LandingImages = () => {

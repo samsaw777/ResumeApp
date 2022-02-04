@@ -88,34 +88,38 @@ const ExperienceInput: React.FC<Props> = (props) => {
       resumeId: id,
     };
     if (!isExperience()) {
-      axios
-        .post("http://localhost:3000/api/addExperience", experienceObj)
-        .then((res) => {
-          setFectchPointer(!fetchPointer);
-          setShowExperienceInput(true);
-          toast.success("Experience Added", {
-            className: "font-bold",
+      if (experienceInfo.position !== "") {
+        axios
+          .post("http://localhost:3000/api/addExperience", experienceObj)
+          .then((res) => {
+            setFectchPointer(!fetchPointer);
+            setShowExperienceInput(true);
+            toast.success("Experience Added", {
+              className: "font-bold",
+            });
+            setExperienceInfo({
+              position: "",
+              company: "",
+              startDate: "",
+              endDate: "",
+              location: "",
+              description: "",
+            });
+            setInputArr([
+              {
+                inttype: "text",
+                id: 1,
+                value: "",
+                name: "",
+              },
+            ]);
+          })
+          .catch((error) => {
+            console.log(error);
           });
-          setExperienceInfo({
-            position: "",
-            company: "",
-            startDate: "",
-            endDate: "",
-            location: "",
-            description: "",
-          });
-          setInputArr([
-            {
-              inttype: "text",
-              id: 1,
-              value: "",
-              name: "",
-            },
-          ]);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      } else {
+        toast.error("Enter Field", { className: "font-bold" });
+      }
     } else {
       toast.error("Invalid fields detected!", { className: "font-bold" });
     }

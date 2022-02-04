@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import axios from "axios";
 import _ from "lodash";
-
+import { urlFetcher } from "../../Utils/urlFetcher";
 const ExperienceList = ({
   position,
   company,
@@ -69,7 +69,7 @@ const ExperienceList = ({
     };
 
     axios
-      .post("http://localhost:3000/api/updateExperience", body)
+      .post(`${urlFetcher()}/api/updateExperience`, body)
       .then((res) => {
         setFectchPointer(!fetchPointer);
         setUpdate(false);
@@ -80,7 +80,7 @@ const ExperienceList = ({
   //Delete a certain experience from the database.
   const deleteExperience = () => {
     axios
-      .post("http://localhost:3000/api/deleteExperience", { experienceId: id })
+      .post(`${urlFetcher()}/api/deleteExperience`, { experienceId: id })
       .then((res) => {
         console.log(res);
         setFectchPointer(!fetchPointer);

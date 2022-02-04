@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Skill } from "../../Utils/Interfaces";
 import axios from "axios";
-
+import { urlFetcher } from "../../Utils/urlFetcher";
 interface Props {
   skill: any;
   id: string;
@@ -17,7 +17,7 @@ const SkillsList = ({ skill, id, setFectchPointer, fetchPointer }: Props) => {
     e.preventDefault();
     const body = { skill: newSkill, skillId: id };
     axios
-      .post("http://localhost:3000/api/updateSkill", body)
+      .post(`${urlFetcher()}/api/updateSkill`, body)
       .then((res) => {
         setFectchPointer(!fetchPointer);
         // setUpdate(true);
@@ -27,7 +27,7 @@ const SkillsList = ({ skill, id, setFectchPointer, fetchPointer }: Props) => {
 
   const deleteSkill = () => {
     axios
-      .post("http://localhost:3000/api/deleteSkill", { skillId: id })
+      .post(`${urlFetcher()}/api/deleteSkill`, { skillId: id })
       .then((res) => setFectchPointer(!fetchPointer))
       .catch((err) => console.log(err));
   };

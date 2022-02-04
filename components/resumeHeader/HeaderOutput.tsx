@@ -1,7 +1,7 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import classNames from "classnames";
 import axios from "axios";
-
+import { urlFetcher } from "../../Utils/urlFetcher";
 interface Props {
   id: string | undefined;
   name: string | undefined;
@@ -89,7 +89,7 @@ const HeaderOutput = ({
     };
 
     axios
-      .post("http://localhost:3000/api/updateIntroduction", body)
+      .post(`${urlFetcher()}/api/updateIntroduction`, body)
       .then((res) => {
         setUpdate(false);
         setFectchPointer(!fetchPointer);

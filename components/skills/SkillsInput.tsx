@@ -6,6 +6,8 @@ import classNames from "classnames";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { skillValidation } from "../../Utils/EducationValidation";
+import { urlFetcher } from "../../Utils/urlFetcher";
+
 interface Props {
   id: string;
   setRenderValue: Dispatch<SetStateAction<String>>;
@@ -57,7 +59,7 @@ const SkillsInput = ({
     };
     if (!isSkills()) {
       axios
-        .post("http://localhost:3000/api/addSkills", body)
+        .post(`${urlFetcher()}/api/addSkills`, body)
         .then((res) => {
           console.log(res.data);
           setFectchPointer(!fetchPointer);

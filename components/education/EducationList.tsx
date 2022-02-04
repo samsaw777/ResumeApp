@@ -4,6 +4,7 @@ import axios from "axios";
 import Image from "next/image";
 import EducationImage from "../../public/educationsvg.svg";
 import classNames from "classnames";
+import { urlFetcher } from "../../Utils/urlFetcher";
 interface Props {
   id: string;
   setFectchPointer: Dispatch<SetStateAction<boolean>>;
@@ -59,7 +60,7 @@ const EducationList: React.FC<Props> = (props) => {
       educationId: id,
     };
     await axios
-      .post("http://localhost:3000/api/updateEducation", body)
+      .post(`${urlFetcher()}/api/updateEducation`, body)
       .then((res) => {
         setUpdate(false);
         setFectchPointer(!fetchPointer);
@@ -75,7 +76,7 @@ const EducationList: React.FC<Props> = (props) => {
 
   const deleteEducation = () => {
     axios
-      .post("http://localhost:3000/api/deleteEducation", { educationId: id })
+      .post(`${urlFetcher()}/api/deleteEducation`, { educationId: id })
       .then((res) => {
         setFectchPointer(!fetchPointer);
       })

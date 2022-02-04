@@ -6,6 +6,7 @@ import Router from "next/router";
 import { Header } from "../../Utils/Header";
 import HeaderOutput from "./HeaderOutput";
 import { createInterface } from "readline";
+import { urlFetcher } from "../../Utils/urlFetcher";
 
 type Inputs = {
   name: string;
@@ -129,7 +130,7 @@ const HeaderInput: React.FC<any> = (props: Props) => {
     };
 
     axios
-      .post("http://localhost:3000/api/userIntroduction", body)
+      .post(`${urlFetcher()}/api/userIntroduction`, body)
       .then((res) => {
         setFectchPointer(!fetchPointer);
         setCreateInformation(false);

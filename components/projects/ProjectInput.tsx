@@ -6,6 +6,7 @@ import axios from "axios";
 import { projectValidate } from "../../Utils/EducationValidation";
 import { Project, Error } from "../../Utils/Interfaces";
 import toast from "react-hot-toast";
+import { urlFetcher } from "../../Utils/urlFetcher";
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
   id: any;
@@ -74,7 +75,7 @@ const ProjectInput = ({
     };
     if (!isProject()) {
       axios
-        .post("http://localhost:3000/api/addProjects", body)
+        .post(`${urlFetcher()}/api/addProjects`, body)
         .then((res) => {
           setProjectInfo({
             projectName: "",

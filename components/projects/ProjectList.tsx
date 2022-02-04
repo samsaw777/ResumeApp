@@ -2,7 +2,7 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import { FaGithub, FaGlobe } from "react-icons/fa";
 import classNames from "classnames";
 import axios from "axios";
-
+import { urlFetcher } from "../../Utils/urlFetcher";
 interface Props {
   title: string | undefined;
   description: string | undefined;
@@ -51,7 +51,7 @@ const ProjectList = ({
     };
 
     await axios
-      .post("http://localhost:3000/api/updateProjects", body)
+      .post(`${urlFetcher()}/api/updateProjects`, body)
       .then((res) => {
         setUpdate(false);
         setFectchPointer(!fetchPointer);
@@ -68,7 +68,7 @@ const ProjectList = ({
 
   const deleteProject = () => {
     axios
-      .post("http://localhost:3000/api/deleteProjects", { projectId: id })
+      .post(`${urlFetcher()}/api/deleteProjects`, { projectId: id })
       .then((res) => {
         setFectchPointer(!fetchPointer);
       })

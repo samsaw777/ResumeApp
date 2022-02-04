@@ -3,6 +3,7 @@ import Link from "next/link";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { fadeIn } from "../Utils/Variants";
+import { urlFetcher } from "../Utils/urlFetcher";
 interface Props {
   title: string;
   id: string;
@@ -19,7 +20,7 @@ const ResumeSkeleton = ({
   //deleting the resume.
   const deleteResume = () => {
     axios
-      .post("http://localhost:3000/api/deleteResume", { resumeId: id })
+      .post(`${urlFetcher()}/api/deleteResume`, { resumeId: id })
       .then((res) => {
         setRefetchResume(!refetchResume);
       })

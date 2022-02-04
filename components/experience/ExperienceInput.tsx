@@ -5,6 +5,7 @@ import ExperienceList from "./ExperienceList";
 import axios from "axios";
 import { ExperienceValidation } from "../../Utils/EducationValidation";
 import toast from "react-hot-toast";
+import { urlFetcher } from "../../Utils/urlFetcher";
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
   id: any;
@@ -90,7 +91,7 @@ const ExperienceInput: React.FC<Props> = (props) => {
     if (!isExperience()) {
       if (experienceInfo.position !== "") {
         axios
-          .post("http://localhost:3000/api/addExperience", experienceObj)
+          .post(`${urlFetcher()}/api/addExperience`, experienceObj)
           .then((res) => {
             setFectchPointer(!fetchPointer);
             setShowExperienceInput(true);

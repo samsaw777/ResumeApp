@@ -6,6 +6,7 @@ import { Education } from "../../Utils/Interfaces";
 import axios from "axios";
 import { validateCourseName } from "../../Utils/EducationValidation";
 import toast from "react-hot-toast";
+import { urlFetcher } from "../../Utils/urlFetcher";
 interface EducationInput {
   courseName: string | undefined;
   institute: string | undefined;
@@ -83,7 +84,7 @@ const EducationInput: React.FC<Props> = (props) => {
     if (!isSkills()) {
       //call the api
       axios
-        .post("http://localhost:3000/api/addEducation", body)
+        .post(`${urlFetcher()}/api/addEducation`, body)
         .then((res) => {
           console.log(res.data);
           setFectchPointer(!fetchPointer);

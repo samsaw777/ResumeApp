@@ -6,6 +6,8 @@ import axios from "axios";
 import prisma from "../../lib/prisma";
 import Navbar from "../../components/navigation/Navbar";
 import { Header } from "../../components/ResumePage";
+import { urlFetcher } from "../../Utils/urlFetcher";
+
 const Resume: NextPage = ({ user }: any) => {
   const [id, setId] = useState<string | undefined | string[]>("");
   const [resumeData, setResumeData] = useState<any>({});
@@ -24,7 +26,7 @@ const Resume: NextPage = ({ user }: any) => {
     };
     setLoading(true);
     axios
-      .post("http://localhost:3000/api/fetchResumeInfo", body)
+      .post(`${urlFetcher()}/api/fetchResumeInfo`, body)
       .then((res) => {
         console.log(res.data);
         setResumeData(res.data);
@@ -42,7 +44,7 @@ const Resume: NextPage = ({ user }: any) => {
     };
 
     axios
-      .post("http://localhost:3000/api/fetchResumeInfo", body)
+      .post(`${urlFetcher()}/api/fetchResumeInfo`, body)
       .then((res) => {
         console.log(res.data);
         setResumeData(res.data);

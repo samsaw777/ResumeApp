@@ -7,6 +7,7 @@ import axios from "axios";
 import ResumeSkeleton from "../../components/ResumeSkeleton";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../../Utils/Variants";
+import { urlFetcher } from "../../Utils/urlFetcher";
 
 const Resume: NextPage = ({ user }: any) => {
   const [modelOpen, setModelOpen] = useState<boolean>(false);
@@ -16,11 +17,9 @@ const Resume: NextPage = ({ user }: any) => {
     const body = {
       userId: user.id,
     };
-    await axios
-      .post("http://localhost:3000/api/fetchResume", body)
-      .then((res) => {
-        setResumeList(res.data);
-      });
+    await axios.post(`${urlFetcher()}/api/fetchResume`, body).then((res) => {
+      setResumeList(res.data);
+    });
   };
   useEffect(() => {
     fetchresume();

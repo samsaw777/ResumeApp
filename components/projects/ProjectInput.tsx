@@ -5,7 +5,7 @@ import ProjectList from "./ProjectList";
 import axios from "axios";
 import { projectValidate } from "../../Utils/EducationValidation";
 import { Project, Error } from "../../Utils/Interfaces";
-
+import toast from "react-hot-toast";
 interface Props {
   setRenderValue: Dispatch<SetStateAction<String>>;
   id: any;
@@ -30,7 +30,7 @@ const ProjectInput = ({
     githubLink: "",
   });
 
-  const [errors, setErrors] = useState<Error>({
+  const [errors, setErrors] = useState<any>({
     projectName: "",
     description: "",
     liveLink: "",
@@ -46,6 +46,22 @@ const ProjectInput = ({
     setErrors(projectValidate({ ...projectInfo, [name]: value }));
   };
 
+  const isProject = () => {
+    let errorStatus = false;
+    if (projectInfo.projectName === "") {
+      errorStatus = true;
+    } else {
+      Object.keys(errors).map((key: string, index: any) => {
+        if (errors[key]) {
+          errorStatus = true;
+        } else {
+          errorStatus = false;
+        }
+      });
+    }
+    return errorStatus;
+  };
+
   //add into the list.
   const addProjectList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -56,22 +72,26 @@ const ProjectInput = ({
       projectGithubLink: projectInfo.githubLink,
       resumeId: id,
     };
-
-    axios
-      .post("http://localhost:3000/api/addProjects", body)
-      .then((res) => {
-        setProjectInfo({
-          projectName: "",
-          description: "",
-          liveLink: "",
-          githubLink: "",
+    if (!isProject()) {
+      axios
+        .post("http://localhost:3000/api/addProjects", body)
+        .then((res) => {
+          setProjectInfo({
+            projectName: "",
+            description: "",
+            liveLink: "",
+            githubLink: "",
+          });
+          setFectchPointer(!fetchPointer);
+          setCreateProject(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Something went wrong!", { className: "font-bold" });
         });
-        setFectchPointer(!fetchPointer);
-        setCreateProject(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    } else {
+      toast.error("Project Information invalid!", { className: "font-bold" });
+    }
   };
 
   const cancleProject = () => {

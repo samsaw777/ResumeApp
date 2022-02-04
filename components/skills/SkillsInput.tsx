@@ -29,14 +29,17 @@ const SkillsInput = ({
   //checking of errors are present.
   const isSkills = () => {
     let errorStatus = false;
-    Object.keys(errors).map((key: any, index: any) => {
-      if (errors[key]) {
-        errorStatus = true;
-      } else {
-        errorStatus = false;
-      }
-    });
-
+    if (skill === "") {
+      errorStatus = true;
+    } else {
+      Object.keys(errors).map((key: any, index: any) => {
+        if (errors[key]) {
+          errorStatus = true;
+        } else {
+          errorStatus = false;
+        }
+      });
+    }
     return errorStatus;
   };
 
@@ -64,7 +67,7 @@ const SkillsInput = ({
         })
         .catch((error) => console.log(error));
     } else {
-      toast.error("Skill name is invalid!", { className: "font-bold" });
+      toast.error("Skill Information is invalid!", { className: "font-bold" });
     }
   };
 

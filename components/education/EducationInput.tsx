@@ -34,23 +34,30 @@ const EducationInput: React.FC<Props> = (props) => {
   // const [location, setLocation] = useState<string>("");
   const [createEducation, setCreateEducation] = useState<boolean>(false);
   const [error, setError] = useState<any>({});
-  const [educationInfo, setEducationInfo] = useState<Partial<EducationInput>>(
-    {}
-  );
+  const [educationInfo, setEducationInfo] = useState<Partial<EducationInput>>({
+    courseName: "",
+    institute: "",
+    startDate: 2000,
+    endDate: 2004,
+    location: "",
+  });
 
   console.log(educationInfo);
   console.log(error);
 
   const isSkills = () => {
     let errorStatus = false;
-    Object.keys(error).map((key: any, index: any) => {
-      if (error[key]) {
-        errorStatus = true;
-      } else {
-        errorStatus = false;
-      }
-    });
-
+    if (educationInfo.courseName === "") {
+      errorStatus = true;
+    } else {
+      Object.keys(error).map((key: any, index: any) => {
+        if (error[key]) {
+          errorStatus = true;
+        } else {
+          errorStatus = false;
+        }
+      });
+    }
     return errorStatus;
   };
 
@@ -89,7 +96,9 @@ const EducationInput: React.FC<Props> = (props) => {
           toast.error(`${error}`, { className: "font-bold" });
         });
     } else {
-      toast.error("Invalid fields detected!", { className: "font-bold" });
+      toast.error("Education Information is invalid!", {
+        className: "font-bold",
+      });
     }
 
     // setEducation([...education, educationObj]);

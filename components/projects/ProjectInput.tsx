@@ -2,6 +2,7 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import { Header } from "../../Utils/Header";
 import classNames from "classnames";
 import ProjectList from "./ProjectList";
+import Link from "next/link";
 import axios from "axios";
 import { projectValidate } from "../../Utils/EducationValidation";
 import { Project, Error } from "../../Utils/Interfaces";
@@ -248,12 +249,14 @@ const ProjectInput = ({
         </div>
       )}
       <div className="w-full flex justify-end mt-2">
-        <button
-          className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-          type="button"
-        >
-          Create Resume
-        </button>
+        <Link href={`${urlFetcher()}/completeresume/${id}`} passHref>
+          <button
+            className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            type="button"
+          >
+            Create Resume
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import NextNProgress from "nextjs-progressbar";
 import { Toaster } from "react-hot-toast";
-
+//https://resumeapp.vercel.app
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange(

@@ -20,7 +20,7 @@ const FinalOutput = ({ color, resumeData }: Props) => {
       <div className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10">
         <div className="grid grid-cols-2 gap-1 p-5">
           <div>
-            <p className={`text-2xl font-bold`} style={{ color: `${color}` }}>
+            <p className="text-2xl font-bold" style={{ color: `${color}` }}>
               {resumeData.userIntroduction?.name}{" "}
             </p>
             <p className="text-xl text-black">

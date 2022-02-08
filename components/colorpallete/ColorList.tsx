@@ -17,7 +17,7 @@ interface Props {
 }
 const ColorList = ({ setColor }: Props) => {
   return (
-    <div className="grid grid-cols-5 gap-2 mt-5 mx-20">
+    <div className="grid grid-cols-5 h-20 gap-2 mt-5 mx-20">
       {colors.map((color: any, key: number) => {
         return (
           <div

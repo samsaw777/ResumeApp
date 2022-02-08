@@ -10,7 +10,7 @@ const CompleteResume = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [resumeData, setResumeData] = useState<any>({});
   const [id, setId] = useState<string | undefined | string[]>("");
-  const [color, setColor] = useState<string>("green-500");
+  const [color, setColor] = useState<string>("#64ffda");
   console.log(color);
   useEffect(() => {
     if (router.isReady) {
@@ -35,13 +35,13 @@ const CompleteResume = () => {
       });
   }, [id]);
   return (
-    <>
+    <div className="h-screen">
       <Navbar />
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-2  h-resumeHeight">
         <Colors setColor={setColor} />
         <FinalOutput resumeData={resumeData} color={color} />
       </div>
-    </>
+    </div>
   );
 };
 

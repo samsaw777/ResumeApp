@@ -64,6 +64,10 @@ const colors = {
   pink: {
     500: "#f43f5e",
   },
+  purple: {
+    500: "#a855f7",
+    400: "#c084fc",
+  },
   navigationColor: "#15191C",
   greenTextColor: "#64ffda",
   secondColor: "#8892b0",

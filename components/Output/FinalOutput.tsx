@@ -9,15 +9,34 @@ import {
 } from "react-icons/fa";
 
 import { MdMail } from "react-icons/md";
+import { jsPDF } from "jspdf";
 interface Props {
   color: string;
   resumeData: any;
 }
 
 const FinalOutput = ({ color, resumeData }: Props) => {
+  const downloadResume = async () => {
+    const doc = new jsPDF("p", "pt", "a4");
+    const resume: any = document.querySelector("#final");
+
+    doc.html(resume, {
+      callback: async (pdf) => {
+        // var pageCount: any = doc.internal.getNumberOfPages();
+        await pdf.save("resume.pdf");
+      },
+    });
+
+    // const doc = new jsPDF();
+    // doc.text("Hello world!", 10, 10);
+    // doc.save("a4.pdf");
+  };
   return (
     <div className="overflow-scroll">
-      <div className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10">
+      <div
+        className="w-11/12  bg-white shadow-lg rounded-lg block mx-auto mt-10"
+        id="final"
+      >
         <div className="grid grid-cols-2 gap-1 p-5">
           <div>
             <p className="text-2xl font-bold" style={{ color: `${color}` }}>
@@ -216,6 +235,9 @@ const FinalOutput = ({ color, resumeData }: Props) => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <button onClick={downloadResume}>Download</button>
       </div>
     </div>
   );
